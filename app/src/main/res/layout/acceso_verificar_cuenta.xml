@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Acceso_Crear_Cuenta">
+    tools:context=".Acceso_Verificar_Cuenta">
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView
@@ -23,8 +23,19 @@
         android:textColor="@color/verde_oscuro"
         android:typeface="serif"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Hemos enviado un mensaje a tu correo electrónico, introduce el codigo de verificación para terminar de crear tu cuenta en SAMBA"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:gravity="center"/>
+
     <EditText
-        android:id="@+id/nombre_usuario"
+        android:id="@+id/codigo_verificacion"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
@@ -32,76 +43,16 @@
         android:layout_marginRight="20dp"
         android:layout_gravity="center"
         android:paddingLeft="5dp"
-        android:hint="Nombre de usuario"
-        android:textColor="@color/verde_oscuro"
-        android:textColorHint="@color/verde_oscuro"
-        android:background="@drawable/edittext_redondos"/>
-
-    <EditText
-        android:id="@+id/correo_electronico"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_gravity="center"
-        android:paddingLeft="5dp"
-        android:hint="Correo electrónico"
-        android:textColor="@color/verde_oscuro"
-        android:textColorHint="@color/verde_oscuro"
-        android:background="@drawable/edittext_redondos"/>
-
-    <EditText
-        android:id="@+id/fecha_nacimiento"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_gravity="center"
-        android:paddingLeft="5dp"
-        android:hint="Fecha de nacimiento"
-        android:textColor="@color/verde_oscuro"
-        android:textColorHint="@color/verde_oscuro"
-        android:background="@drawable/edittext_redondos"/>
-
-    <EditText
-        android:id="@+id/contraseña"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_gravity="center"
-        android:paddingLeft="5dp"
-        android:hint="Contraseña"
+        android:hint="Codigo de verificación"
         android:textColor="@color/verde_oscuro"
         android:textColorHint="@color/verde_oscuro"
         android:background="@drawable/edittext_redondos"
-        android:drawableRight="@drawable/icono_ver_password"/>
-
-    <EditText
-        android:id="@+id/confirmar_contraseña"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_gravity="center"
-        android:paddingLeft="5dp"
-        android:hint="Repita la contraseña"
-        android:textColor="@color/verde_oscuro"
-        android:textColorHint="@color/verde_oscuro"
-        android:background="@drawable/edittext_redondos"
-        android:drawableRight="@drawable/icono_ver_password"/>
-
-
-
+        android:elevation="5dp"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="250dp">
 
         <ImageButton
             android:id="@+id/boton_volver"
@@ -127,6 +78,5 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </LinearLayout>
