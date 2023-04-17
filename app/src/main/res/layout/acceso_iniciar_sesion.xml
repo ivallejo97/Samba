@@ -26,30 +26,37 @@
         android:typeface="serif"/>
 
     <EditText
+        android:id="@+id/nombre_usuario"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="80dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_gravity="center"
-        android:hint="  Nombre de usuario"
+        android:paddingLeft="5dp"
+        android:hint="Nombre de usuario"
+        android:textColor="@color/verde_oscuro"
         android:textColorHint="@color/verde_oscuro"
         android:background="@drawable/edittext_redondos"
         android:elevation="5dp"/>
 
     <EditText
+        android:id="@+id/contraseña"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_gravity="center"
-        android:hint="  Contraseña"
+        android:paddingLeft="5dp"
+        android:hint="Contraseña"
+        android:textColor="@color/verde_oscuro"
         android:textColorHint="@color/verde_oscuro"
         android:background="@drawable/edittext_redondos"
         android:elevation="5dp"/>
 
     <Button
+        android:id="@+id/boton_iniciar_sesion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
@@ -61,6 +68,7 @@
         android:elevation="5dp"/>
 
     <Button
+        android:id="@+id/boton_volver_a_inicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -68,10 +76,10 @@
         android:layout_marginRight="20dp"
         android:hint="VOLVER A INICIO"
         android:textColorHint="@color/verde_oscuro"
-        android:background="@drawable/boton_borde_verde"
-        android:elevation="5dp"/>
+        android:background="@drawable/boton_borde_verde" />
 
     <TextView
+        android:id="@+id/recuperar_contraseña"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
