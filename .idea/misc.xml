@@ -1,0 +1,27 @@
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/ivall/Documents/Samba/app/src/main/res/drawable-v24/botones_redondos.xml" value="0.1" />
+        <entry key="..\:/Users/ivall/Documents/Samba/app/src/main/res/drawable-v24/icono_agregar.xml" value="0.1" />
+        <entry key="..\:/Users/ivall/Documents/Samba/app/src/main/res/layout/acceso_iniciar_sesion.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ivall/Documents/Samba/app/src/main/res/layout/acceso_opciones.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ivall/Documents/Samba/app/src/main/res/layout/activity_destinos_principales.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/ivall/Documents/Samba/app/src/main/res/layout/activity_main.xml" value="0.19067028985507245" />
+        <entry key="..\:/Users/ivall/Documents/Samba/app/src/main/res/layout/activity_publicar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ivall/Documents/Samba/app/src/main/res/layout/destinos_principales_agregar_producto.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ivall/Documents/Samba/app/src/main/res/layout/destinos_principales_buscador.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ivall/Documents/Samba/app/src/main/res/layout/destinos_principales_chat.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ivall/Documents/Samba/app/src/main/res/layout/destinos_principales_inicio.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ivall/Documents/Samba/app/src/main/res/layout/destinos_principales_perfil.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ivall/Documents/Samba/app/src/main/res/menu/menu_destinos_principales.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

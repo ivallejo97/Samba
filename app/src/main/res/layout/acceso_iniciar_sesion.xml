@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Acceso_Iniciar_Sesion">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/logo_app"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="SAMBA"
+        android:textSize="40dp"
+        android:textColor="@color/verde_oscuro"
+        android:typeface="serif"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="center"
+        android:hint="  Nombre de usuario"
+        android:textColorHint="@color/verde_oscuro"
+        android:background="@drawable/edittext_redondos"
+        android:elevation="5dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="center"
+        android:hint="  Contraseña"
+        android:textColorHint="@color/verde_oscuro"
+        android:background="@drawable/edittext_redondos"
+        android:elevation="5dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="INICIAR SESIÓN"
+        android:textColorHint="@color/verde_oscuro"
+        android:background="@drawable/boton_verde"
+        android:elevation="5dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="VOLVER A INICIO"
+        android:textColorHint="@color/verde_oscuro"
+        android:background="@drawable/boton_borde_verde"
+        android:elevation="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:text="¿Has olvidado tu contraseña?"
+        android:textColor="@color/gris_claro"/>
+
+
+</LinearLayout>

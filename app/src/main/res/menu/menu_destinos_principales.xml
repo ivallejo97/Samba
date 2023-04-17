@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/inicio"
+        android:icon="@drawable/icono_incio"
+        android:title="Inicio" />
+
+    <item
+        android:id="@+id/buscar"
+        android:icon="@drawable/icono_buscar"
+        android:title="Buscar" />
+
+    <item
+        android:id="@+id/añadir"
+        android:icon="@drawable/icono_agregar"
+        android:title="Añadir" />
+
+    <item
+        android:id="@+id/chat"
+        android:icon="@drawable/icono_chat"
+        android:title="Chat" />
+
+    <item
+        android:id="@+id/perfil"
+        android:icon="@drawable/icono_perfil"
+        android:title="Perfil" />
+
+</menu>

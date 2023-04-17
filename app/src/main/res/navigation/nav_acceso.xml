@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_acceso"
+    app:startDestination="@id/acceso_Opciones">
+
+    <fragment
+        android:id="@+id/acceso_Opciones"
+        android:name="com.example.samba.Acceso_Opciones"
+        android:label="acceso_opciones"
+        tools:layout="@layout/acceso_opciones" />
+    <fragment
+        android:id="@+id/acceso_Crear_Cuenta"
+        android:name="com.example.samba.Acceso_Crear_Cuenta"
+        android:label="acceso_crear_cuenta"
+        tools:layout="@layout/acceso_crear_cuenta" />
+    <fragment
+        android:id="@+id/acceso_Iniciar_Sesion"
+        android:name="com.example.samba.Acceso_Iniciar_Sesion"
+        android:label="acceso_iniciar_sesion"
+        tools:layout="@layout/acceso_iniciar_sesion" />
+    <fragment
+        android:id="@+id/acceso_Recuperar_Cuenta_1"
+        android:name="com.example.samba.Acceso_Recuperar_Cuenta_1"
+        android:label="acceso_recuperar_cuenta_1"
+        tools:layout="@layout/acceso_recuperar_cuenta_1" />
+    <fragment
+        android:id="@+id/acceso_Recuperar_Cuenta_2"
+        android:name="com.example.samba.Acceso_Recuperar_Cuenta_2"
+        android:label="acceso_recuperar_cuenta_2"
+        tools:layout="@layout/acceso_recuperar_cuenta_2" />
+    <fragment
+        android:id="@+id/acceso_Recuperar_Cuenta_3"
+        android:name="com.example.samba.Acceso_Recuperar_Cuenta_3"
+        android:label="acceso_recuperar_cuenta_3"
+        tools:layout="@layout/acceso_recuperar_cuenta_3" />
+</navigation>
