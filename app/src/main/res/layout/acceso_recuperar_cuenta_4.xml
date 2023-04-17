@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Acceso_Recuperar_Cuenta_4">
 
     <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/icono_cuenta_verificada"
+        android:layout_gravity="center"/>
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Se ha restablecido tu contraseña de tu cuenta con éxito, ya puedes volver a usar tu cuenta SAMBA"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:gravity="center"/>
 
-</FrameLayout>
+    <Button
+        android:id="@+id/boton_volver_iniciar_sesion"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Iniciar Sesión"
+        android:textSize="17dp"
+        android:textColorHint="@color/verde_oscuro"
+        android:background="@drawable/boton_borde_verde"/>
+
+
+
+</LinearLayout>

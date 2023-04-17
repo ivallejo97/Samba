@@ -41,13 +41,12 @@
             app:popExitAnim="@anim/slide_out_right"
             />
         <action
-            android:id="@+id/action_acceso_Crear_Cuenta_to_acceso_Recuperar_Cuenta_1"
-            app:destination="@id/acceso_Recuperar_Cuenta_1"
+            android:id="@+id/action_acceso_Crear_Cuenta_to_acceso_Verificar_Cuenta"
+            app:destination="@id/acceso_Verificar_Cuenta"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            />
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/acceso_Iniciar_Sesion"
@@ -73,14 +72,6 @@
             app:destination="@id/acceso_Recuperar_Cuenta_2"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            />
-        <action
-            android:id="@+id/action_acceso_Recuperar_Cuenta_1_to_acceso_Crear_Cuenta"
-            app:destination="@id/acceso_Crear_Cuenta"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_right"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             />
@@ -120,5 +111,30 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             />
+        <action
+            android:id="@+id/action_acceso_Recuperar_Cuenta_3_to_acceso_Recuperar_Cuenta_4"
+            app:destination="@id/acceso_Recuperar_Cuenta_4"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/acceso_Recuperar_Cuenta_4"
+        android:name="com.example.samba.Acceso_Recuperar_Cuenta_4"
+        android:label="acceso_recuperar_cuenta_4"
+        tools:layout="@layout/acceso_recuperar_cuenta_4" />
+    <fragment
+        android:id="@+id/acceso_Verificar_Cuenta"
+        android:name="com.example.samba.Acceso_Verificar_Cuenta"
+        android:label="acceso_verificar_cuenta"
+        tools:layout="@layout/acceso_verificar_cuenta" >
+        <action
+            android:id="@+id/action_acceso_Verificar_Cuenta_to_acceso_Crear_Cuenta"
+            app:destination="@id/acceso_Crear_Cuenta"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 </navigation>

@@ -66,11 +66,11 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <ImageButton
-            android:id="@+id/boton_continuar"
+            android:id="@+id/boton_confirmar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:src="@drawable/icono_flecha_derecha"
+            android:src="@drawable/icono_aceptar"
             android:background="@android:color/transparent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"

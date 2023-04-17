@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.samba.databinding.AccesoIniciarSesionBinding;
 import com.example.samba.databinding.AccesoOpcionesBinding;
@@ -45,14 +46,14 @@ public class Acceso_Iniciar_Sesion extends Fragment {
         botonIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.acceso_Crear_Cuenta);
+                Toast.makeText(getContext(), "Sesión Iniciada", Toast.LENGTH_SHORT).show();
             }
         });
 
         botonVolverInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.acceso_Opciones);
+                navController.navigate(R.id.action_acceso_Iniciar_Sesion_to_acceso_Opciones);
             }
         });
 

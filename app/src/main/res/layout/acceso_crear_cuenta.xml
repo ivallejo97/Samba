@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="30dp"
         android:src="@drawable/logo_app"
         android:layout_gravity="center"/>
 
@@ -27,7 +27,7 @@
         android:id="@+id/nombre_usuario"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_gravity="center"
@@ -95,13 +95,27 @@
         android:background="@drawable/edittext_redondos"
         android:drawableRight="@drawable/icono_ver_password"/>
 
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="Quiero recibir promociones..."/>
 
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="He leido los terminos y condiciones de la app y acpeto"/>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="40dp">
 
         <ImageButton
             android:id="@+id/boton_volver"

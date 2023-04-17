@@ -50,7 +50,7 @@ public class Acceso_Recuperar_Cuenta_1 extends Fragment {
         boton_continuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.acceso_Recuperar_Cuenta_2);
+                navController.navigate(R.id.action_acceso_Recuperar_Cuenta_1_to_acceso_Recuperar_Cuenta_2);
             }
         });
 

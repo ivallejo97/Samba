@@ -41,14 +41,14 @@ public class Acceso_Opciones extends Fragment {
         botonIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.acceso_Iniciar_Sesion);
+                navController.navigate(R.id.action_acceso_Opciones_to_acceso_Iniciar_Sesion);
             }
         });
 
         botonCrearCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.acceso_Crear_Cuenta);
+                navController.navigate(R.id.action_acceso_Opciones_to_acceso_Crear_Cuenta);
             }
         });
 

@@ -43,14 +43,14 @@ public class Acceso_Recuperar_Cuenta_2 extends Fragment {
         boton_volver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.acceso_Recuperar_Cuenta_1);
+                navController.navigate(R.id.action_acceso_Recuperar_Cuenta_2_to_acceso_Recuperar_Cuenta_1);
             }
         });
 
         boton_continuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.acceso_Recuperar_Cuenta_3);
+                navController.navigate(R.id.action_acceso_Recuperar_Cuenta_2_to_acceso_Recuperar_Cuenta_3);
             }
         });
 
