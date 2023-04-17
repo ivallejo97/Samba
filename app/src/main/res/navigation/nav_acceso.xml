@@ -9,30 +9,116 @@
         android:id="@+id/acceso_Opciones"
         android:name="com.example.samba.Acceso_Opciones"
         android:label="acceso_opciones"
-        tools:layout="@layout/acceso_opciones" />
+        tools:layout="@layout/acceso_opciones" >
+        <action
+            android:id="@+id/action_acceso_Opciones_to_acceso_Crear_Cuenta"
+            app:destination="@id/acceso_Crear_Cuenta"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+        <action
+            android:id="@+id/action_acceso_Opciones_to_acceso_Iniciar_Sesion"
+            app:destination="@id/acceso_Iniciar_Sesion"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
     <fragment
         android:id="@+id/acceso_Crear_Cuenta"
         android:name="com.example.samba.Acceso_Crear_Cuenta"
         android:label="acceso_crear_cuenta"
-        tools:layout="@layout/acceso_crear_cuenta" />
+        tools:layout="@layout/acceso_crear_cuenta" >
+        <action
+            android:id="@+id/action_acceso_Crear_Cuenta_to_acceso_Opciones"
+            app:destination="@id/acceso_Opciones"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+        <action
+            android:id="@+id/action_acceso_Crear_Cuenta_to_acceso_Recuperar_Cuenta_1"
+            app:destination="@id/acceso_Recuperar_Cuenta_1"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
     <fragment
         android:id="@+id/acceso_Iniciar_Sesion"
         android:name="com.example.samba.Acceso_Iniciar_Sesion"
         android:label="acceso_iniciar_sesion"
-        tools:layout="@layout/acceso_iniciar_sesion" />
+        tools:layout="@layout/acceso_iniciar_sesion" >
+        <action
+            android:id="@+id/action_acceso_Iniciar_Sesion_to_acceso_Opciones"
+            app:destination="@id/acceso_Opciones"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
     <fragment
         android:id="@+id/acceso_Recuperar_Cuenta_1"
         android:name="com.example.samba.Acceso_Recuperar_Cuenta_1"
         android:label="acceso_recuperar_cuenta_1"
-        tools:layout="@layout/acceso_recuperar_cuenta_1" />
+        tools:layout="@layout/acceso_recuperar_cuenta_1" >
+        <action
+            android:id="@+id/action_acceso_Recuperar_Cuenta_1_to_acceso_Recuperar_Cuenta_2"
+            app:destination="@id/acceso_Recuperar_Cuenta_2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+        <action
+            android:id="@+id/action_acceso_Recuperar_Cuenta_1_to_acceso_Crear_Cuenta"
+            app:destination="@id/acceso_Crear_Cuenta"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
     <fragment
         android:id="@+id/acceso_Recuperar_Cuenta_2"
         android:name="com.example.samba.Acceso_Recuperar_Cuenta_2"
         android:label="acceso_recuperar_cuenta_2"
-        tools:layout="@layout/acceso_recuperar_cuenta_2" />
+        tools:layout="@layout/acceso_recuperar_cuenta_2" >
+        <action
+            android:id="@+id/action_acceso_Recuperar_Cuenta_2_to_acceso_Recuperar_Cuenta_3"
+            app:destination="@id/acceso_Recuperar_Cuenta_3"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+        <action
+            android:id="@+id/action_acceso_Recuperar_Cuenta_2_to_acceso_Recuperar_Cuenta_1"
+            app:destination="@id/acceso_Recuperar_Cuenta_1"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
     <fragment
         android:id="@+id/acceso_Recuperar_Cuenta_3"
         android:name="com.example.samba.Acceso_Recuperar_Cuenta_3"
         android:label="acceso_recuperar_cuenta_3"
-        tools:layout="@layout/acceso_recuperar_cuenta_3" />
+        tools:layout="@layout/acceso_recuperar_cuenta_3" >
+        <action
+            android:id="@+id/action_acceso_Recuperar_Cuenta_3_to_acceso_Recuperar_Cuenta_2"
+            app:destination="@id/acceso_Recuperar_Cuenta_2"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
 </navigation>
