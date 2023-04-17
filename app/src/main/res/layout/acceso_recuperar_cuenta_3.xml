@@ -23,15 +23,16 @@
         android:textColor="@color/verde_oscuro"
         android:typeface="serif"/>
 
-    <EditText
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_gravity="center"
-        android:hint="  Contraseña antigua"
-        android:textColorHint="@color/verde_oscuro"
+        android:gravity="center_vertical"
+        android:text="  Contraseña antigua"
+        android:textSize="18dp"
+        android:textColor="@color/verde_oscuro"
         android:background="@drawable/edittext_redondos"
         android:elevation="5dp"/>
 

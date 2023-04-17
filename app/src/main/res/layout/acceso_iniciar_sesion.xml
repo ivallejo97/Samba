@@ -79,8 +79,5 @@
         android:text="¿Has olvidado tu contraseña?"
         android:textColor="@color/gris_claro"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </LinearLayout>
