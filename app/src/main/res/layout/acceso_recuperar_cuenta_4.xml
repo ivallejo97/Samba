@@ -32,6 +32,7 @@
         android:layout_marginTop="70dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:gravity="center"
         android:hint="Iniciar Sesión"
         android:textSize="17dp"
         android:textColorHint="@color/verde_oscuro"

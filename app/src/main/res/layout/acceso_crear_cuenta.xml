@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/fondo_crear_cuenta"
     tools:context=".Acceso_Crear_Cuenta">
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/logo_app"
         android:layout_gravity="center"/>
 
@@ -20,7 +21,7 @@
         android:layout_gravity="center"
         android:text="SAMBA"
         android:textSize="40dp"
-        android:textColor="@color/verde_oscuro"
+        android:textColor="@color/white"
         android:typeface="serif"/>
 
     <EditText

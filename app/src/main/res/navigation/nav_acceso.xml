@@ -137,4 +137,9 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
+    <fragment
+        android:id="@+id/acceso_Cuenta_Verificada"
+        android:name="com.example.samba.Acceso_Cuenta_Verificada"
+        android:label="acceso_cuenta_verificada"
+        tools:layout="@layout/acceso_cuenta_verificada" />
 </navigation>
