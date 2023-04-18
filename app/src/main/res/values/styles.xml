@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.App" parent="Theme.MaterialComponents.DayNight.NoActionBar"/>
+    <style name="outlinedTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/textfield</item>
+        <item name="hintTextColor">@color/textfield</item>
+        <item name="android:textColorHint">@color/textfield</item>
+    </style>
+</resources>

@@ -14,9 +14,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.example.samba.databinding.AccesoOpcionesBinding;
-import com.example.samba.databinding.AccesoRecuperarCuenta1Binding;
-
 
 public class Acceso_Recuperar_Cuenta_1 extends Fragment {
 

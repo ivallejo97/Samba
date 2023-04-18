@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/fondo_crear_cuenta"
     tools:context=".Acceso_Crear_Cuenta">
@@ -66,6 +67,7 @@
         android:textColorHint="@color/verde_oscuro"
         android:background="@drawable/edittext_redondos"/>
 
+
     <EditText
         android:id="@+id/contraseña"
         android:layout_width="match_parent"
@@ -119,6 +121,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp">
+
 
         <ImageButton
             android:id="@+id/boton_volver"
