@@ -6,13 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/fondo_inicio_sesion_2"
     tools:context=".Acceso_Iniciar_Sesion">
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/logo_app"
         android:layout_gravity="center"/>
 
@@ -22,14 +23,14 @@
         android:layout_gravity="center"
         android:text="SAMBA"
         android:textSize="40dp"
-        android:textColor="@color/verde_oscuro"
+        android:textColor="@color/white"
         android:typeface="serif"/>
 
     <EditText
         android:id="@+id/nombre_usuario"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="40dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_gravity="center"
@@ -38,7 +39,7 @@
         android:textColor="@color/verde_oscuro"
         android:textColorHint="@color/verde_oscuro"
         android:background="@drawable/edittext_redondos"
-        android:elevation="5dp"/>
+        android:elevation="10dp"/>
 
     <EditText
         android:id="@+id/contraseña"
@@ -53,13 +54,13 @@
         android:textColor="@color/verde_oscuro"
         android:textColorHint="@color/verde_oscuro"
         android:background="@drawable/edittext_redondos"
-        android:elevation="5dp"/>
+        android:elevation="10dp"/>
 
     <Button
         android:id="@+id/boton_iniciar_sesion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="150dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="INICIAR SESIÓN"

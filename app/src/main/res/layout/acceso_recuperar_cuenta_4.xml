@@ -17,10 +17,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="Se ha restablecido tu contraseña de tu cuenta con éxito, ya puedes volver a usar tu cuenta SAMBA"
+        android:text="Se ha restablecido la contraseña de tu cuenta con éxito, ya puedes volver a usar tu cuenta SAMBA"
         android:textColor="@color/black"
         android:textSize="18dp"
         android:gravity="center"/>
