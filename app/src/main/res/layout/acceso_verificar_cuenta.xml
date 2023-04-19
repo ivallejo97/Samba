@@ -47,7 +47,8 @@
         android:textColor="@color/verde_oscuro"
         android:textColorHint="@color/verde_oscuro"
         android:background="@drawable/edittext_redondos"
-        android:elevation="5dp"/>
+        android:elevation="5dp"
+        android:inputType="number"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"

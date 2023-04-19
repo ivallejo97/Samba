@@ -34,10 +34,10 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_gravity="center"
-        android:paddingLeft="5dp"
+        android:paddingLeft="10dp"
         android:hint="Nombre de usuario"
         android:textColor="@color/verde_oscuro"
-        android:textColorHint="@color/verde_oscuro"
+        android:textColorHint="@color/gris_claro"
         android:background="@drawable/edittext_redondos"
         android:elevation="10dp"/>
 
@@ -49,12 +49,13 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_gravity="center"
-        android:paddingLeft="5dp"
+        android:paddingLeft="10dp"
         android:hint="Contraseña"
         android:textColor="@color/verde_oscuro"
-        android:textColorHint="@color/verde_oscuro"
+        android:textColorHint="@color/gris_claro"
         android:background="@drawable/edittext_redondos"
         android:elevation="10dp"/>
+
 
     <Button
         android:id="@+id/boton_iniciar_sesion"
@@ -67,6 +68,8 @@
         android:textColorHint="@color/verde_oscuro"
         android:background="@drawable/boton_verde"
         android:elevation="5dp"/>
+
+
 
     <Button
         android:id="@+id/boton_volver_a_inicio"

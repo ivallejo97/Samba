@@ -2,27 +2,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/inicio"
+        android:id="@+id/destinos_Principales_Inicio2"
         android:icon="@drawable/icono_incio"
         android:title="Inicio" />
 
     <item
-        android:id="@+id/buscar"
+        android:id="@+id/destinos_Principales_Buscador"
         android:icon="@drawable/icono_buscar"
         android:title="Buscar" />
 
     <item
-        android:id="@+id/añadir"
+        android:id="@+id/destinos_Principales_Agregar_Producto"
         android:icon="@drawable/icono_agregar"
         android:title="Añadir" />
 
     <item
-        android:id="@+id/chat"
+        android:id="@+id/destinos_Principales_Chat"
         android:icon="@drawable/icono_chat"
         android:title="Chat" />
 
     <item
-        android:id="@+id/perfil"
+        android:id="@+id/destinos_Principales_Perfil"
         android:icon="@drawable/icono_perfil"
         android:title="Perfil" />
 

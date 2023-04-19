@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.example.samba.databinding.AccesoRecuperarCuenta1Binding;
+
 
 public class Acceso_Recuperar_Cuenta_1 extends Fragment {
 
@@ -25,7 +27,6 @@ public class Acceso_Recuperar_Cuenta_1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return (binding = AccesoRecuperarCuenta1Binding.inflate(inflater, container, false)).getRoot();
     }
 

@@ -1,5 +1,6 @@
 package com.example.samba;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -27,6 +28,7 @@ public class Acceso_Iniciar_Sesion extends Fragment {
     Button botonVolverInicio;
     TextView recuperarContraseña;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,6 +49,12 @@ public class Acceso_Iniciar_Sesion extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getContext(), "Sesión Iniciada", Toast.LENGTH_SHORT).show();
+                try {
+                    Thread.sleep(3000);
+                    startActivity(new Intent(getContext(), Activity_Destinos_Principales.class));
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 

@@ -8,22 +8,22 @@
     <fragment
         android:id="@+id/destinos_Principales_Inicio2"
         android:name="com.example.samba.Destinos_Principales_Inicio"
-        android:label="destinos__principales__inicio"
+        android:label="Inicio"
         tools:layout="@layout/destinos_principales_inicio" />
     <fragment
         android:id="@+id/destinos_Principales_Buscador"
         android:name="com.example.samba.Destinos_Principales_Buscador"
-        android:label="destinos_principales_buscador"
+        android:label="Buscador"
         tools:layout="@layout/destinos_principales_buscador" />
     <fragment
         android:id="@+id/destinos_Principales_Agregar_Producto"
         android:name="com.example.samba.Destinos_Principales_Agregar_Producto"
-        android:label="destinos_principales_agregar_producto"
+        android:label="Añadir"
         tools:layout="@layout/destinos_principales_agregar_producto" />
     <fragment
         android:id="@+id/destinos_Principales_Chat"
         android:name="com.example.samba.Destinos_Principales_Chat"
-        android:label="destinos_principales_chat"
+        android:label="Chat"
         tools:layout="@layout/destinos_principales_chat" />
     <fragment
         android:id="@+id/destinos_Principales_Perfil"
