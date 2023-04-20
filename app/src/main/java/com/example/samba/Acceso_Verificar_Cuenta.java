@@ -49,7 +49,7 @@ public class Acceso_Verificar_Cuenta extends Fragment {
         boton_confirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                navController.navigate(R.id.action_acceso_Verificar_Cuenta_to_acceso_Cuenta_Verificada);
             }
         });
 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/destinos_Principales_Inicio2"
+        android:icon="@drawable/icono_incio"
+        android:title="Inicio" />
+
+    <item
+        android:id="@+id/j"
+        android:icon="@drawable/icono_ayuda"
+        android:title="Ayuda" />
+
+    <item
+        android:id="@+id/js"
+        android:icon="@drawable/icono_favoritos"
+        android:title=""
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/dsd"
+        android:icon="@drawable/icono_carrito"
+        android:title=""
+        app:showAsAction="always" />
+</menu>
