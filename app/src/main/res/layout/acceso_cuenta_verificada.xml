@@ -21,7 +21,6 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="Tu cuenta se ha verificado de manera correcta, ya puedes iniciar sesión y utilizar la aplicación"
-        android:textColor="@color/black"
         android:textSize="18dp"
         android:gravity="center"/>
 

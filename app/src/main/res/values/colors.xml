@@ -6,8 +6,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="verde_claro">#AFF474</color>
     <color name="verde_oscuro">#039536</color>
-    <color name="amarillo">#fcfc34</color>
-    <color name="gris_oscuro">#1A1A1A</color>
+    <color name="amarillo">#FDE94C</color>
+    <color name="gris_oscuro">#333333</color>
     <color name="gris_claro">#747474</color>
 
     // Colores por defecto

@@ -1,5 +1,9 @@
 package com.example.samba;
 
+import static android.content.Context.INPUT_METHOD_SERVICE;
+
+import static androidx.core.content.ContextCompat.getSystemService;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,9 +13,12 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import com.example.samba.databinding.AccesoCrearCuentaBinding;
 import com.example.samba.databinding.AccesoRecuperarCuenta3Binding;

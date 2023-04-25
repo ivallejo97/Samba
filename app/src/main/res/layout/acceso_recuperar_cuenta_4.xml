@@ -21,7 +21,6 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="Se ha restablecido la contraseña de tu cuenta con éxito, ya puedes volver a usar tu cuenta SAMBA"
-        android:textColor="@color/black"
         android:textSize="18dp"
         android:gravity="center"/>
 

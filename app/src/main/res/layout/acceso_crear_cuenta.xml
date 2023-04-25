@@ -5,27 +5,130 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/fondo_crear_cuenta"
+    style="@style/fondo_crear_cuenta"
     tools:context=".Acceso_Crear_Cuenta">
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/logo_app"
         android:layout_gravity="center"/>
 
     <TextView
+        style="@style/texto_Samba_crear_cuenta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="SAMBA"
-        android:textSize="40dp"
-        android:textColor="@color/white"
+        android:textSize="30dp"
         android:typeface="serif"/>
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/edittext"
+        android:layout_marginTop="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre de Usuario"
+            android:textSize="15dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/edittext"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Correo electrónico"
+            android:textSize="15dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/edittext"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Numero de telefono"
+            android:textSize="15dp"
+            android:textColor="@color/white"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/edittext"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nacionalidad"
+            android:textSize="15dp"
+            android:textColor="@color/white"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/edittext"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:textSize="15dp"
+            android:textColor="@color/white" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/edittext"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Repite la contraseña"
+            android:textSize="15dp"
+            android:textColor="@color/white"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+    <!--<EditText
         android:id="@+id/nombre_usuario"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -51,62 +154,8 @@
         android:hint="Correo electrónico"
         android:textColor="@color/verde_oscuro"
         android:textColorHint="@color/gris_claro"
-        android:background="@drawable/edittext_redondos"/>
+        android:background="@drawable/edittext_redondos"/> -->
 
-    <EditText
-        android:id="@+id/fecha_nacimiento"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_gravity="center"
-        android:paddingLeft="10dp"
-        android:hint="Fecha de nacimiento"
-        android:textColor="@color/verde_oscuro"
-        android:textColorHint="@color/gris_claro"
-        android:background="@drawable/edittext_redondos"/>
-
-
-    <EditText
-        android:id="@+id/contraseña"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_gravity="center"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:hint="Contraseña"
-        android:textColor="@color/verde_oscuro"
-        android:textColorHint="@color/gris_claro"
-        android:background="@drawable/edittext_redondos"
-        android:drawableRight="@drawable/icono_ver_password"/>
-
-    <EditText
-        android:id="@+id/confirmar_contraseña"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_gravity="center"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:hint="Repita la contraseña"
-        android:textColor="@color/verde_oscuro"
-        android:textColorHint="@color/gris_claro"
-        android:background="@drawable/edittext_redondos"
-        android:drawableRight="@drawable/icono_ver_password"/>
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="Quiero recibir promociones..."/>
 
     <CheckBox
         android:layout_width="match_parent"
@@ -114,33 +163,42 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="He leido los terminos y condiciones de la app y acpeto"/>
+        android:text="Quiero recibir promociones..." />
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="He leido los terminos y condiciones de la app y acpeto" />
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
 
         <ImageButton
             android:id="@+id/boton_volver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/icono_flecha_izquierda"
+            android:layout_marginLeft="16dp"
             android:background="@android:color/transparent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/icono_flecha_izquierda"
+            style="@style/botones_continuar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/boton_continuar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:src="@drawable/icono_flecha_derecha"
             android:background="@android:color/transparent"
+            android:src="@drawable/icono_flecha_derecha"
+            style="@style/botones_continuar"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>

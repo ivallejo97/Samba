@@ -6,11 +6,16 @@
     tools:context=".Destinos_Principales_Inicio">
 
     <!-- TODO: Update blank fragment layout -->
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/icono_incio"
         android:layout_gravity="center"/>
+
 
 
 </FrameLayout>

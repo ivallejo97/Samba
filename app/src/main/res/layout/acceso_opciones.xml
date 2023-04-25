@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/degradado"
     android:orientation="vertical"
+    style="@style/pantalla_opciones_fondo"
     tools:context=".Acceso_Opciones">
 
     <!-- TODO: Update blank fragment layout -->
@@ -13,43 +13,43 @@
         android:id="@+id/logo"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="100dp"
         android:src="@drawable/logo_app"
         android:layout_gravity="center" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/pantalla_opciones_texto"
         android:layout_gravity="center"
         android:text="SAMBA"
         android:textSize="40dp"
-        android:textColor="@color/white"
         android:typeface="serif"/>
 
     <Button
         android:id="@+id/boton_iniciar_sesion"
+        style="@style/botones_opciones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="180dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/boton_verde"
         android:text="Iniciar Sesión"
-        android:textColor="@color/black"
-        android:textStyle="bold"/>
+        android:textSize="16dp"
+        android:elevation="10dp" />
 
     <Button
         android:id="@+id/boton_crear_cuenta"
+        style="@style/botones_opciones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="Crear Cuenta"
-        android:textColor="@color/black"
-        android:background="@drawable/boton_verde"
-        android:layout_gravity="center"/>
+        android:textSize="16dp"
+        android:elevation="10dp" />
 
 
 

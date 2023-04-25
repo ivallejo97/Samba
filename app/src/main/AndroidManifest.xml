@@ -20,11 +20,12 @@
         <activity
             android:name=".Activity_Destinos_Principales"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Samba" />
         <activity
             android:name=".Activity_Acceso"
             android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar.Bridge"
+            android:theme="@style/Theme.Samba"
             android:screenOrientation="portrait">
             <intent-filter>
                 <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar" -->

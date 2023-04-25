@@ -17,54 +17,49 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/texto_Samba_amarillo_verde"
         android:layout_gravity="center"
         android:text="SAMBA"
         android:textSize="40dp"
-        android:textColor="@color/verde_oscuro"
         android:typeface="serif"/>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="48dp"
+        style="@style/edittext_recuperar_verificar_cuenta"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:gravity="center_vertical"
-        android:paddingLeft="5dp"
-        android:text="Contraseña antigua"
-        android:textSize="18dp"
-        android:textColor="@color/verde_oscuro"
-        android:background="@drawable/edittext_redondos"
+        android:paddingLeft="10dp"
+        android:hint="Contraseña antigua"
+        android:textSize="15dp"
         android:elevation="5dp"/>
 
     <EditText
         android:id="@+id/nueva_contraseña"
         android:layout_width="match_parent"
+        style="@style/edittext_recuperar_verificar_cuenta"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_gravity="center"
-        android:paddingLeft="5dp"
+        android:paddingLeft="10dp"
         android:hint="Nueva Contraseña"
-        android:textColor="@color/verde_oscuro"
-        android:textColorHint="@color/verde_oscuro"
-        android:background="@drawable/edittext_redondos"
         android:elevation="5dp"/>
 
     <EditText
         android:id="@+id/confirmar_nueva_contraseña"
         android:layout_width="match_parent"
+        style="@style/edittext_recuperar_verificar_cuenta"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_gravity="center"
-        android:paddingLeft="5dp"
+        android:paddingLeft="10dp"
         android:hint="Repite la contraseña"
-        android:textColor="@color/verde_oscuro"
-        android:textColorHint="@color/verde_oscuro"
-        android:background="@drawable/edittext_redondos"
         android:elevation="5dp"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -79,6 +74,7 @@
             android:layout_marginLeft="10dp"
             android:src="@drawable/icono_flecha_izquierda"
             android:background="@android:color/transparent"
+            style="@style/botones_continuar"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
@@ -90,6 +86,7 @@
             android:layout_marginRight="10dp"
             android:src="@drawable/icono_aceptar"
             android:background="@android:color/transparent"
+            style="@style/botones_continuar"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>

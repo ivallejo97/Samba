@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:showAsAction="never">
+
+
 
     <item
-        android:id="@+id/destinos_Principales_Inicio2"
-        android:icon="@drawable/icono_incio"
-        android:title="Inicio" />
-
-    <item
-        android:id="@+id/j"
-        android:icon="@drawable/icono_ayuda"
-        android:title="Ayuda" />
-
-    <item
-        android:id="@+id/js"
+        android:id="@+id/destinos_Principales_Agregar_Producto"
         android:icon="@drawable/icono_favoritos"
         android:title=""
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom"
+        style="@style/items_destinos_principales"/>
 
     <item
-        android:id="@+id/dsd"
+        android:id="@+id/destinos_Principales_Chat"
         android:icon="@drawable/icono_carrito"
         android:title=""
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        style="@style/items_destinos_principales" />
 </menu>

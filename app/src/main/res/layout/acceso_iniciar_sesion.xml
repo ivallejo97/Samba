@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/fondo_inicio_sesion_2"
+    style="@style/fondo_inicio_sesion"
     tools:context=".Acceso_Iniciar_Sesion">
 
     <!-- TODO: Update blank fragment layout -->
@@ -20,30 +20,53 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/pantalla_opciones_texto"
         android:layout_gravity="center"
         android:text="SAMBA"
         android:textSize="40dp"
-        android:textColor="@color/white"
         android:typeface="serif"/>
 
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/edittext_inicio_sesion"
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+        android:layout_marginRight="20dp"
+        app:startIconDrawable="@drawable/icono_usuario">
 
         <com.google.android.material.textfield.TextInputEditText
+            style="@style/edittext_color_texto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nombre de Usuario"
-            android:textSize="18dp"/>
+            android:textSize="15dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/edittext_inicio_sesion"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:endIconMode="password_toggle"
+        app:startIconDrawable="@drawable/icono_candado">
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/edittext_color_texto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:textSize="15dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <EditText
+
+    <!-- <EditText
         android:id="@+id/nombre_usuario"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -71,33 +94,30 @@
         android:textColor="@color/verde_oscuro"
         android:textColorHint="@color/gris_claro"
         android:background="@drawable/edittext_redondos"
-        android:elevation="10dp"/>
+        android:elevation="10dp"/> -->
 
 
     <Button
         android:id="@+id/boton_iniciar_sesion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/boton_inicio_sesion"
         android:layout_marginTop="150dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="INICIAR SESIÓN"
-        android:textColorHint="@color/verde_oscuro"
-        android:background="@drawable/boton_amarillo"
         android:elevation="5dp"/>
-
 
 
     <Button
         android:id="@+id/boton_volver_a_inicio"
+        style="@style/botones_volver_a_inicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:hint="VOLVER A INICIO"
-        android:textColorHint="@color/verde_oscuro"
-        android:background="@drawable/boton_borde_verde" />
+        android:hint="VOLVER A INICIO" />
 
     <TextView
         android:id="@+id/recuperar_contraseña"

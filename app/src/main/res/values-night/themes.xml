@@ -1,10 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Samba" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Samba" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/amarillo</item>
+        <item name="colorPrimaryVariant">@color/verde_oscuro</item>
+        <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
@@ -13,4 +13,99 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="pantalla_opciones_fondo" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="android:background">@drawable/degradado_modo_oscuro</item>
+    </style>
+
+    <style name="pantalla_opciones_texto" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="android:textColor">@color/gris_oscuro</item>
+    </style>
+
+    <style name="fondo_inicio_sesion" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="android:background">@drawable/fondo_inicio_sesion_oscuro</item>
+    </style>
+
+    <style name="fondo_crear_cuenta" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="android:background">@drawable/fondo_crear_cuenta_oscuro</item>
+    </style>
+
+    <style name="boton_inicio_sesion" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="android:background">@drawable/boton_verde</item>
+        <item name="android:textColorHint">@color/white</item>
+    </style>
+
+    <style name="botones_opciones" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="android:background">@drawable/boton_opciones_oscuro</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="botones_continuar" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="android:tint">@color/amarillo</item>
+    </style>
+
+    <style name="botones_volver_a_inicio" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="android:background">@drawable/boton_borde_verde</item>
+        <item name="android:textColorHint">@color/verde_oscuro</item>
+    </style>
+
+    <style name="items_destinos_principales" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <!-- <item name="itemIconTint">@color/amarillo</item> -->
+        <item name="iconTint">@color/amarillo</item>
+        <item name="itemTextColor">@color/amarillo</item>
+        <item name="android:textSize">12dp</item>
+        <item name="backgroundTint">@color/gris_oscuro</item>
+    </style>
+
+    <style name="edittext" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <!-- Primary brand color. -->
+        <item name="boxStrokeColor">@color/text_field_oscuro</item>
+    </style>
+
+    <style name="edittext_inicio_sesion" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <!-- Primary brand color. -->
+        <item name="boxStrokeColor">@color/text_field_inicio_sesion_oscuro</item>
+        <item name="hintTextColor">@color/verde_oscuro</item>
+        <item name="android:textColorHint">@color/gris_oscuro</item>
+        <item name="endIconTint">@color/gris_oscuro</item>
+        <item name="startIconTint">@color/gris_oscuro</item>
+    </style>
+
+    <style name="edittext_color_texto" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <!-- Primary brand color. -->
+        <item name="android:textColor">@color/gris_oscuro</item>
+    </style>
+
+    <style name="edittext_recuperar_verificar_cuenta" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="android:background">@drawable/edittext_amarillos</item>
+        <item name="android:textColorHint">@color/black</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="texto_Samba_amarillo_verde" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="android:textColor">@color/amarillo</item>
+    </style>
+
+    <style name="texto_Samba_crear_cuenta" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="android:textColor">@color/verde_oscuro</item>
+    </style>
+
+    <style name="toolbar" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="android:background">@color/gris_oscuro</item>
+    </style>
+
 </resources>

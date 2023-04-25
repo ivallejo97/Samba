@@ -4,26 +4,26 @@
     <item
         android:id="@+id/destinos_Principales_Inicio2"
         android:icon="@drawable/icono_incio"
-        android:title="Inicio" />
+        android:title="" />
 
     <item
         android:id="@+id/destinos_Principales_Buscador"
         android:icon="@drawable/icono_buscar"
-        android:title="Buscar" />
+        android:title="" />
 
     <item
         android:id="@+id/destinos_Principales_Agregar_Producto"
         android:icon="@drawable/icono_agregar"
-        android:title="Añadir" />
+        android:title="" />
 
     <item
         android:id="@+id/destinos_Principales_Chat"
         android:icon="@drawable/icono_chat"
-        android:title="Chat" />
+        android:title="" />
 
     <item
         android:id="@+id/destinos_Principales_Perfil"
         android:icon="@drawable/icono_perfil"
-        android:title="Perfil" />
+        android:title="" />
 
 </menu>
