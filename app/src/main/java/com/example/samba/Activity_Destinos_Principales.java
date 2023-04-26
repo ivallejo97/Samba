@@ -62,7 +62,6 @@ public class Activity_Destinos_Principales extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         return NavigationUI.onNavDestinationSelected(item, navController)
                 || super.onOptionsItemSelected(item);
-
     }
 
 

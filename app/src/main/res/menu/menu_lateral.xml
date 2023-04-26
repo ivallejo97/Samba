@@ -6,14 +6,14 @@
 
 
     <item
-        android:id="@+id/destinos_Principales_Agregar_Producto"
+        android:id="@+id/des"
         android:icon="@drawable/icono_favoritos"
         android:title=""
         app:showAsAction="ifRoom"
         style="@style/items_destinos_principales"/>
 
     <item
-        android:id="@+id/destinos_Principales_Chat"
+        android:id="@+id/des2"
         android:icon="@drawable/icono_carrito"
         android:title=""
         app:showAsAction="always"

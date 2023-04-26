@@ -69,11 +69,15 @@
     <style name="edittext" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <!-- Primary brand color. -->
         <item name="boxStrokeColor">@color/text_field_oscuro</item>
+        <item name="boxBackgroundColor">@android:color/transparent</item>
+        <item name="hintTextColor">@color/amarillo</item>
+        <item name="android:textColorHint">@color/white</item>
     </style>
 
     <style name="edittext_inicio_sesion" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <!-- Primary brand color. -->
         <item name="boxStrokeColor">@color/text_field_inicio_sesion_oscuro</item>
+        <item name="boxBackgroundColor">@android:color/transparent</item>
         <item name="hintTextColor">@color/verde_oscuro</item>
         <item name="android:textColorHint">@color/gris_oscuro</item>
         <item name="endIconTint">@color/gris_oscuro</item>
