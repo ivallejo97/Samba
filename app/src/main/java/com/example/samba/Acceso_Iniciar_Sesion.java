@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +22,17 @@ import android.widget.Toast;
 
 import com.example.samba.databinding.AccesoIniciarSesionBinding;
 import com.example.samba.databinding.AccesoOpcionesBinding;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class Acceso_Iniciar_Sesion extends Fragment {
@@ -30,6 +42,8 @@ public class Acceso_Iniciar_Sesion extends Fragment {
     Button botonIniciarSesion;
     Button botonVolverInicio;
     TextView recuperarContraseña;
+
+    private FirebaseAuth firebaseAuth;
 
 
     @Override
@@ -47,17 +61,12 @@ public class Acceso_Iniciar_Sesion extends Fragment {
         botonIniciarSesion = view.findViewById(R.id.boton_iniciar_sesion);
         botonVolverInicio = view.findViewById(R.id.boton_volver_a_inicio);
         recuperarContraseña = view.findViewById(R.id.recuperar_contraseña);
+        firebaseAuth = FirebaseAuth.getInstance();
 
         botonIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "Sesión Iniciada", Toast.LENGTH_SHORT).show();
-                try {
-                    Thread.sleep(3000);
-                    startActivity(new Intent(getContext(), Activity_Destinos_Principales.class));
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
+                validateData();
             }
         });
 
@@ -74,6 +83,78 @@ public class Acceso_Iniciar_Sesion extends Fragment {
                 navController.navigate(R.id.acceso_Recuperar_Cuenta_1);
             }
         });
+
+    }
+
+    private String email = "", password = "";
+
+    private void validateData() {
+        email = binding.usuario.getText().toString().trim();
+        password = binding.contraseA.getText().toString().trim();
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Toast.makeText(getContext(), "Dirección de correo electronico inválida", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(password)) {
+            Toast.makeText(getContext(), "Contraseña Incorrecta", Toast.LENGTH_SHORT).show();
+        } else {
+            loginUser();
+        }
+    }
+
+    private void loginUser() {
+        firebaseAuth.signInWithEmailAndPassword(email,password)
+                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        Toast.makeText(getContext(), "Comprobando Datos", Toast.LENGTH_SHORT).show();
+                        checkUser();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getContext(), "" + e, Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void checkUser() {
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
+        ref.child(firebaseUser.getUid())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String userType = "" + snapshot.child("userType").getValue();
+                        Toast.makeText(getContext(), "Verificando Usuario", Toast.LENGTH_SHORT).show();
+
+                        if (userType.equals("user")){
+                            Toast.makeText(getContext(), "Usuario Correcto", Toast.LENGTH_SHORT).show();
+
+                            try {
+                                Thread.sleep(3000);
+                                Toast.makeText(getContext(), "Iniciando Sesión", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getContext(), Activity_Destinos_Principales.class));
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
+                            onDestroyView();
+
+                        } else if (userType.equals("admin")){
+                            //startActivity(new Intent(getContext(), Activity_Destinos_Principales.class));
+                            onDestroyView();
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
 
     }
 }

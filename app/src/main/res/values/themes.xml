@@ -73,6 +73,12 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="edittext_menu_desplegable" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+        <!-- Primary brand color. -->
+        <item name="boxStrokeColor">@color/text_field_claro</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <style name="edittext_inicio_sesion" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <!-- Primary brand color. -->
         <item name="boxStrokeColor">@color/text_field_inicio_sesion_claro</item>
@@ -108,6 +114,11 @@
     <style name="toolbar" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <!-- Primary brand color. -->
         <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="texto_inicio" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <!-- Primary brand color. -->
+        <item name="android:textColor">@color/gris_oscuro</item>
     </style>
 
 

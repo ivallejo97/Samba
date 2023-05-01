@@ -20,44 +20,27 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import android.widget.Toolbar;
+
+import com.example.samba.databinding.AccesoCrearCuentaBinding;
+import com.example.samba.databinding.DestinosPrincipalesInicioBinding;
 
 
 public class Destinos_Principales_Inicio extends Fragment {
 
+    DestinosPrincipalesInicioBinding binding;
     NavController navController;
-    androidx.appcompat.widget.Toolbar toolbar;
+    ImageButton boton_favoritos_toolbar, boton_carrito_toolbar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.destinos_principales_inicio, container, false);
+        return (binding = DestinosPrincipalesInicioBinding.inflate(inflater, container, false)).getRoot();
 
-        toolbar = (androidx.appcompat.widget.Toolbar) view.findViewById(R.id.toolbar);
-        ((AppCompatActivity) requireActivity()).setSupportActionBar(toolbar);
 
-        MenuHost menuHost = requireActivity();
-        requireActivity().addMenuProvider(new MenuProvider() {
-            @Override
-            public void onCreateMenu(@NonNull Menu menu, @NonNull MenuInflater menuInflater) {
-                menuInflater.inflate(R.menu.menu_lateral, menu);
-
-                // Add option Menu Here
-
-            }
-
-            @Override
-            public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
-                return false;
-
-                // Handle option Menu Here
-
-            }
-        }, getViewLifecycleOwner(), Lifecycle.State.RESUMED);
-
-        return view;
 
     }
 
@@ -68,6 +51,21 @@ public class Destinos_Principales_Inicio extends Fragment {
 
         navController = Navigation.findNavController(view);
 
+
+
+        binding.botonFavoritos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.navigate(R.id.destinos_Principales_Chat);
+            }
+        });
+
+        binding.botonCarrito.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), Activity_Publicar.class));
+            }
+        });
 
 
 

@@ -31,8 +31,8 @@
         android:label=""
         tools:layout="@layout/destinos_principales_perfil" />
     <fragment
-        android:id="@+id/acceso_Crear_Cuenta2"
-        android:name="com.example.samba.Acceso_Crear_Cuenta"
-        android:label="acceso_crear_cuenta"
-        tools:layout="@layout/acceso_crear_cuenta" />
+        android:id="@+id/destinos_principales_editar_perfil"
+        android:name="com.example.samba.Destinos_Principales_Editar_Perfil"
+        android:label="destinos_principales_editar_perfil"
+        tools:layout="@layout/destinos_principales_editar_perfil" />
 </navigation>

@@ -9,6 +9,8 @@
     <color name="amarillo">#FDE94C</color>
     <color name="gris_oscuro">#333333</color>
     <color name="gris_claro">#747474</color>
+    <color name="transparente">#00FFFFFF</color>
+
 
     // Colores por defecto
     <color name="purple_200">#FFBB86FC</color>
