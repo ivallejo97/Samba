@@ -32,7 +32,6 @@
             android:elevation="11dp"
             android:text="Inicio"
             android:textSize="22dp"
-            android:typeface="serif"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>

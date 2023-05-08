@@ -136,6 +136,10 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="fondo_perfil" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:background">@drawable/fondo_perfil_oscuro</item>
+    </style>
+
     <style name="iconos_perfil" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <!-- Primary brand color. -->
         <item name="tint">@color/white</item>

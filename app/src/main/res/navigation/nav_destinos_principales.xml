@@ -35,4 +35,8 @@
         android:name="com.example.samba.Destinos_Principales_Editar_Perfil"
         android:label="destinos_principales_editar_perfil"
         tools:layout="@layout/destinos_principales_editar_perfil" />
+    <activity
+        android:id="@+id/activity_Publicar"
+        android:name="com.example.samba.Activity_Publicar"
+        android:label="Activity_Publicar" />
 </navigation>

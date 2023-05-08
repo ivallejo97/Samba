@@ -126,6 +126,10 @@
         <item name="android:textColor">@color/gris_oscuro</item>
     </style>
 
+    <style name="fondo_perfil" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:background">@drawable/fondo_perfil_claro</item>
+    </style>
+
     <style name="iconos_perfil" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="tint">@color/black</item>
         <item name="android:background">@color/transparente</item>

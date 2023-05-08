@@ -54,7 +54,6 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         app:endIconMode="password_toggle"
-        app:passwordToggleEnabled="false"
         app:startIconDrawable="@drawable/icono_candado">
 
         <com.google.android.material.textfield.TextInputEditText

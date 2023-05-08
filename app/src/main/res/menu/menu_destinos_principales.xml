@@ -12,7 +12,7 @@
         android:title="" />
 
     <item
-        android:id="@+id/destinos_Principales_Agregar_Producto"
+        android:id="@+id/activity_Publicar"
         android:icon="@drawable/icono_agregar"
         android:title="" />
 
