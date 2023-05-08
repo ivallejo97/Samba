@@ -14,6 +14,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
     </style>
 
     <style name="pantalla_opciones_fondo" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
@@ -121,7 +122,7 @@
         <item name="android:background">@color/white</item>
     </style>
 
-    <style name="texto_pantalla_inicio" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <style name="texto_pantalla_favoritos" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <!-- Primary brand color. -->
         <item name="android:textColor">@color/gris_oscuro</item>
     </style>
@@ -182,6 +183,5 @@
     <style name="fondo_cabeceras" parent="">
         <item name="android:background">@drawable/cabecera_perfil_claro</item>
     </style>
-
 
 </resources>

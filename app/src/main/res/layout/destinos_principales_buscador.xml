@@ -6,11 +6,21 @@
     tools:context=".Destinos_Principales_Buscador">
 
     <!-- TODO: Update blank fragment layout -->
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/barra_buscar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:elevation="10dp"
+        />
+
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/icono_buscar"
         android:layout_gravity="center"/>
+
 
 
 </FrameLayout>
