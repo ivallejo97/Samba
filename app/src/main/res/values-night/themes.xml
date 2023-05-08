@@ -148,9 +148,19 @@
     </style>
 
     <style name="titulo_apartados_perfil" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:textSize">16dp</item>
+        <item name="android:textSize">17dp</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="nombre_usuario_perfil" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">17dp</item>
+    </style>
+
+    <style name="correo_usuario_perfil" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="descripcion_apartados_perfil" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">

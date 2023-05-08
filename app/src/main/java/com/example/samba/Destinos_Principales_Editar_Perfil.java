@@ -55,7 +55,7 @@ public class Destinos_Principales_Editar_Perfil extends Fragment {
     private FirebaseAuth firebaseAuth;
     private static final String TAG = "PROFILE_EDIT";
     private Uri imageUri = null;
-    private String name = "";
+    private String name = "",username="",fecha_nacimiento="";
 
 
     @Override
@@ -128,17 +128,27 @@ public class Destinos_Principales_Editar_Perfil extends Fragment {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String email = "" + snapshot.child("email").getValue();
                         String name = "" + snapshot.child("name").getValue();
+                        String username = "" + snapshot.child("username").getValue();
                         String pais = "" + snapshot.child("pais").getValue();
                         String profileImage = "" + snapshot.child("profileImage").getValue();
                         String telefono = "" + snapshot.child("telefono").getValue();
+                        String fecha_nacimiento = "" +snapshot.child("fechaNacimiento").getValue();
                         String timestamp = "" + snapshot.child("timestamp").getValue();
                         String uid = "" + snapshot.child("uid").getValue();
                         String userType = "" + snapshot.child("userType").getValue();
 
                         binding.nombreNuevo.setText(name);
+                        binding.nombreUsuarioNuevo.setText(username);
                         binding.correoElectronico.setText(email);
                         binding.pais.setText(pais);
                         binding.numeroTelefono.setText(telefono);
+
+                        if (fecha_nacimiento == null){
+                            binding.fechaNacimiento.setText("Fecha de nacimiento");
+                        } else {
+                            binding.fechaNacimiento.setText(fecha_nacimiento);
+                        }
+
 
                         if (getActivity() != null){
                             Glide.with(getContext())
@@ -159,6 +169,9 @@ public class Destinos_Principales_Editar_Perfil extends Fragment {
 
     private void validateData() {
         name = binding.nombreNuevo.getText().toString().trim();
+        username = binding.nombreUsuarioNuevo.getText().toString().trim();
+        fecha_nacimiento = binding.fechaNacimiento.getText().toString().trim();
+
         if (TextUtils.isEmpty(name)){
             Toast.makeText(getContext(),"Introduce un nombre",Toast.LENGTH_SHORT).show();
         } else {
@@ -194,6 +207,8 @@ public class Destinos_Principales_Editar_Perfil extends Fragment {
     private void updateProfile(String imageUrl) {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("name",""+name);
+        hashMap.put("username",""+username);
+        hashMap.put("fechaNacimiento",""+fecha_nacimiento);
 
         if (imageUri != null){
             hashMap.put("profileImage", ""+imageUrl);

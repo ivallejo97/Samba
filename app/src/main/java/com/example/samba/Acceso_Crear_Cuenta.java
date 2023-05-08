@@ -37,7 +37,6 @@ public class Acceso_Crear_Cuenta extends Fragment {
     NavController navController;
     ImageButton boton_volver;
     ImageButton boton_continuar;
-
     String[] paises = {"España","Italia","Portugal","Inglaterra","Alemania","Francia","Suiza","Croacia","Austria"};
     AutoCompleteTextView autoCompleteTextView;
     ArrayAdapter<String> adapterPaises;
@@ -91,19 +90,19 @@ public class Acceso_Crear_Cuenta extends Fragment {
         });
     }
 
-    private String name = "", username = "", email = "", telefono= "", pais = "", password = "";
+    private String nombre = "", nombre_usuario = "", email = "", telefono= "", pais = "", password = "";
     private void validateData() {
-        name = binding.nombre.getText().toString().trim();
-        username = binding.nombreUsuario.getText().toString().trim();
+        nombre = binding.nombre.getText().toString().trim();
+        nombre_usuario = binding.nombreUsuario.getText().toString().trim();
         email = binding.correoElectronico.getText().toString().trim();
         telefono = binding.numeroTelefono.getText().toString().trim();
         pais = binding.nacionalidad.getText().toString().trim();
         password = binding.contraseA.getText().toString().trim();
         String cPassword = binding.repetirContraseA.getText().toString().trim();
 
-        if (TextUtils.isEmpty(name)){
+        if (TextUtils.isEmpty(nombre)){
             Toast.makeText(getContext(),"Introduce tu nombre",Toast.LENGTH_SHORT).show();
-        } else if (TextUtils.isEmpty(username)) {
+        } else if (TextUtils.isEmpty(nombre_usuario)) {
             Toast.makeText(getContext(),"Introduce un nombre de usuario",Toast.LENGTH_SHORT).show();
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             Toast.makeText(getContext(),"Dirección de correo electronico inválida",Toast.LENGTH_SHORT).show();
@@ -145,12 +144,11 @@ public class Acceso_Crear_Cuenta extends Fragment {
 
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-
         Map<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid", uid);
         hashMap.put("email", email);
-        hashMap.put("name", name);
-        hashMap.put("username", username);
+        hashMap.put("name", nombre);
+        hashMap.put("username", nombre_usuario);
         hashMap.put("telefono", telefono);
         hashMap.put("pais", pais);
         hashMap.put("profileImage", "");
