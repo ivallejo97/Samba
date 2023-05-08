@@ -14,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.provider.MediaStore;
 import android.text.TextUtils;
@@ -23,6 +25,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.samba.databinding.DestinosPrincipalesEditarPerfilBinding;
@@ -47,6 +51,7 @@ import java.util.Objects;
 public class Destinos_Principales_Editar_Perfil extends Fragment {
 
     DestinosPrincipalesEditarPerfilBinding binding;
+    NavController navController;
     private FirebaseAuth firebaseAuth;
     private static final String TAG = "PROFILE_EDIT";
     private Uri imageUri = null;
@@ -64,6 +69,7 @@ public class Destinos_Principales_Editar_Perfil extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        navController = Navigation.findNavController(view);
         firebaseAuth = FirebaseAuth.getInstance();
         loadUserInfo();
 
@@ -78,6 +84,34 @@ public class Destinos_Principales_Editar_Perfil extends Fragment {
             @Override
             public void onClick(View v) {
                 validateData();
+            }
+        });
+
+        binding.botonVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.destinos_Principales_Perfil);
+            }
+        });
+
+        binding.correoElectronico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"No puedes cambiar el correo electrónico",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        binding.pais.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"No puedes cambiar el pais de residencia",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        binding.numeroTelefono.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"No puedes cambiar el número de telefono",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -102,12 +136,18 @@ public class Destinos_Principales_Editar_Perfil extends Fragment {
                         String userType = "" + snapshot.child("userType").getValue();
 
                         binding.nombreNuevo.setText(name);
+                        binding.correoElectronico.setText(email);
+                        binding.pais.setText(pais);
+                        binding.numeroTelefono.setText(telefono);
+
+                        if (getActivity() != null){
+                            Glide.with(getContext())
+                                    .load(profileImage)
+                                    .placeholder(R.drawable.icono_aceptar)
+                                    .into(binding.fotoPerfil);
+                        }
 
 
-                        Glide.with(getContext())
-                                .load(profileImage)
-                                .placeholder(R.drawable.icono_aceptar)
-                                .into(binding.fotoPerfil);
                     }
 
                     @Override
@@ -120,7 +160,7 @@ public class Destinos_Principales_Editar_Perfil extends Fragment {
     private void validateData() {
         name = binding.nombreNuevo.getText().toString().trim();
         if (TextUtils.isEmpty(name)){
-            //TOAST
+            Toast.makeText(getContext(),"Introduce un nombre",Toast.LENGTH_SHORT).show();
         } else {
             if (imageUri == null){
                 updateProfile("");
@@ -128,31 +168,6 @@ public class Destinos_Principales_Editar_Perfil extends Fragment {
                 uploadImage("");
             }
         }
-    }
-
-    private void updateProfile(String imageUrl) {
-        HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("name",name);
-
-        if (imageUri != null){
-            hashMap.put("profileImage", imageUrl);
-        }
-
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
-        databaseReference.child(firebaseAuth.getUid())
-                .updateChildren(hashMap)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                    }
-                });
     }
 
     private void uploadImage(String s) {
@@ -165,15 +180,42 @@ public class Destinos_Principales_Editar_Perfil extends Fragment {
                         Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
                         while (!uriTask.isSuccessful());
                         String uploadImage = ""+ uriTask.getResult();
+                        Log.d(TAG, "Imagen actualizada" + uploadImage);
                         updateProfile(uploadImage);
                     }
                 }) .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-
+                        Toast.makeText(getContext(),"Fallo en la actualización de la imagen", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
+
+    private void updateProfile(String imageUrl) {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("name",""+name);
+
+        if (imageUri != null){
+            hashMap.put("profileImage", ""+imageUrl);
+        }
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        databaseReference.child(firebaseAuth.getUid())
+                .updateChildren(hashMap)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(getContext(),"Perfil actualizado", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getContext(),"Fallo al actulizar la imagen en la DB", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
 
     private void showImageAttatchMenu() {
         PopupMenu popupMenu = new PopupMenu(getContext(),binding.fotoPerfil);
@@ -222,7 +264,7 @@ public class Destinos_Principales_Editar_Perfil extends Fragment {
                         Intent data = result.getData();
                         binding.fotoPerfil.setImageURI(imageUri);
                     }else {
-                        //TOAST
+                        Toast.makeText(getContext(),"Cancelado",Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -238,7 +280,7 @@ public class Destinos_Principales_Editar_Perfil extends Fragment {
                         imageUri = data.getData();
                         binding.fotoPerfil.setImageURI(imageUri);
                     } else {
-                        //TOAST
+                        Toast.makeText(getContext(),"Cancelado",Toast.LENGTH_SHORT).show();
                     }
                 }
             }

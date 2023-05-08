@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.samba">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -16,6 +16,27 @@
         android:theme="@style/Theme.Samba"
         tools:targetApi="31">
         <activity
+            android:name=".Activity_Direcciones_Envio"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Mis_Productos"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Pedidos"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Metodos_Pago"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Quienes_Somos"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Carrito"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Favoritos"
+            android:exported="false" />
+        <activity
             android:name=".Activity_Publicar"
             android:exported="false"
             android:screenOrientation="portrait" />
@@ -27,9 +48,10 @@
         <activity
             android:name=".Activity_Acceso"
             android:exported="true"
-            android:theme="@style/Theme.Samba"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Samba">
             <intent-filter>
+
                 <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar" -->
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,8 +60,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

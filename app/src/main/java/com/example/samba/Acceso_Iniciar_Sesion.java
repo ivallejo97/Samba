@@ -1,5 +1,6 @@
 package com.example.samba;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
@@ -42,8 +43,8 @@ public class Acceso_Iniciar_Sesion extends Fragment {
     Button botonIniciarSesion;
     Button botonVolverInicio;
     TextView recuperarContraseña;
-
     private FirebaseAuth firebaseAuth;
+    ProgressDialog progressDialog;
 
 
     @Override
@@ -62,6 +63,8 @@ public class Acceso_Iniciar_Sesion extends Fragment {
         botonVolverInicio = view.findViewById(R.id.boton_volver_a_inicio);
         recuperarContraseña = view.findViewById(R.id.recuperar_contraseña);
         firebaseAuth = FirebaseAuth.getInstance();
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setTitle("Comprobando datos");
 
         botonIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +105,8 @@ public class Acceso_Iniciar_Sesion extends Fragment {
     }
 
     private void loginUser() {
+        progressDialog.setMessage("Verificando usuario...");
+        progressDialog.show();
         firebaseAuth.signInWithEmailAndPassword(email,password)
                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
@@ -119,27 +124,25 @@ public class Acceso_Iniciar_Sesion extends Fragment {
     }
 
     private void checkUser() {
-        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        try {
+            Thread.sleep(1000);
+            progressDialog.setMessage("Iniciando sesión");
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
         ref.child(firebaseUser.getUid())
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        progressDialog.dismiss();
                         String userType = "" + snapshot.child("userType").getValue();
-                        Toast.makeText(getContext(), "Verificando Usuario", Toast.LENGTH_SHORT).show();
-
                         if (userType.equals("user")){
-                            Toast.makeText(getContext(), "Usuario Correcto", Toast.LENGTH_SHORT).show();
 
-                            try {
-                                Thread.sleep(3000);
-                                Toast.makeText(getContext(), "Iniciando Sesión", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getContext(), Activity_Destinos_Principales.class));
-                            } catch (InterruptedException e) {
-                                throw new RuntimeException(e);
-                            }
+                            startActivity(new Intent(getContext(), Activity_Destinos_Principales.class));
                             onDestroyView();
 
                         } else if (userType.equals("admin")){

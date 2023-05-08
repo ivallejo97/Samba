@@ -38,7 +38,25 @@
             android:id="@+id/nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre de Usuario"
+            android:hint="Nombre completo"
+            android:textSize="15dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/edittext"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:startIconDrawable="@drawable/icono_usuario">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nombre_usuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre de usuario"
             android:textSize="15dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -144,56 +162,10 @@
 
 
 
-    <!--<EditText
-        android:id="@+id/nombre_usuario"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_gravity="center"
-        android:paddingLeft="10dp"
-        android:hint="Nombre de usuario"
-        android:textColor="@color/verde_oscuro"
-        android:textColorHint="@color/gris_claro"
-        android:background="@drawable/edittext_redondos"/>
-
-    <EditText
-        android:id="@+id/correo_electronico"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_gravity="center"
-        android:paddingLeft="10dp"
-        android:hint="Correo electrónico"
-        android:textColor="@color/verde_oscuro"
-        android:textColorHint="@color/gris_claro"
-        android:background="@drawable/edittext_redondos"/> -->
-
-
-    <CheckBox
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="Quiero recibir promociones..." />
-
-    <CheckBox
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="He leido los terminos y condiciones de la app y acpeto" />
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="50dp">
 
         <ImageButton
             android:id="@+id/boton_volver"

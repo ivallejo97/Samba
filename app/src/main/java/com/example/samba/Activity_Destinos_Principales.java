@@ -30,6 +30,18 @@ public class Activity_Destinos_Principales extends AppCompatActivity {
 
         //setSupportActionBar(binding.toolbar);
 
+        navController = ((NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment)).getNavController();
+
+
+        navController.addOnDestinationChangedListener((navController, navDestination, bundle) -> {
+            if (navDestination.getId() == R.id.destinos_principales_editar_perfil) {
+                binding.bottomNavView.setVisibility(View.GONE);
+            } else {
+                binding.bottomNavView.setVisibility(View.VISIBLE);
+            }
+        });
+
+
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 // Top-level destinations:
                 R.id.destinos_Principales_Inicio2, R.id.destinos_Principales_Buscador, R.id.destinos_Principales_Agregar_Producto,
@@ -52,17 +64,6 @@ public class Activity_Destinos_Principales extends AppCompatActivity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_lateral, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return NavigationUI.onNavDestinationSelected(item, navController)
-                || super.onOptionsItemSelected(item);
-    }
 
 
 

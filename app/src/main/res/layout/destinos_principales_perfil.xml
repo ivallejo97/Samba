@@ -13,39 +13,42 @@
         android:id="@+id/fondo_perfil"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@drawable/fondo_perfil"
-        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/vista_general_perfil_claro"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
+        android:id="@+id/icono_ajustes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:src="@drawable/icono_ajustes"
+        android:src="@drawable/icono_configuracion"
         android:background="@color/transparente"
         app:layout_constraintTop_toTopOf="@id/fondo_perfil"
         app:layout_constraintRight_toRightOf="@id/fondo_perfil"
-        app:tint="@color/white" />
+        app:tint="@color/black" />
 
     <ImageButton
         android:id="@+id/boton_editar_perfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
         android:src="@drawable/icono_editar"
+        android:foreground="?android:attr/selectableItemBackground"
         android:background="@color/transparente"
-        app:layout_constraintRight_toRightOf="@id/fondo_perfil"
-        app:layout_constraintBottom_toBottomOf="@id/fondo_perfil"
-        app:tint="@color/white" />
+        app:layout_constraintTop_toTopOf="@id/fondo_perfil"
+        app:layout_constraintRight_toLeftOf="@id/icono_ajustes"
+        app:tint="@color/black" />
 
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/foto_perfil"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="20dp"
         android:src="@drawable/icono_perfil"
         android:layout_gravity="center"
         app:layout_constraintTop_toTopOf="@id/fondo_perfil"
@@ -57,7 +60,10 @@
         android:id="@+id/nombre_usuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="Nombre Usuario"
+        android:textSize="17dp"
+        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/foto_perfil"
         app:layout_constraintLeft_toLeftOf="@id/foto_perfil"
         app:layout_constraintRight_toRightOf="@id/foto_perfil"/>
@@ -66,6 +72,7 @@
         android:id="@+id/correo_electronico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="Correo"
         app:layout_constraintTop_toBottomOf="@id/nombre_usuario"
         app:layout_constraintLeft_toLeftOf="@id/nombre_usuario"
@@ -75,26 +82,396 @@
         android:id="@+id/telefono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         android:text="Numero"
-        app:layout_constraintTop_toBottomOf="@id/fondo_perfil"
+        app:layout_constraintTop_toTopOf="@id/fondo_perfil"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
     <TextView
         android:id="@+id/pais"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="Pais"
-        app:layout_constraintTop_toBottomOf="@id/fondo_perfil"
+        app:layout_constraintEnd_toEndOf="@+id/telefono"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/telefono"
+        app:layout_constraintTop_toBottomOf="@+id/telefono" />
 
     <TextView
         android:id="@+id/user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="Tipo"
-        app:layout_constraintTop_toBottomOf="@id/fondo_perfil"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintEnd_toEndOf="@+id/pais"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/pais"
+        app:layout_constraintTop_toBottomOf="@+id/pais" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fondo_perfil">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".Destinos_Principales_Perfil">
+
+            <View
+                android:id="@+id/opciones"
+                style="@style/borde_vista_general_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="750dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="300dp"
+                android:elevation="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="600dp"
+                style="@style/lineas_separatorias_perfil"
+                app:layout_constraintLeft_toLeftOf="@id/opciones"
+                app:layout_constraintRight_toRightOf="@id/opciones"
+                app:layout_constraintTop_toTopOf="@id/opciones" />
+
+            <View
+                style="@style/lineas_separatorias_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vista_favoritos" />
+
+            <View
+                style="@style/lineas_separatorias_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vista_pedidos" />
+
+            <View
+                style="@style/lineas_separatorias_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vista_metodos_de_pago" />
+
+            <View
+                android:id="@+id/vista_carrito"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:layout_constraintLeft_toLeftOf="@id/opciones"
+                app:layout_constraintTop_toTopOf="@id/opciones" />
+
+
+            <ImageView
+                android:id="@+id/icono_carrito"
+                style="@style/iconos_perfil"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/icono_carrito_perfil"
+                app:layout_constraintLeft_toLeftOf="@id/vista_carrito"
+                app:layout_constraintTop_toTopOf="@id/vista_carrito" />
+
+            <TextView
+                android:id="@+id/titulo_carrito"
+                style="@style/titulo_apartados_perfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Mi carrito"
+                app:layout_constraintLeft_toLeftOf="@id/vista_carrito"
+                app:layout_constraintTop_toBottomOf="@id/icono_carrito" />
+
+            <TextView
+                android:id="@+id/descripcion_carrito"
+                style="@style/descripcion_apartados_perfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Visualiza los productos\nque has añadido\nal carrito de compra"
+                app:layout_constraintLeft_toLeftOf="@id/titulo_carrito"
+                app:layout_constraintTop_toBottomOf="@id/titulo_carrito" />
+
+            <View
+                android:id="@+id/vista_favoritos"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:layout_constraintRight_toRightOf="@id/opciones"
+                app:layout_constraintTop_toTopOf="@id/opciones" />
+
+            <ImageView
+                android:id="@+id/icono_favoritos"
+                style="@style/iconos_perfil"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/icono_favoritos_perfil"
+                app:layout_constraintLeft_toLeftOf="@id/vista_favoritos"
+                app:layout_constraintTop_toTopOf="@id/vista_favoritos" />
+
+            <TextView
+                android:id="@+id/titulo_favoritos"
+                style="@style/titulo_apartados_perfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:text="Favoritos"
+                app:layout_constraintLeft_toLeftOf="@id/vista_favoritos"
+                app:layout_constraintTop_toBottomOf="@id/icono_favoritos" />
+
+            <TextView
+                android:id="@+id/descripcion_favoritos"
+                style="@style/descripcion_apartados_perfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Visualiza tus\nproductos favoritos \nde la aplicación"
+                app:layout_constraintLeft_toLeftOf="@id/titulo_favoritos"
+                app:layout_constraintTop_toBottomOf="@id/titulo_favoritos" />
+
+            <View
+                android:id="@+id/vista_pedidos"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:layout_constraintBottom_toTopOf="@id/vista_direcciones"
+                app:layout_constraintLeft_toLeftOf="@id/opciones"
+                app:layout_constraintTop_toBottomOf="@id/vista_carrito" />
+
+            <ImageView
+                android:id="@+id/icono_pedidos"
+                style="@style/iconos_perfil"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/icono_pedidos"
+                app:layout_constraintLeft_toLeftOf="@id/vista_pedidos"
+                app:layout_constraintTop_toTopOf="@id/vista_pedidos" />
+
+            <TextView
+                android:id="@+id/titulo_pedidos"
+                style="@style/titulo_apartados_perfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:text="Historial de\npedidos"
+                app:layout_constraintLeft_toLeftOf="@id/vista_pedidos"
+                app:layout_constraintTop_toBottomOf="@id/icono_pedidos" />
+
+            <TextView
+                android:id="@+id/descripcion_pedidos"
+                style="@style/descripcion_apartados_perfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Visualiza todos tus\npedidos, pasados y\npresentes"
+                app:layout_constraintLeft_toLeftOf="@id/titulo_pedidos"
+                app:layout_constraintTop_toBottomOf="@id/titulo_pedidos" />
+
+            <View
+                android:id="@+id/vista_mis_productos"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:layout_constraintBottom_toTopOf="@id/vista_metodos_de_pago"
+                app:layout_constraintRight_toRightOf="@id/opciones"
+                app:layout_constraintTop_toBottomOf="@id/vista_favoritos" />
+
+            <ImageView
+                android:id="@+id/icono_mis_productos"
+                style="@style/iconos_perfil"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/icono_productos"
+                app:layout_constraintLeft_toLeftOf="@id/vista_mis_productos"
+                app:layout_constraintTop_toTopOf="@id/vista_mis_productos" />
+
+            <TextView
+                android:id="@+id/titulo_mis_productos"
+                style="@style/titulo_apartados_perfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:text="Mis productos"
+                app:layout_constraintLeft_toLeftOf="@id/vista_mis_productos"
+                app:layout_constraintTop_toBottomOf="@id/icono_mis_productos" />
+
+            <TextView
+                android:id="@+id/descripcion_mis_productos"
+                style="@style/descripcion_apartados_perfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Visualiza todos los\nproductos que has\npuesto en venta"
+                app:layout_constraintLeft_toLeftOf="@id/titulo_mis_productos"
+                app:layout_constraintTop_toBottomOf="@id/titulo_mis_productos" />
+
+
+            <View
+                android:id="@+id/vista_direcciones"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:layout_constraintLeft_toLeftOf="@id/opciones"
+                app:layout_constraintTop_toBottomOf="@id/vista_pedidos" />
+
+            <ImageView
+                android:id="@+id/icono_direcciones"
+                style="@style/iconos_perfil"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/icono_envio"
+                app:layout_constraintLeft_toLeftOf="@id/vista_direcciones"
+                app:layout_constraintTop_toTopOf="@id/vista_direcciones" />
+
+            <TextView
+                android:id="@+id/titulo_direcciones"
+                style="@style/titulo_apartados_perfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Direcciones de\nenvío"
+                app:layout_constraintLeft_toLeftOf="@id/vista_direcciones"
+                app:layout_constraintTop_toBottomOf="@id/icono_direcciones" />
+
+            <TextView
+                android:id="@+id/descripcion_direcciones"
+                style="@style/descripcion_apartados_perfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Añade o modifica tus\ndirecciones de envío"
+                app:layout_constraintLeft_toLeftOf="@id/titulo_direcciones"
+                app:layout_constraintTop_toBottomOf="@id/titulo_direcciones" />
+
+            <View
+                android:id="@+id/vista_metodos_de_pago"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:layout_constraintRight_toRightOf="@id/opciones"
+                app:layout_constraintTop_toBottomOf="@id/vista_mis_productos" />
+
+            <ImageView
+                android:id="@+id/icono_metodos_de_pago"
+                style="@style/iconos_perfil"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/icono_tarjetas_de_credito"
+                app:layout_constraintLeft_toLeftOf="@id/vista_metodos_de_pago"
+                app:layout_constraintTop_toTopOf="@id/vista_metodos_de_pago" />
+
+            <TextView
+                android:id="@+id/titulo_metodos_de_pago"
+                style="@style/titulo_apartados_perfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:text="Metodos de\npago"
+                app:layout_constraintLeft_toLeftOf="@id/vista_metodos_de_pago"
+                app:layout_constraintTop_toBottomOf="@id/icono_metodos_de_pago" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/descripcion_apartados_perfil"
+                android:layout_marginTop="15dp"
+                android:text="Añade, modifica o\nelimina un método\ndepago"
+                app:layout_constraintLeft_toLeftOf="@id/titulo_metodos_de_pago"
+                app:layout_constraintTop_toBottomOf="@id/titulo_metodos_de_pago" />
+
+            <View
+                android:id="@+id/vista_quienes_somos"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:layout_constraintTop_toBottomOf="@id/vista_direcciones"
+                app:layout_constraintBottom_toBottomOf="@id/opciones"
+                app:layout_constraintLeft_toLeftOf="@id/opciones"
+                app:layout_constraintRight_toRightOf="@id/opciones" />
+
+            <ImageView
+                android:id="@+id/icono_quienes_somos"
+                style="@style/iconos_perfil"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/icono_quienes_somos"
+                app:layout_constraintTop_toTopOf="@id/vista_quienes_somos"
+                app:layout_constraintLeft_toLeftOf="@id/vista_quienes_somos"/>
+
+            <TextView
+                android:id="@+id/titulo_quienes_somos"
+                style="@style/titulo_apartados_perfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:text="¿Quienes somos?"
+                app:layout_constraintTop_toBottomOf="@id/icono_quienes_somos"
+                app:layout_constraintLeft_toLeftOf="@id/vista_quienes_somos"/>
+
+            <TextView
+                android:id="@+id/descripcion_quienes_somos"
+                style="@style/descripcion_apartados_perfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Conoce mas acerca del equipo de Samba"
+                app:layout_constraintTop_toBottomOf="@id/titulo_quienes_somos"
+                app:layout_constraintLeft_toLeftOf="@id/titulo_quienes_somos"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+

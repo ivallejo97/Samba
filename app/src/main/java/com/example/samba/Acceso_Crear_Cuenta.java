@@ -1,6 +1,5 @@
 package com.example.samba;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -39,9 +38,9 @@ public class Acceso_Crear_Cuenta extends Fragment {
     ImageButton boton_volver;
     ImageButton boton_continuar;
 
-    String[] item = {"España","Italia","Portugal","Inglaterra","Alemania","ndj","js","jchjdj","hdhd"};
+    String[] paises = {"España","Italia","Portugal","Inglaterra","Alemania","Francia","Suiza","Croacia","Austria"};
     AutoCompleteTextView autoCompleteTextView;
-    ArrayAdapter<String> adapterItems;
+    ArrayAdapter<String> adapterPaises;
     private FirebaseAuth firebaseAuth;
     Dialog_Crear_Cuenta dialog;
 
@@ -61,8 +60,8 @@ public class Acceso_Crear_Cuenta extends Fragment {
         boton_volver = view.findViewById(R.id.boton_volver);
         boton_continuar = view.findViewById(R.id.boton_continuar);
         autoCompleteTextView = view.findViewById(R.id.nacionalidad);
-        adapterItems = new ArrayAdapter<>(getContext(),R.layout.lista_paises,R.id.item, item);
-        autoCompleteTextView.setAdapter(adapterItems);
+        adapterPaises = new ArrayAdapter<>(getContext(),R.layout.plantilla_listas,R.id.item, paises);
+        autoCompleteTextView.setAdapter(adapterPaises);
         autoCompleteTextView.setClickable(true);
         dialog = new Dialog_Crear_Cuenta(getContext());
         firebaseAuth = FirebaseAuth.getInstance();
@@ -92,9 +91,10 @@ public class Acceso_Crear_Cuenta extends Fragment {
         });
     }
 
-    private String name = "", email = "", telefono= "", pais = "", password = "";
+    private String name = "", username = "", email = "", telefono= "", pais = "", password = "";
     private void validateData() {
         name = binding.nombre.getText().toString().trim();
+        username = binding.nombreUsuario.getText().toString().trim();
         email = binding.correoElectronico.getText().toString().trim();
         telefono = binding.numeroTelefono.getText().toString().trim();
         pais = binding.nacionalidad.getText().toString().trim();
@@ -103,6 +103,8 @@ public class Acceso_Crear_Cuenta extends Fragment {
 
         if (TextUtils.isEmpty(name)){
             Toast.makeText(getContext(),"Introduce tu nombre",Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(username)) {
+            Toast.makeText(getContext(),"Introduce un nombre de usuario",Toast.LENGTH_SHORT).show();
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             Toast.makeText(getContext(),"Dirección de correo electronico inválida",Toast.LENGTH_SHORT).show();
         } else if (!Patterns.PHONE.matcher(telefono).matches()) {
@@ -144,11 +146,11 @@ public class Acceso_Crear_Cuenta extends Fragment {
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
-
         Map<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid", uid);
         hashMap.put("email", email);
         hashMap.put("name", name);
+        hashMap.put("username", username);
         hashMap.put("telefono", telefono);
         hashMap.put("pais", pais);
         hashMap.put("profileImage", "");
@@ -162,9 +164,6 @@ public class Acceso_Crear_Cuenta extends Fragment {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-
-
-
                         try {
                             dialog.modifyDialog("Cuenta Creada");
                             Thread.sleep(3000);

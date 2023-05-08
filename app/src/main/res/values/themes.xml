@@ -101,6 +101,11 @@
         <item name="android:textSize">16dp</item>
     </style>
 
+    <style name="edittext_descripcion_producto" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <!-- Primary brand color. -->
+        <item name="android:background">@drawable/descripcion_producto_claro</item>
+    </style>
+
     <style name="texto_Samba_amarillo_verde" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <!-- Primary brand color. -->
         <item name="android:textColor">@color/verde_oscuro</item>
@@ -116,13 +121,63 @@
         <item name="android:background">@color/white</item>
     </style>
 
-    <style name="texto_inicio" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <style name="texto_pantalla_inicio" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <!-- Primary brand color. -->
         <item name="android:textColor">@color/gris_oscuro</item>
     </style>
 
+    <style name="iconos_perfil" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="tint">@color/black</item>
+        <item name="android:background">@color/transparente</item>
+    </style>
 
+    <style name="titulo_apartados_perfil" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
+    <style name="descripcion_apartados_perfil" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/gris_oscuro_perfil</item>
+    </style>
+
+    <style name="lineas_separatorias_perfil" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:background">@color/gris_claro_lineas</item>
+    </style>
+
+    <style name="linea_separatoria_editar_perfil" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:background">@color/gris_oscuro</item>
+    </style>
+
+    <style name="borde_vista_general_perfil" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:background">@drawable/vista_general_perfil_claro</item>
+    </style>
+
+    <style name="borde_imagen_editar_perfil" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+        <item name="color">@color/white</item>
+    </style>
+
+    <style name="botones_modos" parent="">
+        <item name="android:background">@drawable/boton_verde</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="iconos_cabeceras" parent="">
+        <item name="android:background">@color/transparente</item>
+        <item name="tint">@color/white</item>
+    </style>
+
+    <style name="titulo_cabeceras" parent="">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="fondo_cabeceras" parent="">
+        <item name="android:background">@drawable/cabecera_perfil_claro</item>
+    </style>
 
 
 </resources>

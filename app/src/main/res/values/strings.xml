@@ -12,4 +12,5 @@
         <item>Francia</item>
         <item>Alemania</item>
     </string-array>
+    <string name="title_activity_favoritos">Activity_Favoritos</string>
 </resources>

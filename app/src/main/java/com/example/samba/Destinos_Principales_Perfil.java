@@ -1,16 +1,23 @@
 package com.example.samba;
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.nfc.Tag;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -53,6 +60,60 @@ public class Destinos_Principales_Perfil extends Fragment {
                 navController.navigate(R.id.destinos_principales_editar_perfil);
             }
         });
+
+        binding.vistaCarrito.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), Activity_Carrito.class));
+            }
+        });
+
+        binding.vistaFavoritos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), Activity_Favoritos.class));
+            }
+        });
+
+        binding.vistaPedidos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), Activity_Pedidos.class));
+            }
+        });
+
+        binding.vistaMisProductos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), Activity_Mis_Productos.class));
+            }
+        });
+
+
+        binding.vistaDirecciones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), Activity_Direcciones_Envio.class));
+            }
+        });
+
+        binding.vistaMetodosDePago.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), Activity_Metodos_Pago.class));
+            }
+        });
+
+        binding.vistaQuienesSomos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), Activity_Quienes_Somos.class));
+            }
+        });
+
+
+
+
 
 
     }
