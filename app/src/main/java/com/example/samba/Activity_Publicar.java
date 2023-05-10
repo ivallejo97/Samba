@@ -42,6 +42,5 @@ public class Activity_Publicar extends AppCompatActivity {
             }
         });
 
-
     }
 }

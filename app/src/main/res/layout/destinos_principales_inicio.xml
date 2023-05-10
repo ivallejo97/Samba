@@ -37,7 +37,7 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <ImageButton
-            android:id="@+id/boton_cerrar_ventana"
+            android:id="@+id/boton_carrito"
             style="@style/items_toolbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
             android:src="@drawable/icono_favoritos"
             android:background="@color/transparente"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/boton_cerrar_ventana"
+            app:layout_constraintRight_toLeftOf="@id/boton_carrito"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

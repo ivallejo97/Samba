@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:context=".Activity_Perfil_Admin">
+
+        <View
+            android:id="@+id/fondo_perfil_admin"
+            style="@style/color_fondo_interfaz_admin"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/boton_volver_perfil"
+            style="@style/color_logos_interfaz_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/icono_flecha_volver"
+            android:background="@color/transparente"
+            app:layout_constraintTop_toTopOf="@id/fondo_perfil_admin"
+            app:layout_constraintLeft_toLeftOf="@id/fondo_perfil_admin"/>
+
+        <ImageButton
+            android:id="@+id/boton_editar_perfil"
+            style="@style/color_logos_interfaz_admin"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/icono_editar"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:background="@color/transparente"
+            app:layout_constraintTop_toTopOf="@id/fondo_perfil_admin"
+            app:layout_constraintRight_toRightOf="@id/fondo_perfil_admin" />
+
+        <ImageView
+            android:id="@+id/logo_administrador"
+            style="@style/color_logos_interfaz_admin"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/logo_perfil_administrador"
+            app:layout_constraintTop_toTopOf="@id/fondo_perfil_admin"
+            app:layout_constraintLeft_toLeftOf="@id/fondo_perfil_admin"
+            app:layout_constraintRight_toRightOf="@id/fondo_perfil_admin"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/icono_perfil"
+            android:background="@color/white"
+            app:layout_constraintTop_toTopOf="@id/fondo_perfil_admin"
+            app:layout_constraintLeft_toLeftOf="@id/fondo_perfil_admin"
+            app:layout_constraintRight_toRightOf="@id/fondo_perfil_admin"
+            app:layout_constraintBottom_toBottomOf="@id/fondo_perfil_admin"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/datos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="Datos de la cuenta de administrador" />
+
+    <View
+        style="@style/linea_separatoria_editar_perfil"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:elevation="5dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="Nombre de administrador" />
+
+    <TextView
+        style="@style/edittext_recuperar_verificar_cuenta"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="5dp"
+        android:text="Nombre de administrador"
+        android:gravity="center_vertical"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:text="Correo electrónico de la cuenta administrador" />
+
+    <TextView
+        style="@style/edittext_recuperar_verificar_cuenta"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="5dp"
+        android:text="admin@gmail.com"
+        android:gravity="center_vertical"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:text="Número de teléfono de la cuenta" />
+
+    <TextView
+        style="@style/edittext_recuperar_verificar_cuenta"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="5dp"
+        android:text="xxx xxx xxx"
+        android:gravity="center_vertical"/>
+
+
+
+</LinearLayout>

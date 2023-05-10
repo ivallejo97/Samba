@@ -205,4 +205,12 @@
         <item name="android:background">@drawable/cabecera_perfil_oscuro</item>
     </style>
 
+    <style name="color_logos_interfaz_admin" parent="">
+        <item name="tint">@color/gris_oscuro</item>
+    </style>
+
+    <style name="color_fondo_interfaz_admin" parent="">
+        <item name="android:background">@color/amarillo</item>
+    </style>
+
 </resources>

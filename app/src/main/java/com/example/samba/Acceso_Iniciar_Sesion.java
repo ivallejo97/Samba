@@ -146,10 +146,9 @@ public class Acceso_Iniciar_Sesion extends Fragment {
                             onDestroyView();
 
                         } else if (userType.equals("admin")){
-                            //startActivity(new Intent(getContext(), Activity_Destinos_Principales.class));
+                            startActivity(new Intent(getContext(), Activity_Interfaz_Admin.class));
                             onDestroyView();
                         }
-
                     }
 
                     @Override
