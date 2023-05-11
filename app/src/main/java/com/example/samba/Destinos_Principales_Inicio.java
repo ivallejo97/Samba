@@ -13,6 +13,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -26,6 +27,8 @@ import android.widget.Toolbar;
 
 import com.example.samba.databinding.AccesoCrearCuentaBinding;
 import com.example.samba.databinding.DestinosPrincipalesInicioBinding;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 
 public class Destinos_Principales_Inicio extends Fragment {
@@ -67,11 +70,38 @@ public class Destinos_Principales_Inicio extends Fragment {
             }
         });
 
+        binding.viewPager.setAdapter(new FragmentStateAdapter(this) {
+            @NonNull
+            @Override
+            public Fragment createFragment(int position) {
+                switch (position) {
+                    case 0: default:
+                        return new Destinos_Principales_Productos_Tienda();
+                    case 1:
+                        return new Destinos_Principales_Productos_Usuarios();
+                }
+            }
 
-
+            @Override
+            public int getItemCount() {
+                return 2;
+            }
+        });
+        new TabLayoutMediator(binding.tabLayout, binding.viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
+            @Override
+            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                switch (position) {
+                    case 0: default:
+                        tab.setText("Productos tienda");
+                        break;
+                    case 1:
+                        tab.setText("Productos usuarios");
+                        break;
+                }
+            }
+        }).attach();
     }
 
 
 
-
-}
+    }
