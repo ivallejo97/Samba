@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Samba"
         tools:targetApi="31">
         <activity
+            android:name=".Activity_Productos_Tienda"
+            android:exported="false" />
+        <activity
             android:name=".Activity_Editar_Perfil_Admin"
             android:exported="false" />
         <activity

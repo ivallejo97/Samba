@@ -1,21 +1,17 @@
 package com.example.samba;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-import com.example.samba.databinding.DestinosPrincipalesInicioBinding;
+import com.bumptech.glide.Glide;
+import com.example.samba.databinding.ActivityProductosTiendaBinding;
+import com.example.samba.databinding.ActivityPublicarBinding;
 import com.example.samba.databinding.DestinosPrincipalesProductosTiendaBinding;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,31 +20,27 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+public class Activity_Productos_Tienda extends AppCompatActivity {
 
-public class Destinos_Principales_Productos_Tienda extends Fragment {
-
-    private DestinosPrincipalesProductosTiendaBinding binding;
+    private ActivityProductosTiendaBinding binding;
     private ArrayList<Model_Camisetas_Tienda> modelCamisetasTiendaArrayList;
     private Adapter_Camisetas_Tienda adapterCamisetasTienda;
     String idCategoria, categoria;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return (binding = DestinosPrincipalesProductosTiendaBinding.inflate(inflater, container, false)).getRoot();
-    }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView((binding = ActivityProductosTiendaBinding.inflate(getLayoutInflater())).getRoot());
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        Intent intent = getActivity().getIntent();
-        intent.getStringExtra("categoriaId");
-        intent.getStringExtra("categoria");
+        Intent intent = getIntent();
+        idCategoria = intent.getStringExtra("categoriaId");
+        categoria = intent.getStringExtra("categoria");
 
 
         cargarListaCamisetas();
+
+        binding.titulo.setText(categoria);
+
 
         binding.buscador.addTextChangedListener(new TextWatcher() {
             @Override
@@ -86,7 +78,7 @@ public class Destinos_Principales_Productos_Tienda extends Fragment {
                             Model_Camisetas_Tienda camisetasTienda = snapshot.getValue(Model_Camisetas_Tienda.class);
                             modelCamisetasTiendaArrayList.add(camisetasTienda);
                         }
-                        adapterCamisetasTienda = new Adapter_Camisetas_Tienda(getContext(),modelCamisetasTiendaArrayList);
+                        adapterCamisetasTienda = new Adapter_Camisetas_Tienda(Activity_Productos_Tienda.this,modelCamisetasTiendaArrayList);
                         binding.recyclerCamisetasTienda.setAdapter(adapterCamisetasTienda);
 
                     }
@@ -97,4 +89,5 @@ public class Destinos_Principales_Productos_Tienda extends Fragment {
                     }
                 });
     }
+
 }

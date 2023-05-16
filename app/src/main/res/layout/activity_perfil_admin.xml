@@ -58,11 +58,11 @@
             app:layout_constraintRight_toRightOf="@id/fondo_perfil_admin"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/foto_perfil_administrador"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="35dp"
             android:src="@drawable/icono_perfil"
-            android:background="@color/white"
             app:layout_constraintTop_toTopOf="@id/fondo_perfil_admin"
             app:layout_constraintLeft_toLeftOf="@id/fondo_perfil_admin"
             app:layout_constraintRight_toRightOf="@id/fondo_perfil_admin"
@@ -81,11 +81,10 @@
     <View
         style="@style/linea_separatoria_editar_perfil"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
+        android:layout_height="2dp"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:elevation="5dp" />
+        android:layout_marginRight="20dp" />
 
 
     <TextView
@@ -96,6 +95,7 @@
         android:text="Nombre de administrador" />
 
     <TextView
+        android:id="@+id/nombre_completo_administrador"
         style="@style/edittext_recuperar_verificar_cuenta"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -110,9 +110,28 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
+        android:text="Usuario del administrador" />
+
+    <TextView
+        android:id="@+id/nombre_usuario_administrador"
+        style="@style/edittext_recuperar_verificar_cuenta"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="5dp"
+        android:text="Nombre de usuario del administrador"
+        android:gravity="center_vertical"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
         android:text="Correo electrónico de la cuenta administrador" />
 
     <TextView
+        android:id="@+id/correo_electronico_administrador"
         style="@style/edittext_recuperar_verificar_cuenta"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -127,9 +146,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
-        android:text="Número de teléfono de la cuenta" />
+        android:text="Teléfono de administrador" />
 
     <TextView
+        android:id="@+id/numero_telefono_administrador"
         style="@style/edittext_recuperar_verificar_cuenta"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -137,6 +157,24 @@
         android:layout_marginRight="20dp"
         android:padding="5dp"
         android:text="xxx xxx xxx"
+        android:gravity="center_vertical"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:text="Nacionalidad del administrador" />
+
+    <TextView
+        android:id="@+id/nacionalidad_administrador"
+        style="@style/edittext_recuperar_verificar_cuenta"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="5dp"
+        android:text="España"
         android:gravity="center_vertical"/>
 
 

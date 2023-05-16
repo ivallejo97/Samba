@@ -213,4 +213,18 @@
         <item name="android:background">@color/amarillo</item>
     </style>
 
+    <style name="borde_categorias" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">5dp</item>
+        <item name="color">@color/white</item>
+    </style>
+
+    <style name="seleccionar_categoria" parent="">
+        <item name="android:background">@drawable/text_categoria_producto_oscuro</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+    </style>
+
 </resources>

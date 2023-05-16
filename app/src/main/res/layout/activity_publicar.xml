@@ -63,8 +63,17 @@
                 app:layout_constraintLeft_toLeftOf="@id/cabecera_publicar"
                 app:layout_constraintBottom_toBottomOf="@id/cabecera_publicar"/>
 
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icono_imagen"
+                app:layout_constraintTop_toTopOf="@id/foto_producto_1"
+                app:layout_constraintLeft_toLeftOf="@id/foto_producto_1"
+                app:layout_constraintRight_toRightOf="@id/foto_producto_1"
+                app:layout_constraintBottom_toBottomOf="@id/foto_producto_1"/>
+
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/foto_fondo_categoria"
+                android:id="@+id/foto_producto_2"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="40dp"
@@ -76,6 +85,15 @@
                 app:layout_constraintLeft_toLeftOf="@id/cabecera_publicar"
                 app:layout_constraintRight_toRightOf="@id/cabecera_publicar"
                 app:layout_constraintBottom_toBottomOf="@id/cabecera_publicar"/>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icono_imagen"
+                app:layout_constraintTop_toTopOf="@id/foto_producto_2"
+                app:layout_constraintLeft_toLeftOf="@id/foto_producto_2"
+                app:layout_constraintRight_toRightOf="@id/foto_producto_2"
+                app:layout_constraintBottom_toBottomOf="@id/foto_producto_2"/>
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/foto_producto_3"
@@ -90,6 +108,15 @@
                 app:layout_constraintTop_toTopOf="@id/cabecera_publicar"
                 app:layout_constraintRight_toRightOf="@id/cabecera_publicar"
                 app:layout_constraintBottom_toBottomOf="@id/cabecera_publicar"/>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icono_imagen"
+                app:layout_constraintTop_toTopOf="@id/foto_producto_3"
+                app:layout_constraintLeft_toLeftOf="@id/foto_producto_3"
+                app:layout_constraintRight_toRightOf="@id/foto_producto_3"
+                app:layout_constraintBottom_toBottomOf="@id/foto_producto_3"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

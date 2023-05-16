@@ -44,9 +44,7 @@ public class Destinos_Principales_Inicio extends Fragment {
         return (binding = DestinosPrincipalesInicioBinding.inflate(inflater, container, false)).getRoot();
 
 
-
     }
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -102,6 +100,5 @@ public class Destinos_Principales_Inicio extends Fragment {
         }).attach();
     }
 
+}
 
-
-    }

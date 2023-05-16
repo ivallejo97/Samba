@@ -66,13 +66,21 @@ android:orientation="vertical">
             android:layout_width="160dp"
             android:layout_height="120dp"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/icono_usuario"
             android:scaleType="centerCrop"
             app:shapeAppearanceOverlay="@style/borde_imagen_editar_perfil"
             android:background="@color/white"
             app:layout_constraintLeft_toLeftOf="@id/cabecera_publicar"
             app:layout_constraintRight_toRightOf="@id/cabecera_publicar"
             app:layout_constraintBottom_toBottomOf="@id/cabecera_publicar"/>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/icono_imagen"
+            app:layout_constraintTop_toTopOf="@id/foto_fondo_categoria"
+            app:layout_constraintLeft_toLeftOf="@id/foto_fondo_categoria"
+            app:layout_constraintRight_toRightOf="@id/foto_fondo_categoria"
+            app:layout_constraintBottom_toBottomOf="@id/foto_fondo_categoria"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -86,7 +94,7 @@ android:orientation="vertical">
         android:layout_marginRight="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/nombre_producto"
+            android:id="@+id/nombre_categoria"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Introduce el nombre de la categoria"
@@ -103,6 +111,7 @@ android:orientation="vertical">
 
 
     <EditText
+        android:id="@+id/descripcion_categoria"
         style="@style/edittext_descripcion_producto"
         android:layout_width="match_parent"
         android:layout_height="150dp"
@@ -113,7 +122,7 @@ android:orientation="vertical">
         android:gravity="top"/>
 
     <Button
-        android:id="@+id/boton_actualizar"
+        android:id="@+id/boton_agregar"
         style="@style/botones_modos"
         android:layout_width="match_parent"
         android:layout_height="45dp"

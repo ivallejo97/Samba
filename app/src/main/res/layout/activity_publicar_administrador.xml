@@ -73,6 +73,15 @@
                 app:layout_constraintLeft_toLeftOf="@id/cabecera_publicar"
                 app:layout_constraintBottom_toBottomOf="@id/cabecera_publicar"/>
 
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icono_imagen"
+                app:layout_constraintTop_toTopOf="@id/foto_producto_1"
+                app:layout_constraintLeft_toLeftOf="@id/foto_producto_1"
+                app:layout_constraintRight_toRightOf="@id/foto_producto_1"
+                app:layout_constraintBottom_toBottomOf="@id/foto_producto_1"/>
+
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/foto_producto_2"
                 android:layout_width="100dp"
@@ -85,6 +94,15 @@
                 app:layout_constraintLeft_toLeftOf="@id/cabecera_publicar"
                 app:layout_constraintRight_toRightOf="@id/cabecera_publicar"
                 app:layout_constraintBottom_toBottomOf="@id/cabecera_publicar"/>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icono_imagen"
+                app:layout_constraintTop_toTopOf="@id/foto_producto_2"
+                app:layout_constraintLeft_toLeftOf="@id/foto_producto_2"
+                app:layout_constraintRight_toRightOf="@id/foto_producto_2"
+                app:layout_constraintBottom_toBottomOf="@id/foto_producto_2"/>
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/foto_producto_3"
@@ -99,6 +117,15 @@
                 app:layout_constraintRight_toRightOf="@id/cabecera_publicar"
                 app:layout_constraintBottom_toBottomOf="@id/cabecera_publicar"/>
 
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icono_imagen"
+                app:layout_constraintTop_toTopOf="@id/foto_producto_3"
+                app:layout_constraintLeft_toLeftOf="@id/foto_producto_3"
+                app:layout_constraintRight_toRightOf="@id/foto_producto_3"
+                app:layout_constraintBottom_toBottomOf="@id/foto_producto_3"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -107,8 +134,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            >
+            android:layout_marginRight="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/nombre_producto"
@@ -186,24 +212,55 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="15dp"
                 android:src="@drawable/icono_euro"
+                app:tint="@color/gris_claro"
                 app:layout_constraintTop_toTopOf="@id/input_precio"
                 app:layout_constraintRight_toRightOf="@id/input_precio"
                 app:layout_constraintBottom_toBottomOf="@id/input_precio"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
 
+            <TextView
+                android:id="@+id/categoria"
+                style="@style/seleccionar_categoria"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:paddingLeft="15dp"
+                android:hint="Categoria"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/flecha_abrir_desplegable"
+                android:layout_marginRight="10dp"
+                app:tint="@color/gris_claro"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="22dp"
-            android:text="Descripción del producto"/>
+            android:layout_marginLeft="20dp"
+            android:text="Descripción del producto"
+            android:textSize="15dp"/>
 
 
         <EditText
+            android:id="@+id/descripcion_producto"
             style="@style/edittext_descripcion_producto"
             android:layout_width="match_parent"
             android:layout_height="150dp"
@@ -214,7 +271,7 @@
             android:gravity="top"/>
 
         <Button
-            android:id="@+id/boton_actualizar"
+            android:id="@+id/boton_agregar_producto"
             style="@style/botones_modos"
             android:layout_width="match_parent"
             android:layout_height="45dp"
