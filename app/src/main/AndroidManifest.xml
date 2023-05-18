@@ -16,6 +16,19 @@
         android:theme="@style/Theme.Samba"
         tools:targetApi="31">
         <activity
+            android:name=".Activity_Carga_Pantalla_Inicio"
+            android:exported="true" >
+
+            <intent-filter>
+
+                <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar" -->
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity
             android:name=".Activity_Productos_Tienda"
             android:exported="false" />
         <activity
@@ -65,16 +78,16 @@
             android:theme="@style/Theme.Samba" />
         <activity
             android:name=".Activity_Acceso"
-            android:exported="true"
+            android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Samba">
-            <intent-filter>
+            <!--<intent-filter>
 
-                <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar" -->
+                &lt;!&ndash; android:theme="@style/Theme.AppCompat.Light.NoActionBar" &ndash;&gt;
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity
             android:name=".MainActivity"

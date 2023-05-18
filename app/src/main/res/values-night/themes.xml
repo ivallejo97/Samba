@@ -20,6 +20,11 @@
         <item name="android:background">@drawable/degradado_modo_oscuro</item>
     </style>
 
+    <style name="icono_pantalla_opciones" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="android:src">@drawable/samba_provisional_pantalla_carga_modo_oscuro</item>
+    </style>
+
     <style name="pantalla_opciones_texto" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
         <!-- Primary brand color. -->
         <item name="android:textColor">@color/gris_oscuro</item>
