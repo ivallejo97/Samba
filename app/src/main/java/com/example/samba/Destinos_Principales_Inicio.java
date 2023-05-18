@@ -57,14 +57,14 @@ public class Destinos_Principales_Inicio extends Fragment {
         binding.botonFavoritos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.destinos_Principales_Chat);
+                startActivity(new Intent(getContext(),Activity_Favoritos.class));
             }
         });
 
         binding.botonCarrito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), Activity_Publicar.class));
+                startActivity(new Intent(getContext(), Activity_Carrito.class));
             }
         });
 

@@ -1,4 +1,4 @@
-package com.example.samba;
+package com.example.samba.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.samba.Activity_Productos_Tienda;
+import com.example.samba.filtros.Categoria_Filtrar;
+import com.example.samba.model.Model_Categoria;
 import com.example.samba.databinding.EstiloCategoriaBinding;
 import com.google.android.material.imageview.ShapeableImageView;
 
@@ -55,9 +58,11 @@ public class Adapter_Categoria extends RecyclerView.Adapter<Adapter_Categoria.Ho
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,Activity_Productos_Tienda.class);
+                Intent intent = new Intent(context, Activity_Productos_Tienda.class);
                 intent.putExtra("categoriaId" , id);
                 intent.putExtra("categoria" , categoria);
+                intent.putExtra("fotoCategoria",foto_categoria);
+                intent.putExtra("descripcionCategoria",descripcion_categoria);
                 context.startActivity(intent);
             }
         });

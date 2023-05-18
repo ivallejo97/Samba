@@ -1,7 +1,6 @@
-package com.example.samba;
+package com.example.samba.adapter;
 
 import android.content.Context;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.samba.filtros.Filtro_Camisetas;
+import com.example.samba.model.Model_Camisetas_Tienda;
 import com.example.samba.databinding.EstiloCamisetasBinding;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -51,13 +53,13 @@ public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camis
     @Override
     public void onBindViewHolder(@NonNull HolderCamisetasTienda holder, int position) {
         Model_Camisetas_Tienda modelCamisetasTienda = camisetasTiendaArrayList.get(position);
-        String nombreUsuario = "" + camisetasTiendaArrayList.get(position).uid;
+        String nombreUsuario = "" + modelCamisetasTienda.getUid();
         String fotoCamiseta = "" + modelCamisetasTienda.getUrl();
         String nombreCamiseta = "" + modelCamisetasTienda.getTitulo();
         String nombrePrecioCamiseta = "" + modelCamisetasTienda.getPrecio();
         long timestamp = modelCamisetasTienda.getTimestamp();
 
-        holder.nombreUsuario.setText(nombreUsuario);
+        //holder.nombreUsuario.setText(nombreUsuario);
         holder.nombreCamiseta.setText(nombreCamiseta);
         Glide.with(context).load(modelCamisetasTienda.getUrl()).into(holder.fotoCamiseta);
         holder.precioCamiseta.setText(nombrePrecioCamiseta);
@@ -79,7 +81,6 @@ public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camis
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String categoria = "" + snapshot.child("categoria").getValue();
-                        holder.nombreCamiseta.setText(categoria);
                     }
 
                     @Override
@@ -100,18 +101,18 @@ public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camis
     }
     class HolderCamisetasTienda extends RecyclerView.ViewHolder {
 
-        CircleImageView fotoUsuario;
-        TextView nombreUsuario;
-        ImageView fotoCamiseta;
+        //CircleImageView fotoUsuario;
+        //TextView nombreUsuario;
+        ShapeableImageView fotoCamiseta;
         TextView nombreCamiseta;
-        ImageButton botonFavoritos;
+        ImageView botonFavoritos;
         TextView precioCamiseta;
 
         public HolderCamisetasTienda(@NonNull View itemView) {
             super(itemView);
 
-            fotoUsuario = binding.iconoUsuario;
-            nombreUsuario = binding.nombreUsuario;
+            //fotoUsuario = binding.iconoUsuario;
+            //nombreUsuario = binding.nombreUsuario;
             fotoCamiseta = binding.fotoProducto;
             nombreCamiseta = binding.nombreProducto;
             botonFavoritos = binding.botonFavoritos;

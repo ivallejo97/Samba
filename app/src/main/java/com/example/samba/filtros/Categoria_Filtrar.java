@@ -1,6 +1,9 @@
-package com.example.samba;
+package com.example.samba.filtros;
 
 import android.widget.Filter;
+
+import com.example.samba.adapter.Adapter_Categoria;
+import com.example.samba.model.Model_Categoria;
 
 import java.util.ArrayList;
 

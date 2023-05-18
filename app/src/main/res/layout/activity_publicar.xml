@@ -223,6 +223,7 @@
 
 
         <EditText
+            android:id="@+id/descripcion_producto"
             style="@style/edittext_descripcion_producto"
             android:layout_width="match_parent"
             android:layout_height="150dp"
@@ -233,7 +234,7 @@
             android:gravity="top"/>
 
         <Button
-            android:id="@+id/boton_actualizar"
+            android:id="@+id/boton_agregar"
             style="@style/botones_modos"
             android:layout_width="match_parent"
             android:layout_height="45dp"

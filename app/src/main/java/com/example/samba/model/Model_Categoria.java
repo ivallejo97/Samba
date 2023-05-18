@@ -1,4 +1,4 @@
-package com.example.samba;
+package com.example.samba.model;
 
 public class Model_Categoria {
 

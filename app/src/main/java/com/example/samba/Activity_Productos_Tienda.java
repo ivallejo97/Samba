@@ -4,14 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 
 import com.bumptech.glide.Glide;
+import com.example.samba.adapter.Adapter_Camisetas_Tienda;
 import com.example.samba.databinding.ActivityProductosTiendaBinding;
-import com.example.samba.databinding.ActivityPublicarBinding;
-import com.example.samba.databinding.DestinosPrincipalesProductosTiendaBinding;
+import com.example.samba.model.Model_Camisetas_Tienda;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,7 +26,7 @@ public class Activity_Productos_Tienda extends AppCompatActivity {
     private ActivityProductosTiendaBinding binding;
     private ArrayList<Model_Camisetas_Tienda> modelCamisetasTiendaArrayList;
     private Adapter_Camisetas_Tienda adapterCamisetasTienda;
-    String idCategoria, categoria;
+    String idCategoria, categoria, descripcionCategoria ,fotoCategoria;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +36,14 @@ public class Activity_Productos_Tienda extends AppCompatActivity {
         Intent intent = getIntent();
         idCategoria = intent.getStringExtra("categoriaId");
         categoria = intent.getStringExtra("categoria");
-
+        fotoCategoria = intent.getStringExtra("fotoCategoria");
+        descripcionCategoria = intent.getStringExtra("descripcionCategoria");
 
         cargarListaCamisetas();
 
         binding.titulo.setText(categoria);
+        binding.descripcionCategoria.setText(descripcionCategoria);
+        Glide.with(this).load(fotoCategoria).into(binding.fotoFondoCategoria);
 
 
         binding.buscador.addTextChangedListener(new TextWatcher() {
@@ -75,12 +79,11 @@ public class Activity_Productos_Tienda extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         modelCamisetasTiendaArrayList.clear();
                         for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                            Model_Camisetas_Tienda camisetasTienda = snapshot.getValue(Model_Camisetas_Tienda.class);
+                            Model_Camisetas_Tienda camisetasTienda = dataSnapshot.getValue(Model_Camisetas_Tienda.class);
                             modelCamisetasTiendaArrayList.add(camisetasTienda);
                         }
                         adapterCamisetasTienda = new Adapter_Camisetas_Tienda(Activity_Productos_Tienda.this,modelCamisetasTiendaArrayList);
                         binding.recyclerCamisetasTienda.setAdapter(adapterCamisetasTienda);
-
                     }
 
                     @Override

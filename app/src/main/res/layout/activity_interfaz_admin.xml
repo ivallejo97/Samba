@@ -77,26 +77,25 @@
         android:layout_marginRight="20dp"
         android:elevation="5dp" />
 
-
-    <Button
-        style="@style/botones_modos"
-        android:id="@+id/boton_añadir_producto"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Añadir Producto"/>
-
     <Button
         style="@style/botones_modos"
         android:id="@+id/boton_añadir_categoria"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Añadir Categoria"/>
+
+    <Button
+        style="@style/botones_modos"
+        android:id="@+id/boton_añadir_producto"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Añadir Producto"/>
 
     <Button
         style="@style/botones_modos"

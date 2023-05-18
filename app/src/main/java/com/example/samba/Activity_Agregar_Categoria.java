@@ -35,6 +35,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
+import java.util.UUID;
 
 public class Activity_Agregar_Categoria extends AppCompatActivity {
 
@@ -100,7 +101,8 @@ public class Activity_Agregar_Categoria extends AppCompatActivity {
     private void uploadImage(String s) {
         String file = "CategoryImages/"+firebaseAuth.getUid();
         StorageReference storageReference = FirebaseStorage.getInstance().getReference(file);
-        storageReference.putFile(imageUri)
+        String imagenID = UUID.randomUUID().toString();
+        storageReference.child(imagenID).putFile(imageUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -143,6 +145,7 @@ public class Activity_Agregar_Categoria extends AppCompatActivity {
                     public void onSuccess(Void unused) {
                         progressDialog.dismiss();
                         Toast.makeText(Activity_Agregar_Categoria.this,"Categoria Añadida", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Activity_Agregar_Categoria.this, Activity_Interfaz_Admin.class));
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

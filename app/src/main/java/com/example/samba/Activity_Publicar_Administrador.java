@@ -42,6 +42,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.UUID;
 
 public class Activity_Publicar_Administrador extends AppCompatActivity {
 
@@ -52,7 +53,7 @@ public class Activity_Publicar_Administrador extends AppCompatActivity {
     private Uri imageUri = null;
     private static final String TAG = "ADD_PRODUCT_TAG";
     String[] tallas = {"S","M","L","XL","XXL"};
-    String[] marcas = {"Adidas","Nike","Puma","New Balance","Umbro","Castore","Kappa","Hummel"};
+    String[] marcas = {"Adidas","Nike","Puma","New Balance","Umbro","Castore","Kappa","Hummel","Joma"};
     AutoCompleteTextView autoCompleteTextView;
     ArrayAdapter<String> adapterTallas;
     ArrayAdapter<String> adapterMarcas;
@@ -147,7 +148,10 @@ public class Activity_Publicar_Administrador extends AppCompatActivity {
 
         String rutaProductos = "Camisetas/"+firebaseAuth.getUid();
         StorageReference storageReference = FirebaseStorage.getInstance().getReference(rutaProductos);
-        storageReference.putFile(imageUri)
+
+        String imagenID = UUID.randomUUID().toString();
+
+        storageReference.child(imagenID).putFile(imageUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

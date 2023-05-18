@@ -13,9 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.samba.databinding.DestinosPrincipalesInicioBinding;
+import com.example.samba.adapter.Adapter_Camisetas_Tienda;
+import com.example.samba.adapter.Adapter_Chat;
 import com.example.samba.databinding.DestinosPrincipalesProductosTiendaBinding;
-import com.google.firebase.auth.FirebaseAuth;
+import com.example.samba.model.Model_Camisetas_Tienda;
+import com.example.samba.model.Model_Chat;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,57 +46,33 @@ public class Destinos_Principales_Productos_Tienda extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         Intent intent = getActivity().getIntent();
-        intent.getStringExtra("categoriaId");
-        intent.getStringExtra("categoria");
+        idCategoria = intent.getStringExtra("categoriaId");
+        categoria = intent.getStringExtra("categoria");
 
 
         cargarListaCamisetas();
-
-        binding.buscador.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try {
-                    adapterCamisetasTienda.getFilter().filter(s);
-                } catch (Exception e){
-
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
     }
 
     private void cargarListaCamisetas() {
         modelCamisetasTiendaArrayList  = new ArrayList<>();
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Camisetas");
-        databaseReference.orderByChild("categoriaId").equalTo(idCategoria)
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        modelCamisetasTiendaArrayList.clear();
-                        for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                            Model_Camisetas_Tienda camisetasTienda = snapshot.getValue(Model_Camisetas_Tienda.class);
-                            modelCamisetasTiendaArrayList.add(camisetasTienda);
-                        }
-                        adapterCamisetasTienda = new Adapter_Camisetas_Tienda(getContext(),modelCamisetasTiendaArrayList);
-                        binding.recyclerCamisetasTienda.setAdapter(adapterCamisetasTienda);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                modelCamisetasTiendaArrayList.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Model_Camisetas_Tienda camisetasTienda = dataSnapshot.getValue(Model_Camisetas_Tienda.class);
+                    modelCamisetasTiendaArrayList.add(camisetasTienda);
+                }
+                adapterCamisetasTienda = new Adapter_Camisetas_Tienda(getContext(),modelCamisetasTiendaArrayList);
+                binding.recyclerCamisetasTienda.setAdapter(adapterCamisetasTienda);
+            }
 
-                    }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+            }
+        });
     }
 }
