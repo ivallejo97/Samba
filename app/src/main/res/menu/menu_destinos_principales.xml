@@ -13,7 +13,7 @@
 
     <item
         android:id="@+id/activity_Publicar"
-        android:icon="@drawable/icono_agregar"
+        android:enabled="false"
         android:title="" />
 
     <item

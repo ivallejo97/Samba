@@ -1,35 +1,22 @@
 package com.example.samba.model;
 
-import android.util.Log;
+public class Model_Camisetas_Usuario {
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class Model_Camisetas_Tienda {
-
-    String titulo, talla, marca, precio, categoriaId, descripcion, url, uid, id, fotoCategoria;
+    String titulo, talla, marca, precio, descripcion, fotoProducto, uid, id;
     long timestamp, numeroVisitas;
 
-    public Model_Camisetas_Tienda() {
+    public Model_Camisetas_Usuario() {
     }
 
-    public Model_Camisetas_Tienda(String titulo, String talla, String marca, String precio, String categoriaId, String descripcion, String url, String uid, String id, String fotoCategoria, long timestamp, long numeroVisitas) {
+    public Model_Camisetas_Usuario(String titulo, String talla, String marca, String precio, String descripcion, String fotoProducto, String uid, String id, long timestamp, long numeroVisitas) {
         this.titulo = titulo;
         this.talla = talla;
         this.marca = marca;
         this.precio = precio;
-        this.categoriaId = categoriaId;
         this.descripcion = descripcion;
-        this.url = url;
+        this.fotoProducto = fotoProducto;
         this.uid = uid;
         this.id = id;
-        this.fotoCategoria = fotoCategoria;
         this.timestamp = timestamp;
         this.numeroVisitas = numeroVisitas;
     }
@@ -66,14 +53,6 @@ public class Model_Camisetas_Tienda {
         this.precio = precio;
     }
 
-    public String getCategoriaId() {
-        return categoriaId;
-    }
-
-    public void setCategoriaId(String categoriaId) {
-        this.categoriaId = categoriaId;
-    }
-
     public String getDescripcion() {
         return descripcion;
     }
@@ -82,12 +61,12 @@ public class Model_Camisetas_Tienda {
         this.descripcion = descripcion;
     }
 
-    public String getUrl() {
-        return url;
+    public String getFotoProducto() {
+        return fotoProducto;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setFotoProducto(String fotoProducto) {
+        this.fotoProducto = fotoProducto;
     }
 
     public String getUid() {
@@ -104,14 +83,6 @@ public class Model_Camisetas_Tienda {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getFotoCategoria() {
-        return fotoCategoria;
-    }
-
-    public void setFotoCategoria(String fotoCategoria) {
-        this.fotoCategoria = fotoCategoria;
     }
 
     public long getTimestamp() {

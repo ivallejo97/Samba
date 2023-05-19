@@ -18,16 +18,19 @@
         <activity
             android:name=".Activity_Carga_Pantalla_Inicio"
             android:exported="true" >
-
             <intent-filter>
-
-                <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar" -->
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
         </activity>
+        <activity
+            android:name=".Activity_Camiseta_Tienda"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Camiseta_Usuario"
+            android:exported="false" />
         <activity
             android:name=".Activity_Productos_Tienda"
             android:exported="false" />

@@ -46,11 +46,8 @@ public class Adapter_Chat extends RecyclerView.Adapter<Adapter_Chat.HolderChat> 
         String fotoUsuario = model.getProfileImage();
 
         holder.name.setText(nombreCompleto);
-        holder.username.setText(nombreUsuario);
+        holder.username.setText("@" + nombreUsuario);
         Glide.with(context).load(fotoUsuario).into(binding.fotoUsuario);
-
-
-
 
     }
 

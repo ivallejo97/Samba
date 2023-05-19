@@ -26,6 +26,7 @@
 
         <ImageView
             android:id="@+id/icono_portada_mis_productes"
+            style="@style/iconos_perfil"
             android:layout_width="70dp"
             android:layout_height="70dp"
             app:layout_constraintTop_toTopOf="@id/view_portada_metodos_de_pago"
@@ -37,6 +38,7 @@
 
         <TextView
             android:id="@+id/texto_titulo_metodos_de_pago"
+            style="@style/color_texto_predeterminado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Metodos de pago"

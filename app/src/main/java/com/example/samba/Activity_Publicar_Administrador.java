@@ -187,6 +187,7 @@ public class Activity_Publicar_Administrador extends AppCompatActivity {
         hashMap.put("precio",""+precio);
         hashMap.put("categoriaId",""+categoriaIdSeleccionada);
         hashMap.put("descripcion",""+descripcion);
+        hashMap.put("numeroVisitas",0);
         hashMap.put("url",""+agregarProductoUrl);
         hashMap.put("uid",""+firebaseAuth.getUid());
         hashMap.put("id",""+timestamp);
@@ -194,7 +195,6 @@ public class Activity_Publicar_Administrador extends AppCompatActivity {
         if (imageUri != null){
             hashMap.put("fotoCategoria", "" +agregarProductoUrl);
         }
-
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Camisetas");
         databaseReference.child(""+timestamp)

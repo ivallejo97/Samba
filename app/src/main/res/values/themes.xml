@@ -242,4 +242,10 @@
         <item name="tabIndicatorColor">@color/verde_oscuro</item>
     </style>
 
+    <style name="boton_agregar_producto_menu_bottom" parent="">
+        <item name="backgroundTint">@color/verde_oscuro</item>
+        <item name="tint">@color/white</item>
+    </style>
+
+
 </resources>

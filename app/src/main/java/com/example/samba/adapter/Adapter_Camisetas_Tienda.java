@@ -1,12 +1,12 @@
 package com.example.samba.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.samba.Activity_Camiseta_Tienda;
 import com.example.samba.filtros.Filtro_Camisetas;
 import com.example.samba.model.Model_Camisetas_Tienda;
 import com.example.samba.databinding.EstiloCamisetasBinding;
@@ -25,8 +26,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camisetas_Tienda.HolderCamisetasTienda> implements Filterable {
 
@@ -40,8 +39,6 @@ public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camis
         this.camisetasTiendaArrayList = camisetasTiendaArrayList;
         this.filtrarListaCamisetas = camisetasTiendaArrayList;
     }
-
-
 
     @NonNull
     @Override
@@ -65,7 +62,16 @@ public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camis
         holder.precioCamiseta.setText(nombrePrecioCamiseta);
 
         cargarCategoria(modelCamisetasTienda,holder);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, Activity_Camiseta_Tienda.class);
+                context.startActivity(intent);
+            }
+        });
     }
+
 
     @Override
     public int getItemCount() {
@@ -101,8 +107,6 @@ public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camis
     }
     class HolderCamisetasTienda extends RecyclerView.ViewHolder {
 
-        //CircleImageView fotoUsuario;
-        //TextView nombreUsuario;
         ShapeableImageView fotoCamiseta;
         TextView nombreCamiseta;
         ImageView botonFavoritos;
@@ -111,8 +115,6 @@ public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camis
         public HolderCamisetasTienda(@NonNull View itemView) {
             super(itemView);
 
-            //fotoUsuario = binding.iconoUsuario;
-            //nombreUsuario = binding.nombreUsuario;
             fotoCamiseta = binding.fotoProducto;
             nombreCamiseta = binding.nombreProducto;
             botonFavoritos = binding.botonFavoritos;

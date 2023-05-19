@@ -253,4 +253,9 @@
         <item name="tabIndicatorColor">@color/amarillo</item>
     </style>
 
+    <style name="boton_agregar_producto_menu_bottom" parent="">
+        <item name="backgroundTint">@color/amarillo</item>
+        <item name="tint">@color/gris_oscuro</item>
+    </style>
+
 </resources>

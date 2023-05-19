@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activity_Camiseta_Usuario">
+
+        <ImageView
+            android:id="@+id/fotoCamiseta"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <ImageView
+            android:id="@+id/boton_volver"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            style="@style/iconos_perfil"
+            android:src="@drawable/icono_volver_atras"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <ImageView
+            android:id="@+id/boton_carrito"
+            style="@style/iconos_perfil"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/icono_agregar_carrito"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/boton_favoritos"/>
+
+        <ImageView
+            android:id="@+id/boton_favoritos"
+            style="@style/iconos_perfil"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/icono_favoritos_perfil"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+            android:id="@+id/precio_camiseta"
+            style="@style/color_texto_predeterminado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:text="79.99 €"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/fotoCamiseta"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+        <ImageView
+            android:id="@+id/icono_visitas_camiseta"
+            style="@style/iconos_perfil"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/icono_visto"
+            app:layout_constraintTop_toBottomOf="@id/fotoCamiseta"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+            android:id="@+id/numero_visitas_camiseta"
+            style="@style/color_texto_predeterminado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:text="2390"
+            android:textSize="15dp"
+            app:layout_constraintTop_toTopOf="@id/icono_visitas_camiseta"
+            app:layout_constraintRight_toLeftOf="@id/icono_visitas_camiseta"
+            app:layout_constraintBottom_toBottomOf="@id/icono_visitas_camiseta"/>
+
+
+        <TextView
+            android:id="@+id/nombre_camiseta"
+            style="@style/color_texto_predeterminado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="Camiseta Real Madrid Temporada 2022/2023 Primera Equipación"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/precio_camiseta"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <TextView
+            android:id="@+id/talla_camiseta"
+            style="@style/color_texto_predeterminado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:text="Talla: L"
+            android:textSize="18dp"
+            app:layout_constraintTop_toBottomOf="@id/nombre_camiseta"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <TextView
+            android:id="@+id/marca_camiseta"
+            style="@style/color_texto_predeterminado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:text="Marca: Adidas"
+            android:textSize="18dp"
+            app:layout_constraintTop_toBottomOf="@id/nombre_camiseta"
+            app:layout_constraintLeft_toRightOf="@id/talla_camiseta"/>
+
+        <TextView
+            android:id="@+id/descripcion_camiseta"
+            style="@style/color_texto_predeterminado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="Una camiseta de fútbol del Real Madrid es el uniforme distintivo utilizado por el equipo durante los partidos. La camiseta del Real Madrid es reconocida en todo el mundo por su diseño icónico y su asociación con uno de los clubes más exitosos en la historia del fútbol.\n\n
+La camiseta del Real Madrid suele presentar los colores tradicionales del club: blanco y violeta. El blanco es el color predominante y simboliza la pureza, la grandeza y la elegancia del club. A menudo, la camiseta también incluye detalles en violeta, que representan la conexión con la ciudad de Madrid."
+            android:textSize="15dp"
+            app:layout_constraintTop_toBottomOf="@id/talla_camiseta"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
+

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="172dp"
+    android:layout_marginTop="10dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!--<de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/icono_usuario"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/icono_usuario"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/nombre_usuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="Nombe Usuario"
+        app:layout_constraintTop_toTopOf="@id/icono_usuario"
+        app:layout_constraintLeft_toRightOf="@id/icono_usuario"
+        app:layout_constraintBottom_toBottomOf="@id/icono_usuario"/>-->
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/foto_producto"
+        style="@style/color_fondo_camisetas"
+        android:layout_width="120dp"
+        android:layout_height="169dp"
+        android:layout_marginLeft="5dp"
+        app:shapeAppearanceOverlay="@style/borde_imagen_camiseta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/nombre_producto"
+        style="@style/color_texto_predeterminado"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="20dp"
+        android:text="Titulo del producto"
+        android:textSize="14dp"
+        app:layout_constraintTop_toBottomOf="@id/precio_producto"
+        app:layout_constraintLeft_toRightOf="@id/foto_producto"/>
+
+    <ImageView
+        android:id="@+id/boton_eliminar"
+        style="@style/iconos_perfil"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/icono_eliminar"
+        android:background="@color/transparente"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/talla_producto"
+        style="@style/color_texto_predeterminado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="10dp"
+        android:text="Talla"
+        android:textSize="15dp"
+        app:layout_constraintTop_toTopOf="@id/nombre_producto"
+        app:layout_constraintLeft_toRightOf="@id/foto_producto" />
+
+    <TextView
+        android:id="@+id/precio_producto"
+        style="@style/color_texto_predeterminado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="10dp"
+        android:text="Precio"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/foto_producto" />
+
+    <TextView
+        android:id="@+id/iconoPrecio"
+        style="@style/color_texto_predeterminado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:text="€"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/precio_producto"
+        app:layout_constraintLeft_toRightOf="@id/precio_producto"
+        app:layout_constraintBottom_toBottomOf="@id/precio_producto"/>
+
+    <TextView
+        android:id="@+id/fecha_publicacion"
+        style="@style/color_texto_predeterminado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="10dp"
+        android:text="Fecha de publicación"
+        android:textSize="13dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_fondo_camisetas_oscuro"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
