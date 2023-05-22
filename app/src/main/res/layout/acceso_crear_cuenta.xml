@@ -13,7 +13,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="10dp"
-        android:src="@drawable/logo_app"
+        style="@style/icono_pantalla_opciones"
         android:layout_gravity="center"/>
 
     <TextView

@@ -9,7 +9,7 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/logo_app"
+        android:icon="@drawable/samba_provisional_pantalla_carga_modo_claro"
         android:label="Samba"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"

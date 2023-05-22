@@ -214,13 +214,170 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 android:text="Una camiseta de fútbol del Real Madrid es el uniforme distintivo utilizado por el equipo durante los partidos. La camiseta del Real Madrid es reconocida en todo el mundo por su diseño icónico y su asociación con uno de los clubes más exitosos en la historia del fútbol.\n\n
 La camiseta del Real Madrid suele presentar los colores tradicionales del club: blanco y violeta. El blanco es el color predominante y simboliza la pureza, la grandeza y la elegancia del club. A menudo, la camiseta también incluye detalles en violeta, que representan la conexión con la ciudad de Madrid."
                 android:textSize="15dp"
                 app:layout_constraintTop_toBottomOf="@id/marca_camiseta"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintBottom_toTopOf="@id/boton_comprar_camiseta"/>
+
+            <Button
+                android:id="@+id/boton_comprar_camiseta"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:layout_constraintTop_toBottomOf="@id/descripcion_camiseta"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/cuadro_compra_segura"
+                android:layout_margin="20dp"
+                android:text="comprar"
+                />
+
+            <View
+                android:id="@+id/cuadro_compra_segura"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                style="@style/borde_vista_general_perfil"
+                app:layout_constraintTop_toBottomOf="@id/boton_comprar_camiseta"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/cuadro_tiempo_entrega"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                />
+
+            <ImageView
+                android:id="@+id/imagen_compra_segura"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintTop_toTopOf="@id/titulo_compra_segura"
+                app:layout_constraintLeft_toLeftOf="@id/cuadro_compra_segura"
+                app:layout_constraintBottom_toBottomOf="@id/descripcion_compra_segura"
+                android:src="@drawable/icono_compra_segura"
+                android:layout_margin="10dp"
+                />
+
+            <TextView
+                android:id="@+id/titulo_compra_segura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/cuadro_compra_segura"
+                app:layout_constraintLeft_toRightOf="@id/imagen_compra_segura"
+                app:layout_constraintBottom_toTopOf="@id/descripcion_compra_segura"
+                android:text="Tasa de protección al comprador"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                />
+            <TextView
+                android:id="@+id/descripcion_compra_segura"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/titulo_compra_segura"
+                app:layout_constraintLeft_toRightOf="@id/imagen_compra_segura"
+                android:text="Nuestra protección al comprador implica una tasa que se añade a las compras realizadas a traves del boton -Comprar-. Esta protección incluye la politica de reembolso"
+                android:layout_marginLeft="10dp"
+                />
+
+            <!--tiempo de entrega-->
+            <View
+                android:id="@+id/cuadro_tiempo_entrega"
+                android:layout_width="match_parent"
+                android:layout_height="95dp"
+                style="@style/borde_vista_general_perfil"
+                app:layout_constraintTop_toBottomOf="@id/cuadro_compra_segura"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/cuadro_tiempo_devoluciones"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                />
+
+            <ImageView
+                android:id="@+id/imagen_tiempo_entrega"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintTop_toTopOf="@id/titulo_tiempo_entrega"
+                app:layout_constraintLeft_toLeftOf="@id/cuadro_tiempo_entrega"
+                app:layout_constraintBottom_toBottomOf="@id/descripcion_tiempo_entrega"
+                android:src="@drawable/icono_envio"
+                android:layout_margin="10dp"
+                />
+
+            <TextView
+                android:id="@+id/titulo_tiempo_entrega"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/cuadro_tiempo_entrega"
+                app:layout_constraintLeft_toRightOf="@id/imagen_tiempo_entrega"
+                app:layout_constraintBottom_toTopOf="@id/descripcion_tiempo_entrega"
+                android:text="Tiempo de entrega"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                />
+            <TextView
+                android:id="@+id/descripcion_tiempo_entrega"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/titulo_tiempo_entrega"
+                app:layout_constraintLeft_toRightOf="@id/imagen_tiempo_entrega"
+                android:text="El tiempo estimado para la entrega del pedido es de 5 - 10 dias laborales"
+                android:layout_marginLeft="10dp"
+                />
+
+            <!--tiempo de devolucion-->
+
+            <View
+                android:id="@+id/cuadro_tiempo_devoluciones"
+                android:layout_width="match_parent"
+                android:layout_height="95dp"
+                style="@style/borde_vista_general_perfil"
+                app:layout_constraintTop_toBottomOf="@id/cuadro_tiempo_entrega"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                />
+
+            <ImageView
+                android:id="@+id/imagen_tiempo_devoluciones"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:layout_constraintTop_toTopOf="@id/titulo_tiempo_devoluciones"
+                app:layout_constraintLeft_toLeftOf="@id/cuadro_tiempo_devoluciones"
+                app:layout_constraintBottom_toBottomOf="@id/descripcion_tiempo_devoluciones"
+                android:src="@drawable/icono_tiempo_devoluciones"
+                android:layout_margin="10dp"
+                />
+
+            <TextView
+                android:id="@+id/titulo_tiempo_devoluciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/cuadro_tiempo_devoluciones"
+                app:layout_constraintLeft_toRightOf="@id/imagen_tiempo_devoluciones"
+                app:layout_constraintBottom_toTopOf="@id/descripcion_tiempo_devoluciones"
+                android:text="Devoluciones"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                />
+            <TextView
+                android:id="@+id/descripcion_tiempo_devoluciones"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/titulo_tiempo_devoluciones"
+                app:layout_constraintLeft_toRightOf="@id/imagen_tiempo_devoluciones"
+                android:text="Para tramitar una devolucion tiene un plazo de un 31 dias desde la entrega del pedido"
+                android:layout_marginLeft="10dp"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
