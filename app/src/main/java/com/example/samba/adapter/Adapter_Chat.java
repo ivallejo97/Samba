@@ -9,67 +9,78 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.example.samba.filtros.Categoria_Filtrar;
-import com.example.samba.model.Model_Chat;
+import com.example.samba.R;
 import com.example.samba.databinding.EstiloChatBinding;
+import com.example.samba.databinding.EstiloChatDerechaBinding;
+import com.example.samba.databinding.EstiloChatIzquierdaBinding;
+import com.example.samba.model.Model_Chat;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-
 public class Adapter_Chat extends RecyclerView.Adapter<Adapter_Chat.HolderChat> {
 
-    private Context context;
-    public ArrayList<Model_Chat> arrayList;
-    private EstiloChatBinding binding;
-    private Categoria_Filtrar filtrarCategoria;
 
-    public Adapter_Chat(Context context, ArrayList<Model_Chat> arrayList) {
+    private static final int MSG_IZQUIERDO = 0;
+    private static final int MSG_DERECHO = 1;
+    Context context;
+    ArrayList<Model_Chat> chatArrayList;
+    FirebaseUser firebaseUser;
+
+
+
+    public Adapter_Chat(Context context, ArrayList<Model_Chat> chatArrayList) {
         this.context = context;
-        this.arrayList = arrayList;
+        this.chatArrayList = chatArrayList;
     }
 
     @NonNull
     @Override
-    public Adapter_Chat.HolderChat onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        binding = EstiloChatBinding.inflate(LayoutInflater.from(context),parent,false);
-        return new Adapter_Chat.HolderChat(binding.getRoot());
+    public HolderChat onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        if (viewType == MSG_DERECHO){
+            View view = LayoutInflater.from(context).inflate(R.layout.estilo_chat_derecha, parent, false);
+            return new HolderChat(view);
+        } else {
+            View view = LayoutInflater.from(context).inflate(R.layout.estilo_chat_izquierda, parent, false);
+            return new HolderChat(view);
+        }
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Adapter_Chat.HolderChat holder, int position) {
-        Model_Chat model = arrayList.get(position);
-        String id = model.getUid();
-        String nombreCompleto = model.getName();
-        String nombreUsuario = model.getUsername();
-        String fotoUsuario = model.getProfileImage();
+    public void onBindViewHolder(@NonNull HolderChat holder, int position) {
 
-        holder.name.setText(nombreCompleto);
-        holder.username.setText("@" + nombreUsuario);
-        Glide.with(context).load(fotoUsuario).into(binding.fotoUsuario);
+        String mensaje = chatArrayList.get(position).getMensaje();
+        String idEnvia = chatArrayList.get(position).getIdUsuarioEnvia();
+        String idRecibe = chatArrayList.get(position).getIdUsuarioRecibe();
+        String timestamp = chatArrayList.get(position).getTimestamp();
+
+        holder.mensaje.setText(mensaje);
 
     }
 
     @Override
     public int getItemCount() {
-        return arrayList.size();
+        return chatArrayList.size();
     }
 
-
-
-    class HolderChat extends RecyclerView.ViewHolder{
-
-        TextView name,username;
-        CircleImageView fotoUsuario;
-        public HolderChat(@NonNull View itemView) {
-            super(itemView);
-
-            name = binding.nombreCompletoUsuario;
-            username = binding.nombreUsuario;
-            fotoUsuario = binding.fotoUsuario;
+    @Override
+    public int getItemViewType(int position) {
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (chatArrayList.get(position).getIdUsuarioEnvia().equals(firebaseUser.getUid())){
+            return MSG_DERECHO;
+        } else {
+            return MSG_IZQUIERDO;
         }
     }
 
+    class HolderChat extends RecyclerView.ViewHolder{
 
+        TextView mensaje;
+        public HolderChat(@NonNull View itemView) {
+            super(itemView);
+
+            mensaje = itemView.findViewById(R.id.mensaje);
+        }
+    }
 }

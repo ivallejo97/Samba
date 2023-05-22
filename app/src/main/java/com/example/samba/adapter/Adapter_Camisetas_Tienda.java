@@ -15,10 +15,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.samba.Activity_Camiseta_Tienda;
+import com.example.samba.MetodosApp;
+import com.example.samba.R;
 import com.example.samba.filtros.Filtro_Camisetas;
 import com.example.samba.model.Model_Camisetas_Tienda;
 import com.example.samba.databinding.EstiloCamisetasBinding;
 import com.google.android.material.imageview.ShapeableImageView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +33,7 @@ import java.util.ArrayList;
 public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camisetas_Tienda.HolderCamisetasTienda> implements Filterable {
 
     private Context context;
+    boolean favorito;
     public ArrayList<Model_Camisetas_Tienda> camisetasTiendaArrayList, filtrarListaCamisetas;
     private Filtro_Camisetas filtroCamisetas;
     private EstiloCamisetasBinding binding;
@@ -46,14 +50,17 @@ public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camis
         binding = EstiloCamisetasBinding.inflate(LayoutInflater.from(context),parent,false);
         return new HolderCamisetasTienda(binding.getRoot());
     }
-
     @Override
     public void onBindViewHolder(@NonNull HolderCamisetasTienda holder, int position) {
         Model_Camisetas_Tienda modelCamisetasTienda = camisetasTiendaArrayList.get(position);
         String nombreUsuario = "" + modelCamisetasTienda.getUid();
+        String idCamiseta = "" + modelCamisetasTienda.getId();
         String fotoCamiseta = "" + modelCamisetasTienda.getUrl();
+        String categoriaId = "" + modelCamisetasTienda.getCategoriaId();
         String nombreCamiseta = "" + modelCamisetasTienda.getTitulo();
         String nombrePrecioCamiseta = "" + modelCamisetasTienda.getPrecio();
+        String visitasCamiseta = "" + modelCamisetasTienda.getNumeroVisitas();
+        favorito = modelCamisetasTienda.isFavorito();
         long timestamp = modelCamisetasTienda.getTimestamp();
 
         //holder.nombreUsuario.setText(nombreUsuario);
@@ -67,7 +74,23 @@ public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camis
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, Activity_Camiseta_Tienda.class);
+                intent.putExtra("id",idCamiseta);
+                intent.putExtra("numeroVisitas", visitasCamiseta);
+                intent.putExtra("categoriaId",categoriaId);
                 context.startActivity(intent);
+            }
+        });
+
+        holder.botonFavoritos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (favorito){
+                    MetodosApp.eliminarFavoritos(context.getApplicationContext(), idCamiseta);
+                    binding.botonFavoritos.setImageResource(R.drawable.icono_favoritos_perfil);
+                } else {
+                    MetodosApp.addCamisetaFavoritos(context.getApplicationContext(),idCamiseta);
+                    binding.botonFavoritos.setImageResource(R.drawable.icono_favorito_marcado);
+                }
             }
         });
     }

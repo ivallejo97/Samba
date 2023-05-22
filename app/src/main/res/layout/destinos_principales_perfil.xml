@@ -78,38 +78,6 @@
         app:layout_constraintLeft_toLeftOf="@id/nombre_usuario"
         app:layout_constraintRight_toRightOf="@id/nombre_usuario"/>
 
-    <TextView
-        android:id="@+id/telefono"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:text="Numero"
-        app:layout_constraintTop_toTopOf="@id/fondo_perfil"
-        app:layout_constraintLeft_toLeftOf="parent"/>
-
-    <TextView
-        android:id="@+id/pais"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Pais"
-        app:layout_constraintEnd_toEndOf="@+id/telefono"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/telefono"
-        app:layout_constraintTop_toBottomOf="@+id/telefono" />
-
-    <TextView
-        android:id="@+id/user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Tipo"
-        app:layout_constraintEnd_toEndOf="@+id/pais"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/pais"
-        app:layout_constraintTop_toBottomOf="@+id/pais" />
 
     <View
         style="@style/lineas_separatorias_perfil"

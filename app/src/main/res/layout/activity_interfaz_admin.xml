@@ -107,6 +107,24 @@
         android:layout_height="wrap_content"
         android:hint="Editar Perfil"/>
 
+    <Button
+        style="@style/botones_modos"
+        android:id="@+id/boton_listar_categorias"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mostrar Categorias"/>
 
+    <Button
+        style="@style/botones_modos"
+        android:id="@+id/boton_listar_camisetas"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mostrar Camisetas"/>
 
 </LinearLayout>

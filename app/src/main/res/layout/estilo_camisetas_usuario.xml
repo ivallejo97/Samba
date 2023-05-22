@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="170dp"
-    android:layout_height="285dp"
+    android:layout_height="300dp"
     android:layout_marginTop="10dp">
 
     <View
@@ -41,6 +41,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="1dp"
         android:layout_marginRight="1dp"
+        android:scaleType="centerCrop"
         app:shapeAppearanceOverlay="@style/borde_imagen_camiseta"
         app:layout_constraintTop_toBottomOf="@id/icono_usuario"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -67,7 +68,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
         android:src="@drawable/icono_favoritos_perfil"
-        android:background="@color/transparente"
+        android:background="#AA000000"
         app:layout_constraintTop_toTopOf="@id/foto_producto"
         app:layout_constraintRight_toRightOf="@id/foto_producto"/>
 

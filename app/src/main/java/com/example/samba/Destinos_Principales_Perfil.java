@@ -110,12 +110,6 @@ public class Destinos_Principales_Perfil extends Fragment {
                 startActivity(new Intent(getContext(), Activity_Quienes_Somos.class));
             }
         });
-
-
-
-
-
-
     }
 
     private void loadUserInfo() {
@@ -128,6 +122,7 @@ public class Destinos_Principales_Perfil extends Fragment {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String email = "" + snapshot.child("email").getValue();
                         String name = "" + snapshot.child("name").getValue();
+                        String username = "" + snapshot.child("username").getValue();
                         String pais = "" + snapshot.child("pais").getValue();
                         String profileImage = "" + snapshot.child("profileImage").getValue();
                         String telefono = "" + snapshot.child("telefono").getValue();
@@ -136,15 +131,15 @@ public class Destinos_Principales_Perfil extends Fragment {
                         String userType = "" + snapshot.child("userType").getValue();
 
                         binding.correoElectronico.setText(email);
-                        binding.nombreUsuario.setText(name);
-                        binding.pais.setText(pais);
-                        binding.telefono.setText(telefono);
-                        binding.user.setText(userType);
+                        binding.nombreUsuario.setText(username);
 
-                        Glide.with(getContext())
-                                .load(profileImage)
-                                .placeholder(R.drawable.icono_aceptar)
-                                .into(binding.fotoPerfil);
+                        if (isAdded()){
+                            Glide.with(getContext())
+                                    .load(profileImage)
+                                    .placeholder(R.drawable.icono_aceptar)
+                                    .into(binding.fotoPerfil);
+                        }
+
                     }
 
                     @Override

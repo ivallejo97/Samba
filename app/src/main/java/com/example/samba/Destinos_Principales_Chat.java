@@ -12,9 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
-import com.example.samba.adapter.Adapter_Chat;
+import com.example.samba.adapter.Adapter_Usuarios;
 import com.example.samba.databinding.DestinosPrincipalesChatBinding;
-import com.example.samba.model.Model_Chat;
+import com.example.samba.model.Model_Usuarios;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -24,14 +24,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class Destinos_Principales_Chat extends Fragment {
     private DestinosPrincipalesChatBinding binding;
     private FirebaseAuth firebaseAuth;
-    Adapter_Chat adapterChat;
-    ArrayList<Model_Chat> chatList;
+    Adapter_Usuarios adapterChat;
+    ArrayList<Model_Usuarios> chatList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,10 +64,13 @@ public class Destinos_Principales_Chat extends Fragment {
                         String profileImage = "" + snapshot.child("profileImage").getValue();
 
                         binding.nombreUsuario.setText("@"+name);
-                        Glide.with(getContext())
-                                .load(profileImage)
-                                .placeholder(R.drawable.icono_aceptar)
-                                .into(binding.fotoUsuario);
+                        if (isAdded()){
+                            Glide.with(getContext())
+                                    .load(profileImage)
+                                    .placeholder(R.drawable.icono_aceptar)
+                                    .into(binding.fotoUsuario);
+                        }
+
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
@@ -86,13 +88,13 @@ public class Destinos_Principales_Chat extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 chatList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    Model_Chat modelChat = dataSnapshot.getValue(Model_Chat.class);
+                    Model_Usuarios modelChat = dataSnapshot.getValue(Model_Usuarios.class);
 
                     if (!modelChat.getUid().equals(firebaseUser.getUid())){
                         chatList.add(modelChat);
                     }
 
-                    adapterChat = new Adapter_Chat(getContext(),chatList);
+                    adapterChat = new Adapter_Usuarios(getContext(),chatList);
                     binding.recyclerChat.setAdapter(adapterChat);
 
                 }

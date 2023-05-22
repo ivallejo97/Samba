@@ -44,6 +44,20 @@ public class Activity_Interfaz_Admin extends AppCompatActivity {
             }
         });
 
+        binding.botonListarCategorias.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Activity_Interfaz_Admin.this , Activity_Categorias_Administrador.class));
+            }
+        });
+
+        binding.botonListarCamisetas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Activity_Interfaz_Admin.this , Activity_Camisetas_Administrador.class));
+            }
+        });
+
         binding.botonCerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

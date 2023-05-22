@@ -7,17 +7,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.samba.adapter.Adapter_Camisetas_Tienda;
-import com.example.samba.adapter.Adapter_Chat;
 import com.example.samba.databinding.DestinosPrincipalesProductosTiendaBinding;
 import com.example.samba.model.Model_Camisetas_Tienda;
-import com.example.samba.model.Model_Chat;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class Destinos_Principales_Productos_Tienda extends Fragment {
@@ -57,7 +54,7 @@ public class Destinos_Principales_Productos_Tienda extends Fragment {
         modelCamisetasTiendaArrayList  = new ArrayList<>();
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Camisetas");
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.orderByChild("numeroVisitas").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 modelCamisetasTiendaArrayList.clear();
@@ -65,6 +62,7 @@ public class Destinos_Principales_Productos_Tienda extends Fragment {
                     Model_Camisetas_Tienda camisetasTienda = dataSnapshot.getValue(Model_Camisetas_Tienda.class);
                     modelCamisetasTiendaArrayList.add(camisetasTienda);
                 }
+                Collections.reverse(modelCamisetasTiendaArrayList);
                 adapterCamisetasTienda = new Adapter_Camisetas_Tienda(getContext(),modelCamisetasTiendaArrayList);
                 binding.recyclerCamisetasTienda.setAdapter(adapterCamisetasTienda);
             }

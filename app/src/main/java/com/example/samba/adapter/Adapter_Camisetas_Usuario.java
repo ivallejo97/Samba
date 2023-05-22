@@ -13,11 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.samba.Activity_Camiseta_Usuario;
-import com.example.samba.Activity_Productos_Tienda;
-import com.example.samba.databinding.EstiloCamisetasBinding;
 import com.example.samba.databinding.EstiloCamisetasUsuarioBinding;
 import com.example.samba.model.Model_Camisetas_Usuario;
-import com.example.samba.model.Model_Chat;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -71,14 +68,15 @@ public class Adapter_Camisetas_Usuario extends RecyclerView.Adapter<Adapter_Cami
                 Intent intent = new Intent(context, Activity_Camiseta_Usuario.class);
                 intent.putExtra("id",idCamiseta);
                 intent.putExtra("numeroVisitas", visitasCamiseta);
+                intent.putExtra("idUser", idUser);
                 context.startActivity(intent);
             }
         });
 
     }
-
+    String idUser;
     private void cargarDatosUsuario(Model_Camisetas_Usuario modelCamisetasUsuario, HolderCamisetasUsuario holder) {
-        String idUser = modelCamisetasUsuario.getUid();
+        idUser =  "" + modelCamisetasUsuario.getUid();
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
             databaseReference.child(idUser)

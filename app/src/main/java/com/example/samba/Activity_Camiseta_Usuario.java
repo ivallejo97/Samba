@@ -21,7 +21,7 @@ import java.util.HashMap;
 public class Activity_Camiseta_Usuario extends AppCompatActivity {
 
     ActivityCamisetaUsuarioBinding binding;
-    String idCamiseta;
+    String idCamiseta, idUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +31,10 @@ public class Activity_Camiseta_Usuario extends AppCompatActivity {
 
         Intent intent = getIntent();
         idCamiseta = intent.getStringExtra("id");
+        idUser = intent.getStringExtra("idUser");
 
         cargarInformacionCamiseta();
+        cargarDatosUsuario();
         aumentarNumeroDeVisitas(idCamiseta);
 
         binding.botonVolver.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +43,10 @@ public class Activity_Camiseta_Usuario extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+
     }
+
 
     private void aumentarNumeroDeVisitas(String idCamiseta) {
 
@@ -89,9 +94,9 @@ public class Activity_Camiseta_Usuario extends AppCompatActivity {
                         String visitas_camiseta = "" + snapshot.child("numeroVisitas").getValue();
 
                         binding.nombreCamiseta.setText(nombre_camiseta);
-                        binding.tallaCamiseta.setText("Talla: " + talla_camiseta);
-                        binding.marcaCamiseta.setText("Marca: " + marca_camiseta);
-                        binding.precioCamiseta.setText(precio_camiseta + "€");
+                        binding.tallaCamiseta.setText(talla_camiseta);
+                        binding.marcaCamiseta.setText(marca_camiseta);
+                        binding.precioCamiseta.setText(precio_camiseta);
                         binding.descripcionCamiseta.setText(descripcion_camiseta);
                         binding.numeroVisitasCamiseta.setText(visitas_camiseta.replace("null","N/A"));
                         Glide.with(Activity_Camiseta_Usuario.this).load(foto_camiseta).into(binding.fotoCamiseta);
@@ -102,5 +107,27 @@ public class Activity_Camiseta_Usuario extends AppCompatActivity {
 
                     }
                 });
+    }
+
+    private void cargarDatosUsuario() {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        databaseReference.child(idUser)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String nombre_usuario = "" + snapshot.child("name").getValue();
+                        String foto_usuario = "" + snapshot.child("profileImage").getValue();
+
+
+                        binding.nombreUsuario.setText(nombre_usuario);
+                        Glide.with(Activity_Camiseta_Usuario.this).load(foto_usuario).into(binding.fotoUsuario);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
     }
 }

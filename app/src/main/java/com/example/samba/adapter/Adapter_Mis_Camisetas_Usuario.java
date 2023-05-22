@@ -3,6 +3,7 @@ package com.example.samba.adapter;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.samba.Activity_Editar_Camiseta_Usuario;
 import com.example.samba.databinding.EstiloCamisetasUsuarioBinding;
 import com.example.samba.databinding.EstiloMisCamisetasUsuarioBinding;
 import com.example.samba.model.Model_Camisetas_Usuario;
@@ -63,6 +65,15 @@ public class Adapter_Mis_Camisetas_Usuario extends RecyclerView.Adapter<Adapter_
         holder.tallaCamiseta.setText("Talla: " + tallaCamiseta);
         holder.fechaPublicacion.setText("Publicado el: " + fechaPublicacion);
         Glide.with(context).load(fotoCamiseta).into(holder.fotoCamiseta);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, Activity_Editar_Camiseta_Usuario.class);
+                intent.putExtra("id" , modelCamisetasUsuario.getId());
+                context.startActivity(intent);
+            }
+        });
 
         holder.botonEliminar.setOnClickListener(new View.OnClickListener() {
             @Override

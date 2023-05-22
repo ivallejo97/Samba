@@ -247,5 +247,31 @@
         <item name="tint">@color/white</item>
     </style>
 
+    <style name="color_fondo_modos" parent="">
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="borde_escoger_opciones_camiseta" parent="">
+        <item name="android:background">@drawable/bordes_escoger_camiseta_claro</item>
+        <item name="android:textColor">@color/gris_oscuro</item>
+    </style>
+
+    <style name="fondo_categoria_camiseta" parent="">
+        <item name="android:background">@drawable/fondo_categoria_camiseta_claro</item>
+    </style>
+
+    <style name="estilo_mensaje" parent="">
+        <item name="android:background">@drawable/estilo_mensaje_claro</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="estilo_mensaje_usuario" parent="">
+        <item name="android:background">@drawable/estilo_mensaje_usuario_claro</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="estilo_toolbar_chat" parent="">
+        <item name="android:background">@color/gris_toolbar_mensajes</item>
+    </style>
 
 </resources>

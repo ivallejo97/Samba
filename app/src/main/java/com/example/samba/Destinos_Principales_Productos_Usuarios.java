@@ -23,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class Destinos_Principales_Productos_Usuarios extends Fragment {
@@ -55,7 +56,7 @@ public class Destinos_Principales_Productos_Usuarios extends Fragment {
         camisetasUsuarioArrayList = new ArrayList<>();
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("CamisetasUsuarios");
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.orderByChild("numeroVisitas").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 camisetasUsuarioArrayList.clear();
@@ -63,6 +64,7 @@ public class Destinos_Principales_Productos_Usuarios extends Fragment {
                     Model_Camisetas_Usuario modelCamisetasUsuario = dataSnapshot.getValue(Model_Camisetas_Usuario.class);
                     camisetasUsuarioArrayList.add(modelCamisetasUsuario);
                 }
+                Collections.reverse(camisetasUsuarioArrayList); // Invierte el orden de la lista
                 adapterCamisetasUsuario = new Adapter_Camisetas_Usuario(getContext(),camisetasUsuarioArrayList);
                 binding.recyclerCamisetasUsuarios.setAdapter(adapterCamisetasUsuario);
             }
@@ -72,8 +74,6 @@ public class Destinos_Principales_Productos_Usuarios extends Fragment {
 
             }
         });
-
-
     }
 
 

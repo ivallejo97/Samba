@@ -15,11 +15,12 @@ public class Model_Camisetas_Tienda {
 
     String titulo, talla, marca, precio, categoriaId, descripcion, url, uid, id, fotoCategoria;
     long timestamp, numeroVisitas;
+    boolean favorito;
 
     public Model_Camisetas_Tienda() {
     }
 
-    public Model_Camisetas_Tienda(String titulo, String talla, String marca, String precio, String categoriaId, String descripcion, String url, String uid, String id, String fotoCategoria, long timestamp, long numeroVisitas) {
+    public Model_Camisetas_Tienda(String titulo, String talla, String marca, String precio, String categoriaId, String descripcion, String url, String uid, String id, String fotoCategoria, long timestamp, long numeroVisitas, boolean favorito) {
         this.titulo = titulo;
         this.talla = talla;
         this.marca = marca;
@@ -32,6 +33,7 @@ public class Model_Camisetas_Tienda {
         this.fotoCategoria = fotoCategoria;
         this.timestamp = timestamp;
         this.numeroVisitas = numeroVisitas;
+        this.favorito = favorito;
     }
 
     public String getTitulo() {
@@ -128,5 +130,13 @@ public class Model_Camisetas_Tienda {
 
     public void setNumeroVisitas(long numeroVisitas) {
         this.numeroVisitas = numeroVisitas;
+    }
+
+    public boolean isFavorito() {
+        return favorito;
+    }
+
+    public void setFavorito(boolean favorito) {
+        this.favorito = favorito;
     }
 }

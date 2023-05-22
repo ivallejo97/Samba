@@ -52,7 +52,6 @@ public class Activity_Publicar_Administrador extends AppCompatActivity {
     private ArrayList<String> categoriaArrayList, categoriaIdArrayList;
     private Uri imageUri = null;
     private static final String TAG = "ADD_PRODUCT_TAG";
-    String[] tallas = {"S","M","L","XL","XXL"};
     String[] marcas = {"Adidas","Nike","Puma","New Balance","Umbro","Castore","Kappa","Hummel","Joma"};
     AutoCompleteTextView autoCompleteTextView;
     ArrayAdapter<String> adapterTallas;
@@ -68,11 +67,6 @@ public class Activity_Publicar_Administrador extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Añadiendo Producto");
         progressDialog.setCanceledOnTouchOutside(false);
-
-        autoCompleteTextView = findViewById(R.id.talla_producto);
-        adapterTallas = new ArrayAdapter<>(this,R.layout.plantilla_listas,R.id.item, tallas);
-        autoCompleteTextView.setAdapter(adapterTallas);
-        autoCompleteTextView.setClickable(true);
 
         autoCompleteTextView = findViewById(R.id.marca_producto);
         adapterMarcas = new ArrayAdapter<>(this,R.layout.plantilla_listas,R.id.item, marcas);
@@ -112,15 +106,12 @@ public class Activity_Publicar_Administrador extends AppCompatActivity {
     private void validateData() {
 
         titulo = binding.nombreProducto.getText().toString().trim();
-        talla = binding.tallaProducto.getText().toString().trim();
         marca = binding.marcaProducto.getText().toString().trim();
         precio = binding.precioProducto.getText().toString().trim();
         descripcion = binding.descripcionProducto.getText().toString().trim();
 
         if (TextUtils.isEmpty(titulo)){
             Toast.makeText(this,"Introduce un nombre al producto",Toast.LENGTH_SHORT).show();
-        } else if (TextUtils.isEmpty(talla)) {
-            Toast.makeText(this,"Selecciona una talla",Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(marca)){
             Toast.makeText(this,"Selecciona una marca",Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(precio)) {
@@ -182,7 +173,6 @@ public class Activity_Publicar_Administrador extends AppCompatActivity {
 
         HashMap<String,Object> hashMap = new HashMap<>();
         hashMap.put("titulo",""+titulo);
-        hashMap.put("talla",""+talla);
         hashMap.put("marca",""+marca);
         hashMap.put("precio",""+precio);
         hashMap.put("categoriaId",""+categoriaIdSeleccionada);

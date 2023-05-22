@@ -16,14 +16,28 @@
         android:theme="@style/Theme.Samba"
         tools:targetApi="31">
         <activity
+            android:name=".Activity_Camisetas_Administrador"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Editar_Camiseta_Administrador"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Editar_Camiseta_Usuario"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Categorias_Administrador"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Chat"
+            android:exported="false" />
+        <activity
             android:name=".Activity_Carga_Pantalla_Inicio"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".Activity_Camiseta_Tienda"
@@ -84,13 +98,16 @@
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Samba">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
 
                 &lt;!&ndash; android:theme="@style/Theme.AppCompat.Light.NoActionBar" &ndash;&gt;
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".MainActivity"
