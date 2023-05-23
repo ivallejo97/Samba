@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.example.samba.adapter.Adapter_Usuarios;
 import com.example.samba.databinding.DestinosPrincipalesChatBinding;
+import com.example.samba.model.Model_Chat;
 import com.example.samba.model.Model_Usuarios;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -82,21 +83,21 @@ public class Destinos_Principales_Chat extends Fragment {
     private void getAllUsers() {
         chatList = new ArrayList<>();
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        String currentUserID = firebaseUser.getUid();
+
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 chatList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    Model_Usuarios modelChat = dataSnapshot.getValue(Model_Usuarios.class);
+                    Model_Usuarios modelUsuarios = dataSnapshot.getValue(Model_Usuarios.class);
 
-                    if (!modelChat.getUid().equals(firebaseUser.getUid())){
-                        chatList.add(modelChat);
+                    if (!modelUsuarios.getUid().equals(firebaseUser.getUid())){
+                        chatList.add(modelUsuarios);
                     }
-
                     adapterChat = new Adapter_Usuarios(getContext(),chatList);
                     binding.recyclerChat.setAdapter(adapterChat);
-
                 }
             }
 

@@ -44,7 +44,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class Activity_Publicar_Administrador extends AppCompatActivity {
+public class      Activity_Publicar_Administrador extends AppCompatActivity {
 
     private ActivityPublicarAdministradorBinding binding;
     private FirebaseAuth firebaseAuth;
@@ -80,7 +80,7 @@ public class Activity_Publicar_Administrador extends AppCompatActivity {
             }
         });
 
-        binding.fotoProducto2.setOnClickListener(new View.OnClickListener() {
+        binding.botonCamara.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showImageAttatchMenu();
@@ -257,7 +257,7 @@ public class Activity_Publicar_Administrador extends AppCompatActivity {
     }
 
     private void showImageAttatchMenu() {
-        PopupMenu popupMenu = new PopupMenu(this,binding.fotoProducto2);
+        PopupMenu popupMenu = new PopupMenu(this,binding.botonCamara);
         popupMenu.getMenu().add(Menu.NONE,0,0,"Camara");
         popupMenu.getMenu().add(Menu.NONE,1,1,"Galeria");
 

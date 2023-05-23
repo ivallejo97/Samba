@@ -31,7 +31,7 @@ public class Activity_Camiseta_Usuario extends AppCompatActivity {
 
         Intent intent = getIntent();
         idCamiseta = intent.getStringExtra("id");
-        idUser = intent.getStringExtra("idUser");
+        idUser = intent.getStringExtra("uid");
 
         cargarInformacionCamiseta();
         cargarDatosUsuario();
@@ -44,6 +44,14 @@ public class Activity_Camiseta_Usuario extends AppCompatActivity {
             }
         });
 
+        binding.botonIniciarChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Activity_Camiseta_Usuario.this, Activity_Chat.class);
+                intent.putExtra("uid",idUser);
+                startActivity(intent);
+            }
+        });
 
     }
 

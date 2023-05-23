@@ -68,7 +68,7 @@ public class Adapter_Camisetas_Usuario extends RecyclerView.Adapter<Adapter_Cami
                 Intent intent = new Intent(context, Activity_Camiseta_Usuario.class);
                 intent.putExtra("id",idCamiseta);
                 intent.putExtra("numeroVisitas", visitasCamiseta);
-                intent.putExtra("idUser", idUser);
+                intent.putExtra("uid", "" + modelCamisetasUsuario.getUid());
                 context.startActivity(intent);
             }
         });

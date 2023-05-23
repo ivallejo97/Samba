@@ -32,6 +32,8 @@ public class Destinos_Principales_Productos_Usuarios extends Fragment {
     private ArrayList<Model_Camisetas_Usuario> camisetasUsuarioArrayList;
     private Adapter_Camisetas_Usuario adapterCamisetasUsuario;
     private String numeroVisitas;
+    private FirebaseAuth firebaseAuth;
+    String userId;
 
 
     @Override
@@ -50,6 +52,10 @@ public class Destinos_Principales_Productos_Usuarios extends Fragment {
 
         Intent intent = getActivity().getIntent();
         numeroVisitas = intent.getStringExtra("numeroVisitas");
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        userId = firebaseAuth.getCurrentUser().getUid();
+
     }
 
     private void cargarListaCamisetas() {
@@ -62,7 +68,9 @@ public class Destinos_Principales_Productos_Usuarios extends Fragment {
                 camisetasUsuarioArrayList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Model_Camisetas_Usuario modelCamisetasUsuario = dataSnapshot.getValue(Model_Camisetas_Usuario.class);
-                    camisetasUsuarioArrayList.add(modelCamisetasUsuario);
+                    if (!modelCamisetasUsuario.getUid().equals(userId)){
+                        camisetasUsuarioArrayList.add(modelCamisetasUsuario);
+                    }
                 }
                 Collections.reverse(camisetasUsuarioArrayList); // Invierte el orden de la lista
                 adapterCamisetasUsuario = new Adapter_Camisetas_Usuario(getContext(),camisetasUsuarioArrayList);

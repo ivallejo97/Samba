@@ -12,6 +12,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -55,6 +56,7 @@ public class Activity_Publicar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView((binding = ActivityPublicarBinding.inflate(getLayoutInflater())).getRoot());
+
 
         firebaseAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
@@ -197,7 +199,7 @@ public class Activity_Publicar extends AppCompatActivity {
     }
 
     private void showImageAttatchMenu() {
-        PopupMenu popupMenu = new PopupMenu(this,binding.fotoProducto2);
+        PopupMenu popupMenu = new PopupMenu(this,binding.botonCamara);
         popupMenu.getMenu().add(Menu.NONE,0,0,"Camara");
         popupMenu.getMenu().add(Menu.NONE,1,1,"Galeria");
 

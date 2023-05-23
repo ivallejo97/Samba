@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.samba.Activity_Chat;
+import com.example.samba.R;
 import com.example.samba.filtros.Categoria_Filtrar;
 import com.example.samba.model.Model_Usuarios;
 import com.example.samba.databinding.EstiloChatBinding;
@@ -49,7 +50,11 @@ public class Adapter_Usuarios extends RecyclerView.Adapter<Adapter_Usuarios.Hold
 
         holder.name.setText(nombreCompleto);
         holder.username.setText("@" + nombreUsuario);
-        Glide.with(context).load(fotoUsuario).into(binding.fotoUsuario);
+        if (fotoUsuario == null){
+            holder.fotoUsuario.setImageResource(R.drawable.icono_perfil_predeterminado);
+        } else {
+            Glide.with(context).load(fotoUsuario).into(binding.fotoUsuario);
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

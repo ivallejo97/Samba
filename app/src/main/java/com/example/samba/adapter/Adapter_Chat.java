@@ -56,7 +56,6 @@ public class Adapter_Chat extends RecyclerView.Adapter<Adapter_Chat.HolderChat> 
         String timestamp = chatArrayList.get(position).getTimestamp();
 
         holder.mensaje.setText(mensaje);
-
     }
 
     @Override
@@ -83,4 +82,5 @@ public class Adapter_Chat extends RecyclerView.Adapter<Adapter_Chat.HolderChat> 
             mensaje = itemView.findViewById(R.id.mensaje);
         }
     }
+
 }

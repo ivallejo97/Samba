@@ -46,10 +46,11 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/foto_perfil"
+        style="@style/iconos_perfil"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginBottom="20dp"
-        android:src="@drawable/icono_perfil"
+        android:src="@drawable/icono_perfil_predeterminado"
         android:layout_gravity="center"
         app:layout_constraintTop_toTopOf="@id/fondo_perfil"
         app:layout_constraintLeft_toLeftOf="@id/fondo_perfil"

@@ -285,4 +285,24 @@
         <item name="android:background">@color/gris_oscuro</item>
     </style>
 
+    <style name="boton_comprar" parent="">
+        <item name="android:background">@drawable/boton_comprar_oscuro</item>
+        <item name="android:textColorHint">@color/gris_oscuro</item>
+    </style>
+
+    <style name="boton_iniciar_chat" parent="">
+        <item name="android:background">@drawable/boton_iniciar_chat_oscuro</item>
+        <item name="android:textColorHint">@color/amarillo</item>
+    </style>
+
+    <style name="color_transparente_fondo_camisetas_usuarios" parent="">
+        <item name="android:background">#AA000000</item>
+        <item name="tint">@color/white</item>
+    </style>
+
+    <style name="direccion_envio" parent="">
+        <item name="android:background">@drawable/bordes_direccion_envio_oscuro</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
 </resources>

@@ -62,13 +62,12 @@
 
     <ImageView
         android:id="@+id/boton_favoritos"
-        style="@style/iconos_perfil"
+        style="@style/color_transparente_fondo_camisetas_usuarios"
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
         android:src="@drawable/icono_favoritos_perfil"
-        android:background="#AA000000"
         app:layout_constraintTop_toTopOf="@id/foto_producto"
         app:layout_constraintRight_toRightOf="@id/foto_producto"/>
 

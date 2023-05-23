@@ -51,14 +51,14 @@ android:orientation="vertical">
         <ImageButton
             android:id="@+id/boton_salir"
             style="@style/iconos_cabeceras"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
             android:foreground="?android:attr/selectableItemBackground"
             android:src="@drawable/icono_cerrar"
             app:layout_constraintTop_toTopOf="@id/cabecera_publicar"
-            app:layout_constraintRight_toRightOf="@id/cabecera_publicar"/>
+            app:layout_constraintLeft_toLeftOf="@id/cabecera_publicar"/>
 
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -74,13 +74,15 @@ android:orientation="vertical">
             app:layout_constraintBottom_toBottomOf="@id/cabecera_publicar"/>
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/icono_imagen"
-            app:layout_constraintTop_toTopOf="@id/foto_fondo_categoria"
-            app:layout_constraintLeft_toLeftOf="@id/foto_fondo_categoria"
-            app:layout_constraintRight_toRightOf="@id/foto_fondo_categoria"
-            app:layout_constraintBottom_toBottomOf="@id/foto_fondo_categoria"/>
+            android:id="@+id/boton_camara"
+            style="@style/iconos_cabeceras"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="25dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/icono_camara"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
