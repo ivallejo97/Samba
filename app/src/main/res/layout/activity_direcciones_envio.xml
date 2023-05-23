@@ -85,7 +85,8 @@
             android:src="@drawable/icono_envio"
             app:layout_constraintTop_toTopOf="@id/text_direccion"
             app:layout_constraintLeft_toLeftOf="@id/text_direccion"
-            app:layout_constraintBottom_toBottomOf="@id/text_direccion"/>
+            app:layout_constraintBottom_toBottomOf="@id/text_direccion"
+            />
 
         <ImageView
             android:id="@+id/boton_agregar"
@@ -99,22 +100,170 @@
             app:layout_constraintBottom_toBottomOf="@id/text_direccion"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ddd"
+            android:id="@+id/text_input_calle"
             style="@style/edittext"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
-            android:layout_width="280dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:visibility="visible"
-            app:startIconDrawable="@drawable/icono_usuario"
             app:layout_constraintTop_toBottomOf="@id/text_direccion"
             app:layout_constraintLeft_toLeftOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/nombre"
+                android:id="@+id/edit_text_calle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Calle"
+                android:textSize="15dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_numero"
+            style="@style/edittext"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/text_direccion"
+            app:layout_constraintLeft_toRightOf="@id/text_input_calle"
+            app:layout_constraintRight_toRightOf="@id/text_direccion"
+            app:layout_constraintEnd_toEndOf="@id/text_direccion"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_numero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Num."
+                android:textSize="15dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_piso"
+            style="@style/edittext"
+            android:layout_marginTop="10dp"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/text_input_calle"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/text_input_puerta"
+            app:layout_constraintStart_toStartOf="@id/text_input_calle"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_piso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Piso"
+                android:textSize="15dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_puerta"
+            style="@style/edittext"
+            android:layout_marginTop="10dp"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/text_input_calle"
+            app:layout_constraintLeft_toRightOf="@id/text_input_piso"
+            app:layout_constraintRight_toLeftOf="@id/text_input_pais"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_puerta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Puerta"
+                android:textSize="15dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_pais"
+            style="@style/edittext"
+            android:layout_marginTop="10dp"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/text_input_calle"
+            app:layout_constraintLeft_toRightOf="@id/text_input_puerta"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/text_input_numero"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_pais"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Pais"
+                android:textSize="15dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_provincia"
+            style="@style/edittext"
+            android:layout_marginTop="10dp"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/text_input_pais"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="@id/text_input_piso"
+            app:layout_constraintEnd_toEndOf="@id/text_input_pais"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_provincia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Provincia"
+                android:textSize="15dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_localidad"
+            style="@style/edittext"
+            android:layout_marginTop="10dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/text_input_provincia"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/text_input_cp"
+            app:layout_constraintStart_toStartOf="@id/text_input_provincia"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_localidad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Localidad"
+                android:textSize="15dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_cp"
+            style="@style/edittext"
+            android:layout_marginTop="10dp"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/text_input_provincia"
+            app:layout_constraintLeft_toRightOf="@id/text_input_localidad"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/text_input_provincia"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_cp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Codigo postal"
                 android:textSize="15dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
