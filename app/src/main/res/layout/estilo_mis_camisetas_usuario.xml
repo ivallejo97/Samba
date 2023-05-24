@@ -46,7 +46,7 @@
     <TextView
         android:id="@+id/nombre_producto"
         style="@style/color_texto_predeterminado"
-        android:layout_width="230dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
@@ -55,6 +55,19 @@
         android:textSize="14dp"
         app:layout_constraintTop_toBottomOf="@id/precio_producto"
         app:layout_constraintLeft_toRightOf="@id/foto_producto"/>
+
+    <ImageView
+        android:id="@+id/boton_editar"
+        style="@style/iconos_perfil"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/icono_editar_relleno"
+        android:background="@color/transparente"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/boton_eliminar"/>
 
     <ImageView
         android:id="@+id/boton_eliminar"
@@ -74,11 +87,11 @@
         style="@style/color_texto_predeterminado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:text="Talla"
         android:textSize="15dp"
-        app:layout_constraintTop_toTopOf="@id/nombre_producto"
+        app:layout_constraintTop_toBottomOf="@id/nombre_producto"
         app:layout_constraintLeft_toRightOf="@id/foto_producto" />
 
     <TextView

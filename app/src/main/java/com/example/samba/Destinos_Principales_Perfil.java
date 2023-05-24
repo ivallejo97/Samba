@@ -3,6 +3,8 @@ package com.example.samba;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.nfc.Tag;
@@ -58,6 +60,28 @@ public class Destinos_Principales_Perfil extends Fragment {
             @Override
             public void onClick(View v) {
                 navController.navigate(R.id.destinos_principales_editar_perfil);
+            }
+        });
+
+        binding.iconoAjustes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("Cerrar Sesión")
+                        .setMessage("¿Estas seguro de que quieres cerrar sesión?")
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                firebaseAuth.signOut();
+                                startActivity(new Intent(getContext(), Activity_Acceso.class));
+                            }
+                        })
+                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).show();
             }
         });
 

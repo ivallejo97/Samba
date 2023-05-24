@@ -68,4 +68,49 @@ public class MetodosApp extends Application {
                 });
     }
 
+    public static void addCamisetaFavoritosUsuarios(Context context, String idCamiseta){
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
+        long timestamp = System.currentTimeMillis();
+        HashMap<String,Object> hashMap = new HashMap<>();
+        hashMap.put("idCamiseta", "" + idCamiseta);
+        hashMap.put("timestamp", "" + timestamp);
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        databaseReference.child(firebaseAuth.getUid()).child("FavoritosUsuarios").child(idCamiseta)
+                .setValue(hashMap)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(context,"Añadido a favoritos", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(context,"Añadido a favoritos", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    public static void eliminarFavoritosCamisetasUsuarios(Context context, String idCamiseta){
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        databaseReference.child(firebaseAuth.getUid()).child("FavoritosUsuarios").child(idCamiseta)
+                .removeValue()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(context,"Eliminado de favoritos", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(context,"Añadido a favoritos", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
 }

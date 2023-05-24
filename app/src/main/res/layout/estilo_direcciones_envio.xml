@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="172dp"
+    android:layout_marginTop="10dp">
+
+    <ImageView
+        android:id="@+id/boton_eliminar"
+        style="@style/iconos_perfil"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/icono_eliminar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/texto_ubicacion"
+        style="@style/color_texto_predeterminado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:text="UBICACION"
+        android:textSize="17dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/numero_ubicacion"
+        style="@style/color_texto_predeterminado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:text="1"
+        android:textSize="17dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/texto_ubicacion" />
+
+    <TextView
+        android:id="@+id/texto_calle"
+        style="@style/color_texto_predeterminado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="20dp"
+        android:text="Calle"
+        android:textSize="17dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/calle"
+        style="@style/color_texto_predeterminado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="5dp"
+        android:text="Roma"
+        android:textSize="17dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/texto_calle" />
+
+    <TextView
+        android:id="@+id/texto_numero"
+        style="@style/color_texto_predeterminado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="5dp"
+        android:text="nº"
+        android:textSize="17dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/calle" />
+
+    <TextView
+        android:id="@+id/numero"
+        style="@style/color_texto_predeterminado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="5dp"
+        android:text="78"
+        android:textSize="17dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/texto_numero" />
+
+    <TextView
+        android:id="@+id/texto_piso"
+        style="@style/color_texto_predeterminado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="5dp"
+        android:text="Piso"
+        android:textSize="17dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/numero" />
+
+    <TextView
+        android:id="@+id/piso"
+        style="@style/color_texto_predeterminado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="5dp"
+        android:text="2"
+        android:textSize="17dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/texto_piso" />
+
+    <TextView
+        android:id="@+id/texto_puerta"
+        style="@style/color_texto_predeterminado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="5dp"
+        android:text="Puerta"
+        android:textSize="17dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/piso" />
+
+    <TextView
+        android:id="@+id/puerta"
+        style="@style/color_texto_predeterminado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="5dp"
+        android:text="1"
+        android:textSize="17dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/texto_puerta" />
+
+
+    <TextView
+        android:id="@+id/ciudad"
+        style="@style/color_texto_predeterminado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Santa Coloma de Gramanet"
+        android:textSize="17dp"
+        app:layout_constraintTop_toBottomOf="@id/texto_calle"
+        app:layout_constraintLeft_toLeftOf="@id/texto_calle" />
+
+    <TextView
+        android:id="@+id/provincia"
+        style="@style/color_texto_predeterminado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Barcelona"
+        android:textSize="17dp"
+        app:layout_constraintTop_toBottomOf="@id/ciudad"
+        app:layout_constraintLeft_toLeftOf="@id/texto_calle" />
+
+    <TextView
+        android:id="@+id/pais"
+        style="@style/color_texto_predeterminado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="España"
+        android:textSize="17dp"
+        app:layout_constraintTop_toBottomOf="@id/provincia"
+        app:layout_constraintLeft_toLeftOf="@id/texto_calle" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

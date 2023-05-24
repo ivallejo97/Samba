@@ -66,7 +66,7 @@ public class Adapter_Mis_Camisetas_Usuario extends RecyclerView.Adapter<Adapter_
         holder.fechaPublicacion.setText("Publicado el: " + fechaPublicacion);
         Glide.with(context).load(fotoCamiseta).into(holder.fotoCamiseta);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.botonEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, Activity_Editar_Camiseta_Usuario.class);
@@ -134,7 +134,7 @@ public class Adapter_Mis_Camisetas_Usuario extends RecyclerView.Adapter<Adapter_
 
         ShapeableImageView fotoCamiseta;
         TextView precioCamiseta, nombreCamiseta, tallaCamiseta, fechaPublicacion;
-        ImageView botonEliminar;
+        ImageView botonEliminar, botonEditar;
 
         public HolderMisCamisetasUsuarios(@NonNull View itemView) {
             super(itemView);
@@ -145,6 +145,7 @@ public class Adapter_Mis_Camisetas_Usuario extends RecyclerView.Adapter<Adapter_
             tallaCamiseta = binding.tallaProducto;
             fechaPublicacion = binding.fechaPublicacion;
             botonEliminar = binding.botonEliminar;
+            botonEditar = binding.botonEditar;
 
         }
     }

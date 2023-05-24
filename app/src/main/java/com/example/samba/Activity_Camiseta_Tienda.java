@@ -11,10 +11,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.samba.adapter.Adapter_Camisetas_Tienda;
 import com.example.samba.databinding.ActivityCamisetaTiendaBinding;
+import com.example.samba.model.Model_Camisetas_Tienda;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,6 +27,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Activity_Camiseta_Tienda extends AppCompatActivity {
@@ -46,9 +50,9 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
         categoriaId = intent.getStringExtra("categoriaId");
 
         firebaseAuth = FirebaseAuth.getInstance();
-        if (firebaseAuth.getCurrentUser() != null){
-            comprobarFavorito();
-        }
+
+
+        comprobarFavorito();
         aumentarNumeroDeVisitas(idCamiseta);
         cargarInformacionCamiseta();
         cargarCategoriaCamiseta();
@@ -84,6 +88,18 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
                 }
             }
         });
+
+        binding.checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    binding.datosCamiseta.setVisibility(View.VISIBLE);
+                } else {
+                    binding.datosCamiseta.setVisibility(View.GONE);
+                }
+            }
+        });
+
 
 
     }

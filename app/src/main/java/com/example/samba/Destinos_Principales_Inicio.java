@@ -53,14 +53,6 @@ public class Destinos_Principales_Inicio extends Fragment {
         navController = Navigation.findNavController(view);
 
 
-
-        binding.botonFavoritos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getContext(),Activity_Favoritos.class));
-            }
-        });
-
         binding.botonCarrito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,10 +82,10 @@ public class Destinos_Principales_Inicio extends Fragment {
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                 switch (position) {
                     case 0: default:
-                        tab.setText("Productos tienda");
+                        tab.setText("Camisetas tienda");
                         break;
                     case 1:
-                        tab.setText("Productos usuarios");
+                        tab.setText("Camisetas usuarios");
                         break;
                 }
             }

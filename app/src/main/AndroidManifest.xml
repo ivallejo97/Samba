@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Samba"
         tools:targetApi="31">
         <activity
+            android:name=".Activity_Favoritos_Camisetas_Usuario"
+            android:exported="false" />
+        <activity
             android:name=".Activity_Camisetas_Administrador"
             android:exported="false" />
         <activity

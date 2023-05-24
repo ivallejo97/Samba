@@ -46,8 +46,14 @@ public class Destinos_Principales_Productos_Tienda extends Fragment {
         idCategoria = intent.getStringExtra("categoriaId");
         categoria = intent.getStringExtra("categoria");
 
-
         cargarListaCamisetas();
+
+        binding.botonFavoritos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(),Activity_Favoritos.class));
+            }
+        });
     }
 
     private void cargarListaCamisetas() {

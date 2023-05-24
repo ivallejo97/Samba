@@ -85,8 +85,7 @@
             android:src="@drawable/icono_envio"
             app:layout_constraintTop_toTopOf="@id/text_direccion"
             app:layout_constraintLeft_toLeftOf="@id/text_direccion"
-            app:layout_constraintBottom_toBottomOf="@id/text_direccion"
-            />
+            app:layout_constraintBottom_toBottomOf="@id/text_direccion" />
 
         <ImageView
             android:id="@+id/boton_agregar"
@@ -104,9 +103,9 @@
             style="@style/edittext"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
-            android:layout_width="250dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/text_direccion"
             app:layout_constraintLeft_toLeftOf="parent">
 
@@ -118,19 +117,17 @@
                 android:textSize="15dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_numero"
             style="@style/edittext"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_width="75dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/text_direccion"
-            app:layout_constraintLeft_toRightOf="@id/text_input_calle"
-            app:layout_constraintRight_toRightOf="@id/text_direccion"
-            app:layout_constraintEnd_toEndOf="@id/text_direccion"
-            >
+            app:layout_constraintRight_toRightOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_numero"
@@ -140,18 +137,19 @@
                 android:textSize="15dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_piso"
             style="@style/edittext"
             android:layout_marginTop="10dp"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/text_input_calle"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/text_input_puerta"
-            app:layout_constraintStart_toStartOf="@id/text_input_calle"
-            >
+            app:layout_constraintStart_toStartOf="@id/text_input_calle">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_piso"
@@ -161,17 +159,17 @@
                 android:textSize="15dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_puerta"
             style="@style/edittext"
             android:layout_marginTop="10dp"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/text_input_calle"
             app:layout_constraintLeft_toRightOf="@id/text_input_piso"
-            app:layout_constraintRight_toLeftOf="@id/text_input_pais"
-            >
+            app:layout_constraintRight_toLeftOf="@id/text_input_pais">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_puerta"
@@ -181,19 +179,17 @@
                 android:textSize="15dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_pais"
             style="@style/edittext"
             android:layout_marginTop="10dp"
-            android:layout_width="170dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:visibility="visible"
+            android:layout_marginRight="20dp"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/text_input_calle"
-            app:layout_constraintLeft_toRightOf="@id/text_input_puerta"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/text_input_numero"
-            >
+            app:layout_constraintRight_toRightOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_pais"
@@ -207,9 +203,11 @@
             android:id="@+id/text_input_provincia"
             style="@style/edittext"
             android:layout_marginTop="10dp"
-            android:layout_width="340dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="visible"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/text_input_pais"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -225,18 +223,17 @@
                 android:textSize="15dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_localidad"
             style="@style/edittext"
             android:layout_marginTop="10dp"
-            android:layout_width="200dp"
+            android:layout_width="210dp"
             android:layout_height="wrap_content"
-            android:visibility="visible"
+            android:layout_marginLeft="20dp"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/text_input_provincia"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/text_input_cp"
-            app:layout_constraintStart_toStartOf="@id/text_input_provincia"
-            >
+            app:layout_constraintLeft_toLeftOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_localidad"
@@ -246,32 +243,62 @@
                 android:textSize="15dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_cp"
             style="@style/edittext"
             android:layout_marginTop="10dp"
-            android:layout_width="130dp"
+            android:layout_width="100dp"
+            android:layout_marginRight="20dp"
             android:layout_height="wrap_content"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/text_input_provincia"
-            app:layout_constraintLeft_toRightOf="@id/text_input_localidad"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/text_input_provincia"
-            >
+            app:layout_constraintRight_toRightOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_cp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:hint="Codigo postal"
                 android:textSize="15dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <Button
+            android:id="@+id/boton_agregar_direccion"
+            style="@style/boton_comprar"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginRight="20dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="10dp"
+            android:hint="Añadir Dirección"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            android:drawableEnd="@drawable/icono_agregar_boton"
+            app:layout_constraintTop_toBottomOf="@id/text_input_localidad"
+            app:layout_constraintRight_toRightOf="parent"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_direcciones_envio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:elevation="10dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        android:layout_gravity="center"
+        tools:listitem="@layout/estilo_direcciones_envio"
+        app:layout_constraintTop_toBottomOf="@id/buscador"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
 
 

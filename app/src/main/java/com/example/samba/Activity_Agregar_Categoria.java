@@ -145,7 +145,6 @@ public class Activity_Agregar_Categoria extends AppCompatActivity {
                     public void onSuccess(Void unused) {
                         progressDialog.dismiss();
                         Toast.makeText(Activity_Agregar_Categoria.this,"Categoria Añadida", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Activity_Agregar_Categoria.this, Activity_Interfaz_Admin.class));
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

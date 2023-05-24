@@ -15,10 +15,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.samba.Activity_Camiseta_Tienda;
+import com.example.samba.Activity_Camiseta_Usuario;
+import com.example.samba.Activity_Favoritos_Camisetas_Usuario;
 import com.example.samba.MetodosApp;
-import com.example.samba.databinding.EstiloCamisetasBinding;
 import com.example.samba.databinding.EstiloCamisetasFavoritosBinding;
-import com.example.samba.model.Model_Camisetas_Tienda;
+import com.example.samba.databinding.EstiloCamisetasFavoritosUsuarioBinding;
+import com.example.samba.model.Model_Camisetas_Usuario;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,36 +30,37 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Adapter_Favoritos extends RecyclerView.Adapter<Adapter_Favoritos.HolderFavoritos> {
+public class Adapter_Favoritos_Camisetas_Usuarios extends RecyclerView.Adapter<Adapter_Favoritos_Camisetas_Usuarios.HolderCamisetasFavoritosUsuario> {
+
 
     private Context context;
-    private ArrayList<Model_Camisetas_Tienda> camisetasTiendaList;
-    private EstiloCamisetasFavoritosBinding binding;
+    private ArrayList<Model_Camisetas_Usuario> camisetasUsuariosList;
+    private EstiloCamisetasFavoritosUsuarioBinding binding;
 
-    public Adapter_Favoritos(Context context, ArrayList<Model_Camisetas_Tienda> camisetasTiendaList) {
+    public Adapter_Favoritos_Camisetas_Usuarios(Context context, ArrayList<Model_Camisetas_Usuario> camisetasUsuariosList) {
         this.context = context;
-        this.camisetasTiendaList = camisetasTiendaList;
+        this.camisetasUsuariosList = camisetasUsuariosList;
     }
 
     @NonNull
     @Override
-    public HolderFavoritos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        binding = EstiloCamisetasFavoritosBinding.inflate(LayoutInflater.from(context),parent,false);
-        return new Adapter_Favoritos.HolderFavoritos(binding.getRoot());
+    public HolderCamisetasFavoritosUsuario onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        binding = EstiloCamisetasFavoritosUsuarioBinding.inflate(LayoutInflater.from(context),parent,false);
+        return new Adapter_Favoritos_Camisetas_Usuarios.HolderCamisetasFavoritosUsuario(binding.getRoot());
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HolderFavoritos holder, int position) {
-        Model_Camisetas_Tienda modelCamisetasTienda = camisetasTiendaList.get(position);
+    public void onBindViewHolder(@NonNull HolderCamisetasFavoritosUsuario holder, int position) {
+        Model_Camisetas_Usuario modelCamisetasUsuario = camisetasUsuariosList.get(position);
 
-        cargarDatosCamisetas(modelCamisetasTienda,holder);
+        cargarDatosCamisetas(modelCamisetasUsuario,holder);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context , Activity_Camiseta_Tienda.class);
-                intent.putExtra("id",modelCamisetasTienda.getId());
-                intent.putExtra("categoriaId", modelCamisetasTienda.getCategoriaId());
+                Intent intent = new Intent(context , Activity_Camiseta_Usuario.class);
+                intent.putExtra("id", "" + modelCamisetasUsuario.getId());
+                intent.putExtra("uid", "" + modelCamisetasUsuario.getUid());
                 context.startActivity(intent);
             }
         });
@@ -71,7 +74,7 @@ public class Adapter_Favoritos extends RecyclerView.Adapter<Adapter_Favoritos.Ho
                         .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                MetodosApp.eliminarFavoritos(context,modelCamisetasTienda.getId());
+                                MetodosApp.eliminarFavoritosCamisetasUsuarios(context,modelCamisetasUsuario.getId());
                             }
                         })
                         .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -80,14 +83,17 @@ public class Adapter_Favoritos extends RecyclerView.Adapter<Adapter_Favoritos.Ho
                                 dialog.dismiss();
                             }
                         }).show();
-
             }
         });
-    }
-    private void cargarDatosCamisetas(Model_Camisetas_Tienda modelCamisetasTienda, HolderFavoritos holder) {
-        String idCamiseta = modelCamisetasTienda.getId();
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Camisetas");
+    }
+
+    private void cargarDatosCamisetas(Model_Camisetas_Usuario modelCamisetasUsuario, HolderCamisetasFavoritosUsuario holder) {
+
+
+        String idCamiseta = modelCamisetasUsuario.getId();
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("CamisetasUsuarios");
         databaseReference.child(idCamiseta)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
@@ -95,20 +101,21 @@ public class Adapter_Favoritos extends RecyclerView.Adapter<Adapter_Favoritos.Ho
                         String nombreCamiseta = "" + snapshot.child("titulo").getValue();
                         String precioCamiseta = "" + snapshot.child("precio").getValue();
                         String marcaCamiseta = "" + snapshot.child("marca").getValue();
-                        String categoria = "" + snapshot.child("categoriaId").getValue();
-                        String fotoCamiseta = "" + snapshot.child("url").getValue();
+                        String tallaCamiseta = "" + snapshot.child("talla").getValue();
+                        String fotoCamiseta = "" + snapshot.child("fotoProducto").getValue();
 
-                        modelCamisetasTienda.setFavorito(true);
-                        modelCamisetasTienda.setTitulo(nombreCamiseta);
-                        modelCamisetasTienda.setPrecio(precioCamiseta);
-                        modelCamisetasTienda.setMarca(marcaCamiseta);
-                        modelCamisetasTienda.setFotoCategoria(fotoCamiseta);
-                        modelCamisetasTienda.setCategoriaId(categoria);
+                        //modelCamisetasUsuario.setFavorito(true);
+                        modelCamisetasUsuario.setTitulo(nombreCamiseta);
+                        modelCamisetasUsuario.setPrecio(precioCamiseta);
+                        modelCamisetasUsuario.setMarca(marcaCamiseta);
+                        modelCamisetasUsuario.setTalla(tallaCamiseta);
+                        modelCamisetasUsuario.setFotoProducto(fotoCamiseta);
 
 
                         holder.nombreCamiseta.setText(nombreCamiseta);
                         holder.precioCamiseta.setText(precioCamiseta);
                         holder.marcaCamiseta.setText(marcaCamiseta);
+                        holder.tallaCamiseta.setText(tallaCamiseta);
                         Glide.with(context.getApplicationContext()).load(fotoCamiseta).into(holder.fotoCamiseta);
 
 
@@ -119,22 +126,20 @@ public class Adapter_Favoritos extends RecyclerView.Adapter<Adapter_Favoritos.Ho
 
                     }
                 });
-
     }
-
 
     @Override
     public int getItemCount() {
-        return camisetasTiendaList.size();
+        return camisetasUsuariosList.size();
     }
 
-    class HolderFavoritos extends RecyclerView.ViewHolder{
+
+    class HolderCamisetasFavoritosUsuario extends RecyclerView.ViewHolder{
 
         ShapeableImageView fotoCamiseta;
-        TextView nombreCamiseta, precioCamiseta, marcaCamiseta;
+        TextView nombreCamiseta, precioCamiseta, marcaCamiseta, tallaCamiseta, nombreUsuario;
         ImageView botonFavoritos;
-
-        public HolderFavoritos(@NonNull View itemView) {
+        public HolderCamisetasFavoritosUsuario(@NonNull View itemView) {
             super(itemView);
 
             fotoCamiseta = binding.fotoProducto;
@@ -142,6 +147,11 @@ public class Adapter_Favoritos extends RecyclerView.Adapter<Adapter_Favoritos.Ho
             precioCamiseta = binding.precioProducto;
             botonFavoritos = binding.botonFavoritos;
             marcaCamiseta = binding.marcaProducto;
+            tallaCamiseta = binding.talla;
         }
     }
+
+
+
+
 }

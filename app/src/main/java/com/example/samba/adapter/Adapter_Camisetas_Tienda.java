@@ -68,6 +68,12 @@ public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camis
         Glide.with(context).load(modelCamisetasTienda.getUrl()).into(holder.fotoCamiseta);
         holder.precioCamiseta.setText(nombrePrecioCamiseta);
 
+        if (modelCamisetasTienda.isFavorito()){
+            holder.botonFavoritos.setImageResource(R.drawable.icono_favorito_marcado);
+        } else {
+            holder.botonFavoritos.setImageResource(R.drawable.icono_favoritos_perfil);
+        }
+
         cargarCategoria(modelCamisetasTienda,holder);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -81,18 +87,7 @@ public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camis
             }
         });
 
-        holder.botonFavoritos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (favorito){
-                    MetodosApp.eliminarFavoritos(context.getApplicationContext(), idCamiseta);
-                    binding.botonFavoritos.setImageResource(R.drawable.icono_favoritos_perfil);
-                } else {
-                    MetodosApp.addCamisetaFavoritos(context.getApplicationContext(),idCamiseta);
-                    binding.botonFavoritos.setImageResource(R.drawable.icono_favorito_marcado);
-                }
-            }
-        });
+
     }
 
 
@@ -128,6 +123,9 @@ public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camis
 
         return filtroCamisetas;
     }
+
+
+
     class HolderCamisetasTienda extends RecyclerView.ViewHolder {
 
         ShapeableImageView fotoCamiseta;
@@ -145,6 +143,8 @@ public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camis
 
         }
     }
+
+
 
 
 }

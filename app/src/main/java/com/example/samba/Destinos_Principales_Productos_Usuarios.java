@@ -56,6 +56,12 @@ public class Destinos_Principales_Productos_Usuarios extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         userId = firebaseAuth.getCurrentUser().getUid();
 
+        binding.botonFavoritos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(),Activity_Favoritos_Camisetas_Usuario.class));
+            }
+        });
     }
 
     private void cargarListaCamisetas() {

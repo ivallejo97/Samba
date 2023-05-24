@@ -10,6 +10,7 @@ import android.view.View;
 import com.bumptech.glide.Glide;
 import com.example.samba.databinding.ActivityCamisetaUsuarioBinding;
 import com.example.samba.databinding.ActivityDestinosPrincipalesBinding;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,20 +23,24 @@ public class Activity_Camiseta_Usuario extends AppCompatActivity {
 
     ActivityCamisetaUsuarioBinding binding;
     String idCamiseta, idUser;
+    boolean favorito = false;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView((binding = ActivityCamisetaUsuarioBinding.inflate(getLayoutInflater())).getRoot());
 
+        firebaseAuth = FirebaseAuth.getInstance();
 
         Intent intent = getIntent();
         idCamiseta = intent.getStringExtra("id");
         idUser = intent.getStringExtra("uid");
 
+        comprobarFavoritos();
+        aumentarNumeroDeVisitas(idCamiseta);
         cargarInformacionCamiseta();
         cargarDatosUsuario();
-        aumentarNumeroDeVisitas(idCamiseta);
 
         binding.botonVolver.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +55,17 @@ public class Activity_Camiseta_Usuario extends AppCompatActivity {
                 Intent intent = new Intent(Activity_Camiseta_Usuario.this, Activity_Chat.class);
                 intent.putExtra("uid",idUser);
                 startActivity(intent);
+            }
+        });
+
+        binding.botonFavoritos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (favorito){
+                    MetodosApp.eliminarFavoritosCamisetasUsuarios(getApplicationContext(),idCamiseta);
+                } else {
+                    MetodosApp.addCamisetaFavoritosUsuarios(getApplicationContext(),idCamiseta);
+                }
             }
         });
 
@@ -129,6 +145,28 @@ public class Activity_Camiseta_Usuario extends AppCompatActivity {
 
                         binding.nombreUsuario.setText(nombre_usuario);
                         Glide.with(Activity_Camiseta_Usuario.this).load(foto_usuario).into(binding.fotoUsuario);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+    }
+
+    private void comprobarFavoritos() {
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        databaseReference.child(firebaseAuth.getUid()).child("FavoritosUsuarios").child(idCamiseta)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        favorito = snapshot.exists();
+                        if (favorito){
+                            binding.botonFavoritos.setImageResource(R.drawable.icono_favorito_marcado);
+                        } else {
+                            binding.botonFavoritos.setImageResource(R.drawable.icono_favoritos_perfil);
+                        }
                     }
 
                     @Override

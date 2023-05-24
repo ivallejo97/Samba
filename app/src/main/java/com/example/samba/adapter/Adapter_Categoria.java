@@ -1,5 +1,6 @@
 package com.example.samba.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.samba.Activity_Productos_Tienda;
+import com.example.samba.R;
 import com.example.samba.filtros.Categoria_Filtrar;
 import com.example.samba.model.Model_Categoria;
 import com.example.samba.databinding.EstiloCategoriaBinding;
@@ -41,6 +43,7 @@ public class Adapter_Categoria extends RecyclerView.Adapter<Adapter_Categoria.Ho
         return new HolderCategoria(binding.getRoot());
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull HolderCategoria holder, int position) {
         Model_Categoria model = categoriaArrayList.get(position);
@@ -54,6 +57,7 @@ public class Adapter_Categoria extends RecyclerView.Adapter<Adapter_Categoria.Ho
         holder.categoria.setText(categoria);
 
         Glide.with(context).load(model.getFotoCategoria()).into(holder.foto_categoria);
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

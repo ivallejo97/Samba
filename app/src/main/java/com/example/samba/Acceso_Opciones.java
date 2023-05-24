@@ -49,8 +49,9 @@ public class Acceso_Opciones extends Fragment {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_acceso_Opciones_to_acceso_Crear_Cuenta);
+
             }
         });
-
     }
+
 }

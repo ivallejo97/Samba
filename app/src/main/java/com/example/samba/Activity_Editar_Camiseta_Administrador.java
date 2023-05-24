@@ -189,7 +189,7 @@ public class Activity_Editar_Camiseta_Administrador extends AppCompatActivity {
     }
 
     private void showImageAttatchMenu() {
-        PopupMenu popupMenu = new PopupMenu(Activity_Editar_Camiseta_Administrador.this,binding.fotoCamiseta);
+        PopupMenu popupMenu = new PopupMenu(Activity_Editar_Camiseta_Administrador.this,binding.botonOpcionesImagen);
         popupMenu.getMenu().add(Menu.NONE,0,0,"Camara");
         popupMenu.getMenu().add(Menu.NONE,1,1,"Galeria");
 
