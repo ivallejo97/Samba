@@ -31,6 +31,16 @@
         <item name="android:src">@drawable/samba_provisional_pantalla_carga_modo_oscuro</item>
     </style>
 
+    <style name="logo_app_style" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="android:src">@drawable/logo_app_oscuro</item>
+    </style>
+
+    <style name="logo_app_style_invertido" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="android:src">@drawable/logo_app_oscuro_invertido</item>
+    </style>
+
     <style name="pantalla_opciones_texto" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
         <!-- Primary brand color. -->
         <item name="android:textColor">@color/gris_oscuro</item>

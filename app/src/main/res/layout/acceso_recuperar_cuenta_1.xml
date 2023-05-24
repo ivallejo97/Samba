@@ -9,20 +9,11 @@
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="70dp"
-        style="@style/icono_pantalla_opciones"
-        android:layout_gravity="center"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        style="@style/texto_Samba_amarillo_verde"
-        android:text="SAMBA"
-        android:textSize="40dp"
-        android:typeface="serif"/>
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="100dp"
+        style="@style/logo_app_style_invertido"
+        android:layout_gravity="center" />
 
     <TextView
         android:layout_width="match_parent"
