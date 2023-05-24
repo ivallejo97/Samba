@@ -50,7 +50,7 @@ public class Adapter_Usuarios extends RecyclerView.Adapter<Adapter_Usuarios.Hold
 
         holder.name.setText(nombreCompleto);
         holder.username.setText("@" + nombreUsuario);
-        if (fotoUsuario == null){
+        if (fotoUsuario.equals("")){
             holder.fotoUsuario.setImageResource(R.drawable.icono_perfil_predeterminado);
         } else {
             Glide.with(context).load(fotoUsuario).into(binding.fotoUsuario);

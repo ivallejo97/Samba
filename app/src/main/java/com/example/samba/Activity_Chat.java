@@ -76,7 +76,11 @@ public class Activity_Chat extends AppCompatActivity {
                             String foto = "" + dataSnapshot.child("profileImage").getValue();
 
                             binding.nombreUsuario.setText(name);
-                            Glide.with(getApplicationContext()).load(foto).into(binding.fotoUsuario);
+                            if (foto.equals("")){
+                                binding.fotoUsuario.setImageResource(R.drawable.icono_perfil_predeterminado);
+                            } else {
+                                Glide.with(getApplicationContext()).load(foto).into(binding.fotoUsuario);
+                            }
                         }
 
                     }
