@@ -10,20 +10,11 @@
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:layout_marginTop="10dp"
-        style="@style/icono_pantalla_opciones"
+        style="@style/logo_app_style"
         android:layout_gravity="center"/>
-
-    <TextView
-        style="@style/texto_Samba_crear_cuenta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="SAMBA"
-        android:textSize="30dp"
-        android:typeface="serif"/>
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/edittext"
