@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.samba.R;
 import com.example.samba.databinding.EstiloDireccionesEnvioBinding;
 import com.example.samba.databinding.EstiloMisCamisetasUsuarioBinding;
 import com.example.samba.model.Model_Direcciones_Envio;
@@ -61,6 +62,60 @@ public class Adapter_Direcciones_Envio extends RecyclerView.Adapter<Adapter_Dire
         holder.pais.setText(pais);
         holder.provincia.setText(provincia);
         holder.localidad.setText(ciudad);
+
+        holder.botonDesplegar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (holder.textoCalle.getVisibility() == View.VISIBLE){
+                    holder.botonDesplegar.setImageResource(R.drawable.icono_desplegar);
+                    holder.textoCalle.setVisibility(View.GONE);
+                } else {
+                    holder.botonDesplegar.setImageResource(R.drawable.icono_replegar);
+                    holder.textoCalle.setVisibility(View.VISIBLE);
+                }
+
+                if (holder.textoNumero.getVisibility() == View.VISIBLE){
+                    holder.textoNumero.setVisibility(View.GONE);
+                } else holder.textoNumero.setVisibility(View.VISIBLE);
+
+                if (holder.textoPiso.getVisibility() == View.VISIBLE){
+                    holder.textoPiso.setVisibility(View.GONE);
+                } else holder.textoPiso.setVisibility(View.VISIBLE);
+
+                if (holder.textoPuerta.getVisibility() == View.VISIBLE){
+                    holder.textoPuerta.setVisibility(View.GONE);
+                } else holder.textoPuerta.setVisibility(View.VISIBLE);
+
+                if (holder.calle.getVisibility() == View.VISIBLE){
+                    holder.calle.setVisibility(View.GONE);
+                } else holder.calle.setVisibility(View.VISIBLE);
+
+                if (holder.numero.getVisibility() == View.VISIBLE){
+                    holder.numero.setVisibility(View.GONE);
+                } else holder.numero.setVisibility(View.VISIBLE);
+
+                if (holder.piso.getVisibility() == View.VISIBLE){
+                    holder.piso.setVisibility(View.GONE);
+                } else holder.piso.setVisibility(View.VISIBLE);
+
+                if (holder.puerta.getVisibility() == View.VISIBLE){
+                    holder.puerta.setVisibility(View.GONE);
+                } else holder.puerta.setVisibility(View.VISIBLE);
+
+                if (holder.localidad.getVisibility() == View.VISIBLE){
+                    holder.localidad.setVisibility(View.GONE);
+                } else holder.localidad.setVisibility(View.VISIBLE);
+
+                if (holder.provincia.getVisibility() == View.VISIBLE){
+                    holder.provincia.setVisibility(View.GONE);
+                } else holder.provincia.setVisibility(View.VISIBLE);
+
+                if (holder.pais.getVisibility() == View.VISIBLE){
+                    holder.pais.setVisibility(View.GONE);
+                } else holder.pais.setVisibility(View.VISIBLE);
+
+            }
+        });
 
 
         holder.botonEliminar.setOnClickListener(new View.OnClickListener() {
@@ -115,12 +170,16 @@ public class Adapter_Direcciones_Envio extends RecyclerView.Adapter<Adapter_Dire
 
     class HolderDireccionesEnvio extends RecyclerView.ViewHolder{
 
-        TextView ubicacion, calle, numero, puerta, piso, pais, provincia, localidad;
-        ImageView botonEliminar;
+        TextView ubicacion, calle, numero, puerta, piso, pais, provincia, localidad, textoCalle, textoNumero, textoPiso, textoPuerta;
+        ImageView botonEliminar, botonDesplegar;
 
         public HolderDireccionesEnvio(@NonNull View itemView) {
             super(itemView);
 
+            textoCalle = binding.textoCalle;
+            textoNumero = binding.textoNumero;
+            textoPiso = binding.textoPiso;
+            textoPuerta = binding.textoPuerta;
             ubicacion = binding.numeroUbicacion;
             calle = binding.calle;
             numero = binding.numero;
@@ -130,6 +189,7 @@ public class Adapter_Direcciones_Envio extends RecyclerView.Adapter<Adapter_Dire
             provincia = binding.provincia;
             localidad = binding.ciudad;
             botonEliminar = binding.botonEliminar;
+            botonDesplegar = binding.botonDesplegar;
 
         }
     }

@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.samba.R;
 import com.example.samba.databinding.EstiloDireccionesEnvioBinding;
 import com.example.samba.databinding.EstiloMetodosPagoBinding;
 import com.example.samba.model.Model_Metodos_Pago;
@@ -55,6 +56,41 @@ public class Adapter_Metodos_Pago extends RecyclerView.Adapter<Adapter_Metodos_P
         holder.numero.setText(numero);
         holder.caducidad.setText(caducidad);
         holder.cvv.setText(cvv);
+
+        holder.boton_desplegar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (holder.textoTitular.getVisibility() == View.VISIBLE){
+                    holder.boton_desplegar.setImageResource(R.drawable.icono_desplegar);
+                    holder.textoTitular.setVisibility(View.GONE);
+                } else {
+                    holder.boton_desplegar.setImageResource(R.drawable.icono_replegar);
+                    holder.textoTitular.setVisibility(View.VISIBLE);
+                }
+
+                if (holder.titular.getVisibility() == View.VISIBLE){
+                    holder.titular.setVisibility(View.GONE);
+                } else holder.titular.setVisibility(View.VISIBLE);
+
+                if (holder.numero.getVisibility() == View.VISIBLE){
+                    holder.numero.setVisibility(View.GONE);
+                } else holder.numero.setVisibility(View.VISIBLE);
+
+                if (holder.caducidad.getVisibility() == View.VISIBLE){
+                    holder.caducidad.setVisibility(View.GONE);
+                } else holder.caducidad.setVisibility(View.VISIBLE);
+
+                if (holder.cvv.getVisibility() == View.VISIBLE){
+                    holder.cvv.setVisibility(View.GONE);
+                } else holder.cvv.setVisibility(View.VISIBLE);
+
+
+
+
+            }
+        });
+
+
 
         holder.boton_eliminar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,18 +143,20 @@ public class Adapter_Metodos_Pago extends RecyclerView.Adapter<Adapter_Metodos_P
 
     class HolderMetodosPago extends RecyclerView.ViewHolder{
 
-        TextView titular, numero, caducidad, cvv, numeroMetodoPago;
-        ImageView boton_eliminar;
+        TextView titular, numero, caducidad, cvv, numeroMetodoPago, textoTitular;
+        ImageView boton_eliminar, boton_desplegar;
 
         public HolderMetodosPago(@NonNull View itemView) {
             super(itemView);
 
+            textoTitular = binding.textoTitular;
             titular = binding.titular;
             numero = binding.numeroTarjeta;
             caducidad = binding.fechaCaducidad;
             cvv = binding.CCV;
             numeroMetodoPago = binding.numeroMetodoPago;
             boton_eliminar = binding.botonEliminar;
+            boton_desplegar = binding.botonDesplegar;
 
         }
     }
