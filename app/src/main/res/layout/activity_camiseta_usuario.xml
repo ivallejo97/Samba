@@ -54,10 +54,12 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/foto_usuario"
+            style="@style/iconos_perfil"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="35dp"
+            android:src="@drawable/icono_perfil_predeterminado"
             android:elevation="5dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/fotoCamiseta"/>
@@ -129,16 +131,39 @@
             app:layout_constraintLeft_toLeftOf="parent"/>
 
         <TextView
+            android:id="@+id/texto_talla"
+            style="@style/color_texto_predeterminado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:text="Talla: "
+            android:textSize="18dp"
+            app:layout_constraintTop_toBottomOf="@id/nombre_camiseta"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <TextView
             android:id="@+id/talla_camiseta"
             style="@style/color_texto_predeterminado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
-            android:text="Talla: L"
+            android:text="L"
             android:textSize="18dp"
             app:layout_constraintTop_toBottomOf="@id/nombre_camiseta"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toRightOf="@id/texto_talla"/>
+
+        <TextView
+            android:id="@+id/texto_marca"
+            style="@style/color_texto_predeterminado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Marca: "
+            android:textSize="18dp"
+            app:layout_constraintTop_toBottomOf="@id/texto_talla"
+            app:layout_constraintLeft_toLeftOf="@id/texto_talla"/>
 
         <TextView
             android:id="@+id/marca_camiseta"
@@ -146,7 +171,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Marca: Adidas"
+            android:text="Adidas"
             android:textSize="18dp"
             app:layout_constraintTop_toBottomOf="@id/talla_camiseta"
             app:layout_constraintLeft_toLeftOf="@id/talla_camiseta"/>
@@ -191,7 +216,7 @@ La camiseta del Real Madrid suele presentar los colores tradicionales del club: 
             app:layout_constraintTop_toBottomOf="@id/boton_iniciar_chat"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toTopOf="@id/cuadro_tiempo_entrega"/>
 
         <ImageView
             android:id="@+id/imagen_compra_segura"
@@ -199,7 +224,7 @@ La camiseta del Real Madrid suele presentar los colores tradicionales del club: 
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="10dp"
-            android:src="@drawable/icono_compra_segura"
+            android:src="@drawable/icono_comunidad"
             app:layout_constraintTop_toTopOf="@id/titulo_compra_segura"
             app:layout_constraintLeft_toLeftOf="@id/cuadro_compra_segura"
             app:layout_constraintBottom_toBottomOf="@id/descripcion_compra_segura" />
@@ -223,10 +248,57 @@ La camiseta del Real Madrid suele presentar los colores tradicionales del club: 
             android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="Nuestra protección al comprador implica una tasa que se añade a las compras realizadas a traves del boton 'Comprar'. Esta protección incluye la politica de reembolso"
+            android:text="A la hora de negociar con un usuario la compra de una camiseta, se pide que haya un total respeto por ambas, esto ayudara a crear un comunidad más sana de amantes a las camisetas de fútbol. "
             app:layout_constraintTop_toBottomOf="@id/titulo_compra_segura"
             app:layout_constraintLeft_toRightOf="@id/imagen_compra_segura"/>
 
+
+        <View
+            android:id="@+id/cuadro_tiempo_entrega"
+            style="@style/borde_vista_general_perfil"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintTop_toBottomOf="@id/cuadro_compra_segura"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:id="@+id/imagen_tiempo_entrega"
+            style="@style/iconos_perfil"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/icono_envio"
+            app:layout_constraintTop_toTopOf="@id/titulo_tiempo_entrega"
+            app:layout_constraintLeft_toLeftOf="@id/cuadro_tiempo_entrega"
+            app:layout_constraintBottom_toBottomOf="@id/descripcion_tiempo_entrega"/>
+
+        <TextView
+            android:id="@+id/titulo_tiempo_entrega"
+            style="@style/color_texto_predeterminado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:text="Tiempo de entrega"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/cuadro_tiempo_entrega"
+            app:layout_constraintLeft_toRightOf="@id/imagen_tiempo_entrega"
+            app:layout_constraintBottom_toTopOf="@id/descripcion_tiempo_entrega"/>
+
+        <TextView
+            android:id="@+id/descripcion_tiempo_entrega"
+            style="@style/color_texto_predeterminado"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="El tiempo estimado para la entrega del pedido es de 5 - 10 dias laborales"
+            app:layout_constraintTop_toBottomOf="@id/titulo_tiempo_entrega"
+            app:layout_constraintLeft_toRightOf="@id/imagen_tiempo_entrega"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

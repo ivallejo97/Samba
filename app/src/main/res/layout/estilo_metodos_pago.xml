@@ -7,6 +7,22 @@
     android:layout_height="172dp"
     android:layout_marginTop="10dp">
 
+    <View
+        style="@style/linea_separatoria_editar_perfil"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <View
+        style="@style/linea_separatoria_editar_perfil"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
     <ImageView
         android:id="@+id/boton_eliminar"
         style="@style/iconos_perfil"

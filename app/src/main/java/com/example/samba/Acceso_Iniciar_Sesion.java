@@ -118,6 +118,7 @@ public class Acceso_Iniciar_Sesion extends Fragment {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        progressDialog.dismiss();
                         Toast.makeText(getContext(), "" + e, Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -153,7 +154,7 @@ public class Acceso_Iniciar_Sesion extends Fragment {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-
+                        progressDialog.dismiss();
                     }
                 });
 

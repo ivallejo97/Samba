@@ -80,7 +80,7 @@ public class Activity_Publicar extends AppCompatActivity {
             }
         });
         
-        binding.fotoProducto2.setOnClickListener(new View.OnClickListener() {
+        binding.botonCamara.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showImageAttatchMenu();

@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import com.example.samba.databinding.AccesoRecuperarCuenta3Binding;
 import com.example.samba.databinding.AccesoVerificarCuentaBinding;
 
 

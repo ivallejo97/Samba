@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
         style="@style/logo_app_style_invertido"
         android:layout_gravity="center" />
 
@@ -20,23 +20,9 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="Hemos enviado un mensaje a tu correo electrónico, introduce el codigo de verificación para terminar de crear tu cuenta en SAMBA"
+        android:text="Hemos enviado un mensaje a tu correo electrónico, introduce el codigo de verificación para terminar de crear tu cuenta en SAMBA\n\nSi no has recibido el correo comprueba la carpeta de Spam, podría estar ahí el correo para verificar tu cuenta"
         android:textSize="16dp"
         android:gravity="center"/>
-
-    <EditText
-        android:id="@+id/codigo_verificacion"
-        style="@style/edittext_recuperar_verificar_cuenta"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_gravity="center"
-        android:paddingLeft="5dp"
-        android:hint="Codigo de verificación"
-        android:elevation="5dp"
-        android:inputType="number"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"

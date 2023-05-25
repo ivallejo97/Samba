@@ -42,7 +42,7 @@
                 style="@style/iconos_cabeceras"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginLeft="25dp"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:src="@drawable/icono_cerrar"
@@ -157,6 +157,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <ImageView
+                style="@style/iconos_perfil"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
@@ -170,6 +171,7 @@
 
 
         <TextView
+            style="@style/color_texto_predeterminado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

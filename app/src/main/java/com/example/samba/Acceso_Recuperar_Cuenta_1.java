@@ -62,7 +62,6 @@ public class Acceso_Recuperar_Cuenta_1 extends Fragment {
         boton_continuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //navController.navigate(R.id.action_acceso_Recuperar_Cuenta_1_to_acceso_Recuperar_Cuenta_2);
                 validateData();
             }
         });
@@ -93,6 +92,7 @@ public class Acceso_Recuperar_Cuenta_1 extends Fragment {
                     public void onSuccess(Void unused) {
                         progressDialog.dismiss();
                         Toast.makeText(getContext(), "Sigue las instrucciones que hemos enviado a " + email + " para restablecer la contraseña de la cuenta." , Toast.LENGTH_SHORT);
+                        navController.navigate(R.id.action_acceso_Recuperar_Cuenta_1_to_acceso_Recuperar_Cuenta_2);
                     }
                 })  .addOnFailureListener(new OnFailureListener() {
                     @Override

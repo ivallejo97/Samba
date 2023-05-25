@@ -52,6 +52,7 @@
         android:layout_marginBottom="20dp"
         android:src="@drawable/icono_perfil_predeterminado"
         android:layout_gravity="center"
+        app:civ_fill_color="@color/white"
         app:layout_constraintTop_toTopOf="@id/fondo_perfil"
         app:layout_constraintLeft_toLeftOf="@id/fondo_perfil"
         app:layout_constraintRight_toRightOf="@id/fondo_perfil"

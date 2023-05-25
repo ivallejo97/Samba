@@ -144,7 +144,11 @@ public class Activity_Camiseta_Usuario extends AppCompatActivity {
 
 
                         binding.nombreUsuario.setText(nombre_usuario);
-                        Glide.with(Activity_Camiseta_Usuario.this).load(foto_usuario).into(binding.fotoUsuario);
+                        if (foto_usuario.equals("")){
+                            binding.fotoUsuario.setImageResource(R.drawable.icono_perfil_predeterminado);
+                        } else {
+                            Glide.with(Activity_Camiseta_Usuario.this).load(foto_usuario).into(binding.fotoUsuario);
+                        }
                     }
 
                     @Override

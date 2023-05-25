@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.samba.Activity_Camiseta_Usuario;
+import com.example.samba.R;
 import com.example.samba.databinding.EstiloCamisetasUsuarioBinding;
 import com.example.samba.model.Model_Camisetas_Usuario;
 import com.google.android.material.imageview.ShapeableImageView;
@@ -86,7 +87,11 @@ public class Adapter_Camisetas_Usuario extends RecyclerView.Adapter<Adapter_Cami
                     String nombreUsuario = "" + snapshot.child("name").getValue();
                     String fotoUsuario = "" + snapshot.child("profileImage").getValue();
                     holder.nombreUsuario.setText(nombreUsuario);
-                    Glide.with(context).load(fotoUsuario).into(holder.fotoUsuario);
+                    if (fotoUsuario.equals("")){
+                        binding.iconoUsuario.setImageResource(R.drawable.icono_perfil_predeterminado);
+                    } else {
+                        Glide.with(context).load(fotoUsuario).into(holder.fotoUsuario);
+                    }
                 }
 
                 @Override

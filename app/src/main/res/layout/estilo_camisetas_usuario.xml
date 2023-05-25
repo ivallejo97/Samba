@@ -17,9 +17,11 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/icono_usuario"
+        style="@style/iconos_perfil"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:src="@drawable/icono_usuario"
+        android:src="@drawable/icono_perfil_predeterminado"
+        app:civ_fill_color="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
