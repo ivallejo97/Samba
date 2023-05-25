@@ -27,9 +27,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-
-            />
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <ImageView
             android:id="@+id/icono_portada_mis_productes"
@@ -45,6 +43,7 @@
 
         <TextView
             android:id="@+id/texto_titulo_metodos_de_pago"
+            style="@style/color_texto_predeterminado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Quienes somos"
@@ -72,8 +71,7 @@
         android:layout_margin="30dp"
         android:text="Una idea sencilla que engloba una gran comunidad camisetera"
         android:textStyle="bold"
-        android:textSize="30dp"
-        />
+        android:textSize="28dp" />
 
     <ImageView
         style="@style/iconos_perfil"
@@ -92,7 +90,7 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:textSize="25dp"
+        android:textSize="23dp"
         android:text="De una simple aficion de 2 personas..."
         />
 
@@ -105,8 +103,7 @@
         android:layout_marginBottom="30dp"
         android:layout_marginTop="10dp"
         android:textSize="15dp"
-        android:text="Iván y Samuel, dos coleccionistas de camisetas de futbol actuales o de epoca y fanaticos del futbol. En el año 2023, como trabajo final de grado, tuvieron la idea de crear una aplicacion que ayudase a todos esos coleccionistas como ellos a disfrutar del proceso, a encontrar piezas unicas, y a otorgar una segunda vida a esaas camisetas que otros desean."
-        />
+        android:text="Iván y Samuel, dos coleccionistas de camisetas de futbol actuales o de epoca y fanaticos del futbol. En el año 2023, como trabajo final de grado, tuvieron la idea de crear una aplicacion que ayudase a todos esos coleccionistas como ellos a disfrutar del proceso, a encontrar piezas unicas, y a otorgar una segunda vida a esaas camisetas que otros desean." />
 
 
     <ImageView
@@ -114,8 +111,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/icono_idea_quienes_somos"
-        android:layout_marginLeft="30dp"
-        />
+        android:layout_marginLeft="30dp" />
 
     <!--COLOR NEGRO-->
     <TextView
@@ -126,9 +122,8 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:textSize="25dp"
-        android:text="... a una idea hecha realidad"
-        />
+        android:textSize="23dp"
+        android:text="... a una idea hecha realidad" />
 
     <!--COLOR GRIS OSCURO (MODO CLARO) / GRIS CLARO (MODO OSCURO)-->
     <TextView
@@ -139,16 +134,14 @@
         android:layout_marginBottom="30dp"
         android:layout_marginTop="10dp"
         android:textSize="15dp"
-        android:text="Hoy en dia esa idea se ha cobrado forma y actualmente somos una comunidad de mas de 1 millon de camiseteros colaborando entre si para que cada uno logre sus objetivos en cuanto a coleccion."
-        />
+        android:text="Hoy en dia esa idea se ha cobrado forma y actualmente somos una comunidad de mas de 1 millon de camiseteros colaborando entre si para que cada uno logre sus objetivos en cuanto a coleccion." />
 
     <ImageView
         style="@style/iconos_perfil"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/icono_ubicacion_quienes_somos"
-        android:layout_marginLeft="30dp"
-        />
+        android:layout_marginLeft="30dp" />
 
     <!--COLOR NEGRO-->
     <TextView
@@ -159,9 +152,8 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:textSize="25dp"
-        android:text="Nos situamos en España"
-        />
+        android:textSize="23dp"
+        android:text="Nos situamos en España" />
 
     <!--COLOR GRIS OSCURO (MODO CLARO) / GRIS CLARO (MODO OSCURO)-->
     <TextView
@@ -172,16 +164,14 @@
         android:layout_marginBottom="30dp"
         android:layout_marginTop="10dp"
         android:textSize="15dp"
-        android:text="Somos un pequeño equipo de desarrolladores procedentes de Barcelona, España. Actualmente trabajamos y tramitamos pedidos por toda la peninsla e islas, pero estamos en proceso de expansion para llegar a paises de toda europa. Italia, Francia, Gran Bretaña, Alemania o Belgica son algunos ejemplos de ellos."
-        />
+        android:text="Somos un pequeño equipo de desarrolladores procedentes de Barcelona, España. Actualmente trabajamos y tramitamos pedidos por toda la peninsla e islas, pero estamos en proceso de expansion para llegar a paises de toda europa. Italia, Francia, Gran Bretaña, Alemania o Belgica son algunos ejemplos de ellos." />
 
     <ImageView
         style="@style/iconos_perfil"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/icono_global_quienes_somos"
-        android:layout_marginLeft="30dp"
-        />
+        android:layout_marginLeft="30dp" />
 
     <!--COLOR NEGRO-->
     <TextView
@@ -192,9 +182,8 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:textSize="25dp"
-        android:text="Cumplimos con una mision global"
-        />
+        android:textSize="23dp"
+        android:text="Cumplimos con una mision global" />
 
     <!--COLOR GRIS OSCURO (MODO CLARO) / GRIS CLARO (MODO OSCURO)-->
     <TextView
@@ -205,15 +194,13 @@
         android:layout_marginBottom="30dp"
         android:layout_marginTop="10dp"
         android:textSize="15dp"
-        android:text="Da una segunda vida a las camisetas y vende lo que no te pones. Nunca habia sido tan facil intercambiar camisetas con usuarios cualquier otra parte del territorio nacional. Explora y encuentra prendas unicas. Nuestra gran comunidad camisetera hara que disfrutes de coleccionar camisetas como nunca."
-        />
+        android:text="Da una segunda vida a las camisetas y vende lo que no te pones. Nunca habia sido tan facil intercambiar camisetas con usuarios cualquier otra parte del territorio nacional. Explora y encuentra prendas unicas. Nuestra gran comunidad camisetera hara que disfrutes de coleccionar camisetas como nunca." />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/samba_logo_secundario"
-        android:layout_margin="30dp"
-        />
+        android:layout_margin="30dp" />
 
 </LinearLayout>
 </ScrollView>

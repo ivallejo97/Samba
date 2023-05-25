@@ -160,7 +160,7 @@ public class Destinos_Principales_Perfil extends Fragment {
                         if (isAdded()){
                             Glide.with(getContext())
                                     .load(profileImage)
-                                    .placeholder(R.drawable.icono_aceptar)
+                                    .placeholder(R.drawable.icono_perfil_predeterminado)
                                     .into(binding.fotoPerfil);
                         }
 

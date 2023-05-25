@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         style="@style/logo_app_style_invertido"
         android:layout_gravity="center" />
 
