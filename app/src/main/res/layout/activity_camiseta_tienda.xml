@@ -298,7 +298,7 @@ La camiseta del Real Madrid suele presentar los colores tradicionales del club: 
                 app:layout_constraintTop_toBottomOf="@id/boton_comprar_camiseta"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/cuadro_tiempo_entrega"/>
+                app:layout_constraintBottom_toTopOf="@id/cuadro_advertencia"/>
 
             <ImageView
                 android:id="@+id/imagen_compra_segura"
@@ -336,7 +336,7 @@ La camiseta del Real Madrid suele presentar los colores tradicionales del club: 
 
             <!--tiempo de entrega-->
             <View
-                android:id="@+id/cuadro_tiempo_entrega"
+                android:id="@+id/cuadro_advertencia"
                 style="@style/borde_vista_general_perfil"
                 android:layout_width="match_parent"
                 android:layout_height="95dp"
@@ -349,18 +349,18 @@ La camiseta del Real Madrid suele presentar los colores tradicionales del club: 
                 app:layout_constraintBottom_toTopOf="@id/cuadro_tiempo_devoluciones" />
 
             <ImageView
-                android:id="@+id/imagen_tiempo_entrega"
+                android:id="@+id/imagen_advertencia"
                 style="@style/iconos_perfil"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_margin="10dp"
                 android:src="@drawable/icono_envio"
-                app:layout_constraintTop_toTopOf="@id/titulo_tiempo_entrega"
-                app:layout_constraintLeft_toLeftOf="@id/cuadro_tiempo_entrega"
-                app:layout_constraintBottom_toBottomOf="@id/descripcion_tiempo_entrega"/>
+                app:layout_constraintTop_toTopOf="@id/titulo_advertencia"
+                app:layout_constraintLeft_toLeftOf="@id/cuadro_advertencia"
+                app:layout_constraintBottom_toBottomOf="@id/descripcion_advertencia"/>
 
             <TextView
-                android:id="@+id/titulo_tiempo_entrega"
+                android:id="@+id/titulo_advertencia"
                 style="@style/color_texto_predeterminado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -368,19 +368,19 @@ La camiseta del Real Madrid suele presentar los colores tradicionales del club: 
                 android:layout_marginTop="20dp"
                 android:text="Tiempo de entrega"
                 android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="@id/cuadro_tiempo_entrega"
-                app:layout_constraintLeft_toRightOf="@id/imagen_tiempo_entrega"
-                app:layout_constraintBottom_toTopOf="@id/descripcion_tiempo_entrega"/>
+                app:layout_constraintTop_toTopOf="@id/cuadro_advertencia"
+                app:layout_constraintLeft_toRightOf="@id/imagen_advertencia"
+                app:layout_constraintBottom_toTopOf="@id/descripcion_advertencia"/>
 
             <TextView
-                android:id="@+id/descripcion_tiempo_entrega"
+                android:id="@+id/descripcion_advertencia"
                 style="@style/color_texto_predeterminado"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="El tiempo estimado para la entrega del pedido es de 5 - 10 dias laborales"
-                app:layout_constraintTop_toBottomOf="@id/titulo_tiempo_entrega"
-                app:layout_constraintLeft_toRightOf="@id/imagen_tiempo_entrega"/>
+                app:layout_constraintTop_toBottomOf="@id/titulo_advertencia"
+                app:layout_constraintLeft_toRightOf="@id/imagen_advertencia"/>
 
             <!--tiempo de devolucion-->
 
@@ -392,7 +392,7 @@ La camiseta del Real Madrid suele presentar los colores tradicionales del club: 
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="20dp"
-                app:layout_constraintTop_toBottomOf="@id/cuadro_tiempo_entrega"
+                app:layout_constraintTop_toBottomOf="@id/cuadro_advertencia"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" />
