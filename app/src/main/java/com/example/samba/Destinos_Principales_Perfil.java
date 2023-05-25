@@ -4,6 +4,7 @@ import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -22,11 +23,15 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.samba.databinding.AccesoCrearCuentaBinding;
 import com.example.samba.databinding.DestinosPrincipalesPerfilBinding;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,6 +44,8 @@ public class Destinos_Principales_Perfil extends Fragment {
     DestinosPrincipalesPerfilBinding binding;
     NavController navController;
     private FirebaseAuth firebaseAuth;
+    private FirebaseUser firebaseUser;
+    ProgressDialog progressDialog;
     private static final String TAG = "PROFILE_TAG";
 
     @Override
@@ -54,7 +61,23 @@ public class Destinos_Principales_Perfil extends Fragment {
 
         navController = Navigation.findNavController(view);
         firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setTitle("Verificar cuenta");
+        progressDialog.setCanceledOnTouchOutside(false);
         loadUserInfo();
+
+
+        binding.iconoVerificarCuenta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (firebaseUser.isEmailVerified()){
+                    Toast.makeText(getContext(),"Usuario ya verififcado", Toast.LENGTH_SHORT).show();
+                } else {
+                    dialogVerificarEmail();
+                }
+            }
+        });
 
         binding.botonEditarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,8 +159,56 @@ public class Destinos_Principales_Perfil extends Fragment {
         });
     }
 
+    private void dialogVerificarEmail() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Verificar cuenta")
+                .setMessage("Enviaremos un mensaje a " + firebaseUser.getEmail() + " para que puedas verificar tu cuenta. Sigue las instrucciones para verificar la cuenta.")
+                .setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        enviarMensajeVerificacion();
+                    }
+                })
+                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).show();
+    }
+
+    private void enviarMensajeVerificacion() {
+
+        progressDialog.setMessage("Enviando el correo para verificar cuenta a " + firebaseUser.getEmail());
+        progressDialog.show();
+
+        firebaseUser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                progressDialog.dismiss();
+                Toast.makeText(getContext(),"Instrucciones enviadas a " + firebaseUser.getEmail(), Toast.LENGTH_SHORT).show();
+            }
+        })
+        .addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                progressDialog.dismiss();
+                Toast.makeText(getContext(), "Error al enviar las instrucciones a " + firebaseUser.getEmail() ,Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+    }
+
     private void loadUserInfo() {
         Log.d(TAG,"loadUserInfo: Loading User..." + firebaseAuth.getUid());
+
+        if (firebaseUser.isEmailVerified()){
+            binding.iconoVerificarCuenta.setImageResource(R.drawable.icono_verificado);
+        } else {
+            binding.iconoVerificarCuenta.setImageResource(R.drawable.icono_verificacion_necesaria);
+        }
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         databaseReference.child(firebaseAuth.getUid())

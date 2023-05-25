@@ -19,6 +19,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/icono_verificar_cuenta"
+        style="@style/iconos_perfil"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/icono_verificacion_necesaria"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+    <ImageView
         android:id="@+id/icono_ajustes"
         style="@style/iconos_perfil"
         android:layout_width="30dp"
