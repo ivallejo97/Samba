@@ -170,7 +170,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="CVV"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:inputType="number"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
