@@ -18,10 +18,12 @@ import com.example.samba.Activity_Camiseta_Tienda;
 import com.example.samba.Activity_Camiseta_Usuario;
 import com.example.samba.Activity_Favoritos_Camisetas_Usuario;
 import com.example.samba.MetodosApp;
+import com.example.samba.R;
 import com.example.samba.databinding.EstiloCamisetasFavoritosBinding;
 import com.example.samba.databinding.EstiloCamisetasFavoritosUsuarioBinding;
 import com.example.samba.model.Model_Camisetas_Usuario;
 import com.google.android.material.imageview.ShapeableImageView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,6 +38,7 @@ public class Adapter_Favoritos_Camisetas_Usuarios extends RecyclerView.Adapter<A
     private Context context;
     private ArrayList<Model_Camisetas_Usuario> camisetasUsuariosList;
     private EstiloCamisetasFavoritosUsuarioBinding binding;
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
     public Adapter_Favoritos_Camisetas_Usuarios(Context context, ArrayList<Model_Camisetas_Usuario> camisetasUsuariosList) {
         this.context = context;
@@ -53,6 +56,7 @@ public class Adapter_Favoritos_Camisetas_Usuarios extends RecyclerView.Adapter<A
     public void onBindViewHolder(@NonNull HolderCamisetasFavoritosUsuario holder, int position) {
         Model_Camisetas_Usuario modelCamisetasUsuario = camisetasUsuariosList.get(position);
 
+        cargarDatosUsuario(modelCamisetasUsuario,holder);
         cargarDatosCamisetas(modelCamisetasUsuario,holder);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -134,6 +138,27 @@ public class Adapter_Favoritos_Camisetas_Usuarios extends RecyclerView.Adapter<A
     }
 
 
+    private void cargarDatosUsuario(Model_Camisetas_Usuario modelCamisetasUsuario, Adapter_Favoritos_Camisetas_Usuarios.HolderCamisetasFavoritosUsuario holder) {
+        String idUser = "" + modelCamisetasUsuario.getUid();
+        String idCamiseta = "" + modelCamisetasUsuario.getId();
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        databaseReference.child(firebaseAuth.getUid())
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String nombreUsuario = "" + snapshot.child("name").getValue();
+                        holder.nombreUsuario.setText(nombreUsuario);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        // Manejar el error de la base de datos
+                    }
+                });
+    }
+
+
     class HolderCamisetasFavoritosUsuario extends RecyclerView.ViewHolder{
 
         ShapeableImageView fotoCamiseta;
@@ -148,6 +173,7 @@ public class Adapter_Favoritos_Camisetas_Usuarios extends RecyclerView.Adapter<A
             botonFavoritos = binding.botonFavoritos;
             marcaCamiseta = binding.marcaProducto;
             tallaCamiseta = binding.talla;
+            nombreUsuario = binding.nombreUsuario;
         }
     }
 

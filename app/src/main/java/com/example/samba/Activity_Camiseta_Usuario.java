@@ -63,8 +63,10 @@ public class Activity_Camiseta_Usuario extends AppCompatActivity {
             public void onClick(View v) {
                 if (favorito){
                     MetodosApp.eliminarFavoritosCamisetasUsuarios(getApplicationContext(),idCamiseta);
+                    intent.putExtra("uid",idUser);
                 } else {
                     MetodosApp.addCamisetaFavoritosUsuarios(getApplicationContext(),idCamiseta);
+                    intent.putExtra("uid",idUser);
                 }
             }
         });

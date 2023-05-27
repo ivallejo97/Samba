@@ -36,12 +36,14 @@ public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camis
     boolean favorito;
     public ArrayList<Model_Camisetas_Tienda> camisetasTiendaArrayList, filtrarListaCamisetas;
     private Filtro_Camisetas filtroCamisetas;
+    private FirebaseAuth firebaseAuth;
     private EstiloCamisetasBinding binding;
 
     public Adapter_Camisetas_Tienda(Context context, ArrayList<Model_Camisetas_Tienda> camisetasTiendaArrayList) {
         this.context = context;
         this.camisetasTiendaArrayList = camisetasTiendaArrayList;
         this.filtrarListaCamisetas = camisetasTiendaArrayList;
+        firebaseAuth = FirebaseAuth.getInstance();
     }
 
     @NonNull
@@ -68,12 +70,7 @@ public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camis
         Glide.with(context).load(modelCamisetasTienda.getUrl()).into(holder.fotoCamiseta);
         holder.precioCamiseta.setText(nombrePrecioCamiseta);
 
-        if (modelCamisetasTienda.isFavorito()){
-            holder.botonFavoritos.setImageResource(R.drawable.icono_favorito_marcado);
-        } else {
-            holder.botonFavoritos.setImageResource(R.drawable.icono_favoritos_perfil);
-        }
-
+        comprobarFavorito(idCamiseta,holder);
         cargarCategoria(modelCamisetasTienda,holder);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +83,6 @@ public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camis
                 context.startActivity(intent);
             }
         });
-
 
     }
 
@@ -104,7 +100,6 @@ public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camis
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String categoria = "" + snapshot.child("categoria").getValue();
                     }
 
                     @Override
@@ -123,6 +118,28 @@ public class Adapter_Camisetas_Tienda extends RecyclerView.Adapter<Adapter_Camis
 
         return filtroCamisetas;
     }
+
+    private void comprobarFavorito(String idCamiseta, HolderCamisetasTienda holder) {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        databaseReference.child(firebaseAuth.getUid()).child("Favoritos").child(idCamiseta)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        boolean favorito = snapshot.exists();
+                        if (favorito) {
+                            holder.botonFavoritos.setImageResource(R.drawable.icono_favorito_marcado);
+                        } else {
+                            holder.botonFavoritos.setImageResource(R.drawable.icono_favoritos_perfil);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        // Manejar error de base de datos
+                    }
+                });
+    }
+
 
 
 

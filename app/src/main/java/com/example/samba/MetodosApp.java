@@ -113,4 +113,56 @@ public class MetodosApp extends Application {
                 });
     }
 
+
+
+    public static void addCamisetaCarrito(Context context, String idCamiseta, String cantidad, String talla, String personalizacion, String precioTotal){
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
+        long timestamp = System.currentTimeMillis();
+        HashMap<String,Object> hashMap = new HashMap<>();
+        hashMap.put("idCamiseta", "" + idCamiseta);
+        hashMap.put("cantidad", "" + cantidad);
+        hashMap.put("talla", "" + talla);
+        hashMap.put("personalizacion", "" + personalizacion);
+        hashMap.put("precioTotal", "" + precioTotal);
+        hashMap.put("timestamp", "" + timestamp);
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        databaseReference.child(firebaseAuth.getUid()).child("Carrito").child(idCamiseta)
+                .setValue(hashMap)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(context,"Camiseta añadida al carrito", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(context,"Añadido a favoritos", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    public static void eliminarCarrito(Context context, String idCamiseta, String cantidad, String talla, String personalizacion, String precioTotal){
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        databaseReference.child(firebaseAuth.getUid()).child("Carrito").child(idCamiseta)
+                .removeValue()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(context,"Camiseta eliminada del carrito", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(context,"Añadido a favoritos", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
 }

@@ -56,7 +56,7 @@ public class Adapter_Favoritos extends RecyclerView.Adapter<Adapter_Favoritos.Ho
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context , Activity_Camiseta_Tienda.class);
-                intent.putExtra("id",modelCamisetasTienda.getId());
+                intent.putExtra("id", modelCamisetasTienda.getId());
                 intent.putExtra("categoriaId", modelCamisetasTienda.getCategoriaId());
                 context.startActivity(intent);
             }

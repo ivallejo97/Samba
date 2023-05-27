@@ -8,6 +8,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -35,10 +38,13 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
     ActivityCamisetaTiendaBinding binding;
     String idCamiseta, categoriaId;
     boolean favorito = false;
+    boolean carrito = false;
     private FirebaseAuth firebaseAuth;
     String[] tallas = {"S","M","L","XL","XXL"};
     String[] cantidad = {"1","2","3","4","5"};
 
+    String cantidadTotal, tallaDefinitiva, personalizacionCamiseta, precioTotal;
+    String precioCamiseta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,16 +57,35 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
+        cantidadTotal = binding.cantidadCamisetas.getText().toString().trim();
+        tallaDefinitiva = binding.tallaCamiseta.getText().toString().trim();
+        personalizacionCamiseta = binding.datosCamiseta.getText().toString().trim();
 
         comprobarFavorito();
+        comprobarCarrito();
         aumentarNumeroDeVisitas(idCamiseta);
         cargarInformacionCamiseta();
         cargarCategoriaCamiseta();
+
 
         binding.botonVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+            }
+        });
+
+        binding.botonComprarCamiseta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        binding.botonVerCarrito.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Activity_Camiseta_Tienda.this, Activity_Carrito.class));
             }
         });
 
@@ -89,6 +114,25 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
             }
         });
 
+        binding.botonCarrito.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (carrito){
+                    MetodosApp.eliminarCarrito(getApplicationContext(),idCamiseta, cantidadTotal, tallaDefinitiva, personalizacionCamiseta, precioTotal);
+                } else {
+                    if (TextUtils.isEmpty(binding.datosCamiseta.getText().toString().trim())) {
+                        personalizacionCamiseta = "No";
+                    }
+                    String cantidadSeleccionada = binding.cantidadCamisetas.getText().toString().trim();
+                    if (cantidadSeleccionada.equals("-")) {
+                        Toast.makeText(Activity_Camiseta_Tienda.this, "Selecciona una cantidad válida", Toast.LENGTH_SHORT).show();
+                    } else {
+                        MetodosApp.addCamisetaCarrito(getApplicationContext(),idCamiseta, cantidadTotal, tallaDefinitiva, personalizacionCamiseta, precioTotal);
+                    }
+                }
+            }
+        });
+
         binding.checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -100,7 +144,23 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
             }
         });
 
+        binding.datosCamiseta.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // No se necesita implementar en este caso
+            }
 
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                personalizacionCamiseta = s.toString().trim();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // No se necesita implementar en este caso
+            }
+        });
 
     }
 
@@ -171,7 +231,7 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
                         binding.descripcionCamiseta.setText(descripcion_producto);
                         Glide.with(getApplicationContext()).load(foto_camiseta).into(binding.fotoCamiseta);
                         binding.numeroVisitasCamiseta.setText(visitas_camisetas.replace("null","N/A"));
-
+                        precioCamiseta = precio_camiseta;
                     }
 
                     @Override
@@ -189,6 +249,8 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         String tallaSeleccionada = tallas[which];
                         binding.tallaCamiseta.setText(tallaSeleccionada);
+
+                        tallaDefinitiva = tallaSeleccionada;
                     }
                 });
 
@@ -204,6 +266,15 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         String cantidadSeleccionada = cantidad[which];
                         binding.cantidadCamisetas.setText(cantidadSeleccionada);
+
+                        cantidadTotal = cantidadSeleccionada;
+
+                        if (cantidadSeleccionada.equals("1")){
+                            precioTotal = String.valueOf(Double.parseDouble(precioCamiseta));
+
+                        } else {
+                            precioTotal = String.valueOf(Double.parseDouble(precioCamiseta) * Integer.parseInt(cantidadTotal));
+                        }
                     }
                 });
 
@@ -233,5 +304,25 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
                 });
     }
 
+    public void comprobarCarrito(){
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        databaseReference.child(firebaseAuth.getUid()).child("Carrito").child(idCamiseta)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        carrito = snapshot.exists();
+                        if (carrito){
+                            binding.botonCarrito.setImageResource(R.drawable.icono_eliminar_carrito);
+                        } else {
+                            binding.botonCarrito.setImageResource(R.drawable.icono_agregar_carrito);
+                        }
+                    }
 
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+    }
+    
 }

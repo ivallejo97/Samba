@@ -25,7 +25,6 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
-import com.example.samba.databinding.AccesoCrearCuentaBinding;
 import com.example.samba.databinding.DestinosPrincipalesInicioBinding;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;

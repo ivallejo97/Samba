@@ -26,7 +26,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.samba.databinding.AccesoCrearCuentaBinding;
 import com.example.samba.databinding.DestinosPrincipalesPerfilBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

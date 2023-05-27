@@ -16,7 +16,8 @@ public class Activity_Carga_Pantalla_Inicio extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(Activity_Carga_Pantalla_Inicio.this, Activity_Acceso.class));
+                onDestroy();
+                startActivity(new Intent(Activity_Carga_Pantalla_Inicio.this, Activity_Opciones.class));
             }
         }, 3000 );
     }

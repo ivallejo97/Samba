@@ -17,6 +17,7 @@ import com.example.samba.R;
 import com.example.samba.databinding.EstiloCamisetasUsuarioBinding;
 import com.example.samba.model.Model_Camisetas_Usuario;
 import com.google.android.material.imageview.ShapeableImageView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,10 +33,12 @@ public class Adapter_Camisetas_Usuario extends RecyclerView.Adapter<Adapter_Cami
     private Context context;
     public ArrayList<Model_Camisetas_Usuario> camisetasUsuariosList;
     EstiloCamisetasUsuarioBinding binding;
+    private FirebaseAuth firebaseAuth;
 
     public Adapter_Camisetas_Usuario(Context context, ArrayList<Model_Camisetas_Usuario> camisetasUsuariosList) {
         this.context = context;
         this.camisetasUsuariosList = camisetasUsuariosList;
+        firebaseAuth = FirebaseAuth.getInstance();
     }
 
     @NonNull
@@ -61,6 +64,7 @@ public class Adapter_Camisetas_Usuario extends RecyclerView.Adapter<Adapter_Cami
         holder.tituloCamiseta.setText(tituloCamiseta);
         Glide.with(context).load(fotoCamiseta).into(holder.fotoCamiseta);
 
+        comprobarFavorito(idCamiseta,holder);
         cargarDatosUsuario(modelCamisetasUsuario,holder);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -107,6 +111,26 @@ public class Adapter_Camisetas_Usuario extends RecyclerView.Adapter<Adapter_Cami
     }
 
 
+    private void comprobarFavorito(String idCamiseta, Adapter_Camisetas_Usuario.HolderCamisetasUsuario holder) {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        databaseReference.child(firebaseAuth.getUid()).child("FavoritosUsuarios").child(idCamiseta)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        boolean favorito = snapshot.exists();
+                        if (favorito) {
+                            holder.botonFavoritos.setImageResource(R.drawable.icono_favorito_marcado);
+                        } else {
+                            holder.botonFavoritos.setImageResource(R.drawable.icono_favoritos_perfil);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        // Manejar error de base de datos
+                    }
+                });
+    }
 
 
     class HolderCamisetasUsuario extends RecyclerView.ViewHolder{

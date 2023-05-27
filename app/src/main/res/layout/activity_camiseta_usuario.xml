@@ -293,7 +293,7 @@ La camiseta del Real Madrid suele presentar los colores tradicionales del club: 
         <TextView
             android:id="@+id/descripcion_advertencia"
             style="@style/color_texto_predeterminado"
-            android:layout_width="280dp"
+            android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="En caso de detectar alguna infracción por parte de un usuario, ya sea insulto, acoso, abuso o agresión psicofísica, será denunciado al equipo de la aplicación y suspendido y restringido de inmediato de forma permanente."
@@ -340,10 +340,10 @@ La camiseta del Real Madrid suele presentar los colores tradicionales del club: 
         <TextView
             android:id="@+id/descripcion_disfruta"
             style="@style/color_texto_predeterminado"
-            android:layout_width="280dp"
+            android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:text="¡Recuerda! Ante todo, debes disfrutar del proceso, tanto de la adquisición de la prenda como de la negociación. !A coleccionar¡"
+            android:text="¡Recuerda! Ante todo, debes disfrutar del proceso, tanto de la adquisición de la prenda como de la negociación. ¡A coleccionar!"
             app:layout_constraintLeft_toRightOf="@id/imagen_disfruta"
             app:layout_constraintTop_toBottomOf="@id/titulo_disfruta" />
 

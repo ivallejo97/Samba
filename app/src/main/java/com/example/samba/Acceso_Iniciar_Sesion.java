@@ -22,7 +22,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.samba.databinding.AccesoIniciarSesionBinding;
-import com.example.samba.databinding.AccesoOpcionesBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
@@ -76,7 +75,7 @@ public class Acceso_Iniciar_Sesion extends Fragment {
         botonVolverInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_acceso_Iniciar_Sesion_to_acceso_Opciones);
+                startActivity(new Intent(getContext(), Activity_Opciones.class));
             }
         });
 
