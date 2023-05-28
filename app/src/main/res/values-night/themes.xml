@@ -322,4 +322,9 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="barra_mensaje" parent="">
+        <item name="android:background">@color/transparente</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
 </resources>

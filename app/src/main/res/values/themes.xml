@@ -281,7 +281,7 @@
     </style>
 
     <style name="estilo_toolbar_chat" parent="">
-        <item name="android:background">@color/gris_toolbar_mensajes</item>
+        <item name="android:background">@color/gris_claro_perfil</item>
     </style>
 
     <style name="boton_comprar" parent="">
@@ -304,5 +304,12 @@
         <item name="android:background">@drawable/bordes_direccion_envio_claro</item>
         <item name="android:textColor">@color/gris_oscuro</item>
     </style>
+
+    <style name="barra_mensaje" parent="">
+        <item name="android:background">@color/gris_claro_perfil</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
 
 </resources>
