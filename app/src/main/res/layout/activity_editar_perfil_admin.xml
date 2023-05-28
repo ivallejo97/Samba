@@ -31,7 +31,8 @@
             android:src="@drawable/icono_cerrar"
             android:background="@color/transparente"
             app:layout_constraintTop_toTopOf="@id/fondo_perfil_admin"
-            app:layout_constraintRight_toRightOf="@id/fondo_perfil_admin"/>
+            app:layout_constraintRight_toRightOf="@id/fondo_perfil_admin"
+            android:foreground="?android:attr/selectableItemBackground"/>
 
         <ImageView
             android:id="@+id/logo_administrador"

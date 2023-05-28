@@ -44,6 +44,13 @@ public class Activity_Metodos_Pago extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         cargarMetodosPago();
 
+        binding.botonVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         binding.botonAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -30,6 +30,18 @@
             app:layout_constraintBottom_toBottomOf="parent" />
 
         <ImageView
+            android:id="@+id/boton_volver"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            style="@style/iconos_perfil"
+            android:src="@drawable/icono_volver_atras"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <ImageView
             android:id="@+id/icono_portada_mis_productes"
             style="@style/iconos_perfil"
             android:layout_width="70dp"

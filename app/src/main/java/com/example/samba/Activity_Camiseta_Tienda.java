@@ -78,7 +78,7 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
         binding.botonComprarCamiseta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(Activity_Camiseta_Tienda.this, Activity_Carrito.class));
             }
         });
 

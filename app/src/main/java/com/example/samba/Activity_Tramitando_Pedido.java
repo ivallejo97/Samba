@@ -3,7 +3,9 @@ package com.example.samba;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
 import com.example.samba.databinding.ActivityComprarBinding;
 import com.example.samba.databinding.ActivityTramitandoPedidoBinding;
@@ -32,6 +34,13 @@ public class Activity_Tramitando_Pedido extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         cargarCamisetasCarrito();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(Activity_Tramitando_Pedido.this, Activity_Pedido_Finalizado.class));
+            }
+        }, 5000 );
 
 
 
@@ -66,5 +75,10 @@ public class Activity_Tramitando_Pedido extends AppCompatActivity {
 
                     }
                 });
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }

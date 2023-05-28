@@ -287,6 +287,7 @@
     <style name="boton_comprar" parent="">
         <item name="android:background">@drawable/boton_comprar_claro</item>
         <item name="android:textColorHint">@color/white</item>
+        <item name="drawableTint">@color/white</item>
     </style>
 
     <style name="boton_iniciar_chat" parent="">

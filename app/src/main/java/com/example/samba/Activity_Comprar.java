@@ -101,7 +101,11 @@ public class Activity_Comprar extends AppCompatActivity {
             public void onClick(View v) {
                 if (binding.direccionEnvio.getVisibility() == View.VISIBLE){
                     binding.direccionEnvio.setVisibility(View.GONE);
-                } else binding.direccionEnvio.setVisibility(View.VISIBLE);
+                    binding.botonDesplegar.setImageResource(R.drawable.icono_desplegar);
+                } else{
+                    binding.botonDesplegar.setImageResource(R.drawable.icono_replegar);
+                    binding.direccionEnvio.setVisibility(View.VISIBLE);
+                }
 
                 if (binding.direccionEnvioExistente.getVisibility() == View.VISIBLE){
                     binding.direccionEnvioExistente.setVisibility(View.GONE);
@@ -126,7 +130,11 @@ public class Activity_Comprar extends AppCompatActivity {
             public void onClick(View v) {
                 if (binding.metodoPago.getVisibility() == View.VISIBLE){
                     binding.metodoPago.setVisibility(View.GONE);
-                } else binding.metodoPago.setVisibility(View.VISIBLE);
+                    binding.botonDesplegar2.setImageResource(R.drawable.icono_desplegar);
+                } else{
+                    binding.botonDesplegar2.setImageResource(R.drawable.icono_replegar);
+                    binding.metodoPago.setVisibility(View.VISIBLE);
+                }
 
                 if (binding.metodoPagoExistente.getVisibility() == View.VISIBLE){
                     binding.metodoPagoExistente.setVisibility(View.GONE);
@@ -151,7 +159,11 @@ public class Activity_Comprar extends AppCompatActivity {
             public void onClick(View v) {
                 if (binding.datosPersonales.getVisibility() == View.VISIBLE){
                     binding.datosPersonales.setVisibility(View.GONE);
-                } else binding.datosPersonales.setVisibility(View.VISIBLE);
+                    binding.botonDesplegar3.setImageResource(R.drawable.icono_desplegar);
+                } else {
+                    binding.botonDesplegar3.setImageResource(R.drawable.icono_replegar);
+                    binding.datosPersonales.setVisibility(View.VISIBLE);
+                }
 
                 if (binding.nombreUsuario.getVisibility() == View.VISIBLE){
                     binding.nombreUsuario.setVisibility(View.GONE);
@@ -197,7 +209,7 @@ public class Activity_Comprar extends AppCompatActivity {
                 direccionesEnvioList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
 
-                    String direccion = "Calle " + dataSnapshot.child("calle").getValue() + " numero " + dataSnapshot.child("numero").getValue()
+                    String direccion = "Calle " + dataSnapshot.child("calle").getValue() + " nº " + dataSnapshot.child("numero").getValue()
                             + " piso " + dataSnapshot.child("piso").getValue() + " puerta " + dataSnapshot.child("puerta").getValue() + " " + dataSnapshot.child("localidad").getValue();
 
                     direccionesEnvioList.add(direccion);

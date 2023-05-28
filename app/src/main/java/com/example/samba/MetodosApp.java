@@ -165,4 +165,30 @@ public class MetodosApp extends Application {
                 });
     }
 
+    public static void addCamisetaPedidos(Context context, String cantidad, String precioTotal){
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
+        long timestamp = System.currentTimeMillis();
+        HashMap<String,Object> hashMap = new HashMap<>();
+        hashMap.put("cantidad", "" + cantidad);
+        hashMap.put("precioTotal", "" + precioTotal);
+        hashMap.put("timestamp", "" + timestamp);
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        databaseReference.child(firebaseAuth.getUid()).child("Pedidos")
+                .setValue(hashMap)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(context,"Pedido realizado", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(context,"", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
 }

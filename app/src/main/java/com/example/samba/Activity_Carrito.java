@@ -49,7 +49,6 @@ public class Activity_Carrito extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(new Intent(Activity_Carrito.this, Activity_Comprar.class));
-                intent.putExtra("precioTotal", precioTotal);
                 startActivity(intent);
             }
         });
@@ -82,6 +81,12 @@ public class Activity_Carrito extends AppCompatActivity {
                         binding.recyclerCamisetasCarrito.setAdapter(adapterCamisetasCarrito);
 
                         binding.precioTotal.setText(String.valueOf(precioTotal));
+
+                        if (camisetasTiendaList.size() > 0){
+                            binding.botonFinalizarCompra.setVisibility(View.VISIBLE);
+                        } else {
+                            binding.botonFinalizarCompra.setVisibility(View.GONE);
+                        }
                     }
 
                     @Override

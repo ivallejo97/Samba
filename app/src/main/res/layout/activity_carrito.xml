@@ -108,16 +108,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="560dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_camisetas_carrito"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="vertical"
+            android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            android:gravity="center"
             tools:listitem="@layout/estilo_camisetas_carrito"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -132,7 +129,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="15dp"
         android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:layout_height="45dp"
         android:layout_gravity="right"
         android:hint="Finalizar compra"/>
 

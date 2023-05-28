@@ -21,23 +21,24 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>
 
-        <ImageButton
+        <ImageView
             android:id="@+id/boton_volver_perfil"
             style="@style/color_logos_interfaz_admin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="15dp"
-            android:src="@drawable/icono_flecha_volver"
+            android:src="@drawable/icono_volver_atras"
             android:background="@color/transparente"
             app:layout_constraintTop_toTopOf="@id/fondo_perfil_admin"
-            app:layout_constraintLeft_toLeftOf="@id/fondo_perfil_admin"/>
+            app:layout_constraintLeft_toLeftOf="@id/fondo_perfil_admin"
+            android:foreground="?android:attr/selectableItemBackground"/>
 
-        <ImageButton
+        <ImageView
             android:id="@+id/boton_editar_perfil"
             style="@style/color_logos_interfaz_admin"
             android:layout_width="30dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="15dp"
             android:src="@drawable/icono_editar"

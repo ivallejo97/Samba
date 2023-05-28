@@ -27,7 +27,8 @@
         android:layout_marginLeft="10dp"
         android:src="@drawable/icono_verificacion_necesaria"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:foreground="?android:attr/selectableItemBackground" />
 
 
     <ImageView
@@ -40,7 +41,8 @@
         android:src="@drawable/icono_cerrar_sesion"
         android:background="@color/transparente"
         app:layout_constraintTop_toTopOf="@id/fondo_perfil"
-        app:layout_constraintRight_toRightOf="@id/fondo_perfil" />
+        app:layout_constraintRight_toRightOf="@id/fondo_perfil"
+        android:foreground="?android:attr/selectableItemBackground" />
 
     <ImageView
         android:id="@+id/boton_editar_perfil"

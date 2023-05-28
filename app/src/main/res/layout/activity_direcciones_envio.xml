@@ -22,6 +22,18 @@
             app:layout_constraintBottom_toBottomOf="parent" />
 
         <ImageView
+            android:id="@+id/boton_volver"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            style="@style/iconos_perfil"
+            android:src="@drawable/icono_volver_atras"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <ImageView
             android:id="@+id/icono_portada_direcciones_de_envio"
             style="@style/iconos_perfil"
             android:layout_width="70dp"
@@ -96,7 +108,8 @@
             app:layout_constraintTop_toTopOf="@id/text_direccion"
             app:layout_constraintLeft_toRightOf="@+id/text_direccion"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/text_direccion"/>
+            app:layout_constraintBottom_toBottomOf="@id/text_direccion"
+            android:foreground="?android:attr/selectableItemBackground"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_calle"

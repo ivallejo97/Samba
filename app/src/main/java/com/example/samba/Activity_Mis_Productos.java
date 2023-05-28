@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.samba.adapter.Adapter_Camisetas_Usuario;
 import com.example.samba.adapter.Adapter_Mis_Camisetas_Usuario;
@@ -33,6 +34,13 @@ public class Activity_Mis_Productos extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         cargarListaMisCamisetas();
+
+        binding.botonVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
     }
 

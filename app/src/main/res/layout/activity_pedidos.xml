@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity_Pedidos"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,9 +19,19 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
-            />
+        <ImageView
+            android:id="@+id/boton_volver"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            style="@style/iconos_perfil"
+            android:src="@drawable/icono_volver_atras"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
 
         <ImageView
             android:id="@+id/icono_portada_mis_pedidos"
@@ -33,8 +42,7 @@
             app:layout_constraintLeft_toLeftOf="@id/view_portada_mis_pedidos"
             app:layout_constraintBottom_toBottomOf="@id/view_portada_mis_pedidos"
             app:layout_constraintRight_toRightOf="@id/view_portada_mis_pedidos"
-            android:src="@drawable/icono_pedidos"
-            />
+            android:src="@drawable/icono_pedidos" />
 
         <TextView
             android:id="@+id/texto_titulo_mis_pedidos"
@@ -47,14 +55,50 @@
             app:layout_constraintTop_toBottomOf="@id/icono_portada_mis_pedidos"
             app:layout_constraintLeft_toLeftOf="@id/icono_portada_mis_pedidos"
             app:layout_constraintBottom_toBottomOf="@id/view_portada_mis_pedidos"
-            app:layout_constraintRight_toRightOf="@id/icono_portada_mis_pedidos"
-            />
+            app:layout_constraintRight_toRightOf="@id/icono_portada_mis_pedidos" />
+
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             style="@style/lineas_separatorias_perfil"
             app:layout_constraintBottom_toBottomOf="@id/view_portada_mis_pedidos"
-            android:elevation="10dp"
-            />
+            android:elevation="10dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            style="@style/iconos_perfil"
+            android:id="@+id/icono_no_ver_pedido"
+            android:layout_marginTop="50dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/icono_no_ver_pedidos"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+            style="@style/color_texto_predeterminado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="Lo sentimos, actualmente no puedes ver tus pedidos, el equipo esta trabajando actualmente en este error, proximamente podrás ver tus pedidos en la aplicación"
+            android:textSize="16dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/icono_no_ver_pedido"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </LinearLayout>

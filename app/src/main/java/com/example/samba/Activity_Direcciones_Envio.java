@@ -40,6 +40,12 @@ public class Activity_Direcciones_Envio extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         cargarDirecciones();
 
+        binding.botonVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         binding.botonAgregarDireccion.setOnClickListener(new View.OnClickListener() {
             @Override

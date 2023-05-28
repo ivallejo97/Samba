@@ -15,6 +15,7 @@
         android:layout_gravity="center" />
 
     <TextView
+        style="@style/color_texto_predeterminado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -30,31 +31,20 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp">
-
-        <ImageButton
-            android:id="@+id/boton_volver"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/icono_flecha_izquierda"
-            android:background="@android:color/transparent"
-            style="@style/botones_continuar"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+        android:layout_marginTop="230dp">
 
         <ImageButton
             android:id="@+id/boton_continuar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/icono_flecha_derecha"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/icono_aceptar"
             android:background="@android:color/transparent"
             style="@style/botones_continuar"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:foreground="?android:attr/selectableItemBackground"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
