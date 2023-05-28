@@ -296,7 +296,7 @@
     </style>
 
     <style name="color_transparente_fondo_camisetas_usuarios" parent="">
-        <item name="android:background">#AAC2C2C2</item>
+        <item name="android:background">#AAFEFEFE</item>
         <item name="tint">@color/black</item>
     </style>
 
