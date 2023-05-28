@@ -193,7 +193,7 @@ public class Activity_Editar_Camiseta_Usuario extends AppCompatActivity {
     }
 
     private void showImageAttatchMenu() {
-        PopupMenu popupMenu = new PopupMenu(Activity_Editar_Camiseta_Usuario.this,binding.fotoCamiseta);
+        PopupMenu popupMenu = new PopupMenu(Activity_Editar_Camiseta_Usuario.this,binding.botonOpcionesImagen);
         popupMenu.getMenu().add(Menu.NONE,0,0,"Camara");
         popupMenu.getMenu().add(Menu.NONE,1,1,"Galeria");
 
