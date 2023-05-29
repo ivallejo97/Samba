@@ -97,6 +97,7 @@ public class Activity_Publicar extends AppCompatActivity {
     }
 
     private String titulo="",talla="",marca="",precio="",descripcion="";
+    // Validar que los datos de los edittex son los correctos
     private void validateData() {
         
         titulo = binding.nombreProducto.getText().toString().trim();
@@ -126,7 +127,7 @@ public class Activity_Publicar extends AppCompatActivity {
         }
 
     }
-
+    // Guardar la imagen que se añade a la aplicación en el storage de firebase
     private void uploadImage(String s) {
         progressDialog.setMessage("Añadiendo el producto...");
         progressDialog.show();
@@ -134,7 +135,7 @@ public class Activity_Publicar extends AppCompatActivity {
         String rutaProductos = "CamisetasUsuarios/"+firebaseAuth.getUid();
         StorageReference storageReference = FirebaseStorage.getInstance().getReference(rutaProductos);
 
-        // Crear una id unica para cada imagen
+        // Crear una id unica para cada imagen, para que al añadir mas de un producto la imagen no se sobreescriba
         String imagenID = UUID.randomUUID().toString();
 
         storageReference.child(imagenID).putFile(imageUri)
@@ -157,7 +158,8 @@ public class Activity_Publicar extends AppCompatActivity {
                 });
 
     }
-
+    // Crear un map para guardar todos los valores a la refrencia CamisetasUsuarios, para guardar cada una de las camisetas que se
+    // añadan desde esta activity
     private void agregarProductoFirebase(String fotoProducto) {
         progressDialog.setMessage("Añadiendo el producto a la DB");
 
@@ -198,6 +200,7 @@ public class Activity_Publicar extends AppCompatActivity {
                 });
     }
 
+    // Mostrar el menu de opciones para añadir una imagen a a la app
     private void showImageAttatchMenu() {
         PopupMenu popupMenu = new PopupMenu(this,binding.botonCamara);
         popupMenu.getMenu().add(Menu.NONE,0,0,"Camara");

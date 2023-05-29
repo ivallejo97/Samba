@@ -89,7 +89,8 @@ public class Acceso_Iniciar_Sesion extends Fragment {
     }
 
     private String email = "", password = "";
-
+    // Metodo para validar los datos de los edittext, se comprueba que el texto del edittext tenga el formato correcto de email y contraseña
+    // Si los formatos son los correctos se procede a comprobar los datos para iniciar sesión
     private void validateData() {
         email = binding.usuario.getText().toString().trim();
         password = binding.contraseA.getText().toString().trim();
@@ -103,6 +104,9 @@ public class Acceso_Iniciar_Sesion extends Fragment {
         }
     }
 
+    // Metodo para comprobar las credenciales de inicio de sesión, se le pasan al metodo signInWithEmailAndPassword del firebaseAuth
+    // el texto que se ha introducido en los edittext email y password, si estas credenciales son correctas se pasa a verificar el
+    // tipo de usuario que va acceder a la aplicación.
     private void loginUser() {
         progressDialog.setMessage("Verificando usuario...");
         progressDialog.show();
@@ -123,6 +127,7 @@ public class Acceso_Iniciar_Sesion extends Fragment {
                 });
     }
 
+    // Metodo para comprobar el tipo de usuario con el que se accede a la aplicación
     private void checkUser() {
         try {
             Thread.sleep(1000);
@@ -139,12 +144,14 @@ public class Acceso_Iniciar_Sesion extends Fragment {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         progressDialog.dismiss();
+                        //Comprobar el tipo de usuario con el que se inicia sesión
                         String userType = "" + snapshot.child("userType").getValue();
+                        // Si el usuario es de tipo user si entra en el modo normal de la aplicación
                         if (userType.equals("user")){
-
                             startActivity(new Intent(getContext(), Activity_Destinos_Principales.class));
                             onDestroyView();
 
+                          //Si el usuario es de tipo admin se entra al modo administrador de la aplicación
                         } else if (userType.equals("admin")){
                             startActivity(new Intent(getContext(), Activity_Interfaz_Admin.class));
                             onDestroyView();

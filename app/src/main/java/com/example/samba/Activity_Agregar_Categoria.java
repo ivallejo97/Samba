@@ -78,6 +78,7 @@ public class Activity_Agregar_Categoria extends AppCompatActivity {
     }
 
     private String nombreCategoria = "", descripcionCategoria = "";
+    // Validar que el formato de los datos coincida con el formato necesario para añadir la categoria a la base de datos.
     private void validateData() {
 
         nombreCategoria = binding.nombreCategoria.getText().toString().trim();
@@ -98,6 +99,9 @@ public class Activity_Agregar_Categoria extends AppCompatActivity {
         }
     }
 
+    // Metodo para añadir e actualizar una imagen en la base de datos, la imagen en este caso se guarda en el apartado de storage de
+    // firebase, este apartado sirve para guardar todas las imagenes que se añaden a la app. Dependiendo del nombre del string file
+    // la imagen se guardara en una carpeta distinta
     private void uploadImage(String s) {
         String file = "CategoryImages/"+firebaseAuth.getUid();
         StorageReference storageReference = FirebaseStorage.getInstance().getReference(file);
@@ -119,6 +123,8 @@ public class Activity_Agregar_Categoria extends AppCompatActivity {
                 });
     }
 
+    // Con los datos validados en el metodo validateData utilizamos un Map para guardar los datos con una estructura Clave, Valor
+    // una vez tenemos todos los datos guardados en el map, creamos una nueva referencia en la base de datos con los datos del map
     private void addCategoryFirebase(String imageUrl) {
 
         progressDialog.setMessage("Añadiendo Categoria...");
@@ -156,6 +162,7 @@ public class Activity_Agregar_Categoria extends AppCompatActivity {
                 });
             }
 
+    // Metodo para mostrar un menu con dos opciones distintas para añadir una imagen
     private void showImageAttatchMenu() {
         PopupMenu popupMenu = new PopupMenu(this,binding.botonCamara);
         popupMenu.getMenu().add(Menu.NONE,0,0,"Camara");

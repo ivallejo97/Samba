@@ -63,7 +63,8 @@ public class Destinos_Principales_Productos_Usuarios extends Fragment {
             }
         });
     }
-
+    // Cargar la lista de camisetas creadas por el usuario normal de la aplicación, ya que la referencia de CamisetasUsuarios de firebase
+    // es donde guardan las camisetas que crea un usuario normal
     private void cargarListaCamisetas() {
         camisetasUsuarioArrayList = new ArrayList<>();
 
@@ -78,7 +79,9 @@ public class Destinos_Principales_Productos_Usuarios extends Fragment {
                         camisetasUsuarioArrayList.add(modelCamisetasUsuario);
                     }
                 }
-                Collections.reverse(camisetasUsuarioArrayList); // Invierte el orden de la lista
+                // Este collection.reverse se usa para invertir el orden de las camisetas, ya que por defecto se ordenaban de menor
+                // a mayor numero de visitas.
+                Collections.reverse(camisetasUsuarioArrayList);
                 adapterCamisetasUsuario = new Adapter_Camisetas_Usuario(getContext(),camisetasUsuarioArrayList);
                 binding.recyclerCamisetasUsuarios.setAdapter(adapterCamisetasUsuario);
             }

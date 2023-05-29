@@ -72,7 +72,9 @@ public class Activity_Crear_Cuenta extends AppCompatActivity {
     }
 
     private String nombre = "", nombre_usuario = "", email = "", telefono= "", pais = "", password = "";
+    // Validar el formato de los datos (comprobar que es el correcto)
     private void validateData() {
+        //Obtener el texto del edittext, y convertirlo en un string eliminando espacios innecesarios
         nombre = binding.nombre.getText().toString().trim();
         nombre_usuario = binding.nombreUsuario.getText().toString().trim();
         email = binding.correoElectronico.getText().toString().trim();
@@ -102,7 +104,8 @@ public class Activity_Crear_Cuenta extends AppCompatActivity {
         }
 
     }
-
+    // Pasarle los valores de los edittext email y password al metodo createUserWithEmailAndPassword de la instancia de firebaseAuth
+    // para crear la cuenta
     private void createAccount() {
         dialog.showDialog();
         firebaseAuth.createUserWithEmailAndPassword(email, password)
@@ -120,11 +123,13 @@ public class Activity_Crear_Cuenta extends AppCompatActivity {
                 });
     }
 
+    // Una vez se crea la cuenta, usamos este metodo para crear un map en el cual guardaremos las claves y valores de los distintos
+    // apartados que tendrá un usuario
     private void updateUserInfo() {
         long timestamp = System.currentTimeMillis();
 
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
+        //Crear el map y añadir las claves y valores
         Map<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid", uid);
         hashMap.put("email", email);
@@ -135,7 +140,8 @@ public class Activity_Crear_Cuenta extends AppCompatActivity {
         hashMap.put("profileImage", "");
         hashMap.put("userType", "user");
         hashMap.put("timestamp", timestamp);
-
+        // Crear la referencia de usuarios en la base de datos(si no esta creada aún) y añadir el valor del usuario, si ya esta creada
+        // tan solo se añaden los apartados con las claves y valores del usuario que se crea.
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("Users");
         ref.child(uid)

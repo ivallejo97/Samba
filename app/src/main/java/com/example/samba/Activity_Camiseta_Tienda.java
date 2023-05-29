@@ -163,7 +163,7 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
         });
 
     }
-
+    //Cargar las camisetas ordenandolas entorno a la categoria a la que esta asignada
     private void cargarCategoriaCamiseta() {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Categorias");
         databaseReference.child(categoriaId)
@@ -182,6 +182,7 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
                 });
     }
 
+    // Aumentar el numero de visitas de la camiseta cada vez que un usuario accede a ella
     private void aumentarNumeroDeVisitas(String idCamiseta) {
         if (idCamiseta != null) {
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Camisetas");
@@ -193,7 +194,8 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
                             if (numeroVisitas.equals("") || numeroVisitas.equals("null")){
                                 numeroVisitas = "0";
                             }
-
+                            // Crear un nuevo objeto en la base de datos para guardar el numero de visitas e ir actualizando el valor de la clave "numeroVisitas"
+                            // segun la id de la camiseta a la que se ha accedido
                             long nuevoNumeroVisitas = Long.parseLong(numeroVisitas) + 1;
                             HashMap<String, Object> hashMap = new HashMap<>();
                             hashMap.put("numeroVisitas",nuevoNumeroVisitas);
@@ -210,7 +212,7 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
                     });
         }
     }
-
+    // Cargar la información de la camiseta a la cual se ha accedido, a través de obtener la referencia de las Camisetas de firebase
     private void cargarInformacionCamiseta() {
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Camisetas");
@@ -218,6 +220,7 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        //Obtener el valor de cada clave de la referencia de la base de datos
                         String nombre_camiseta = "" + snapshot.child("titulo").getValue();
                         String marca_camiseta = "" + snapshot.child("marca").getValue();
                         String precio_camiseta = "" + snapshot.child("precio").getValue();
@@ -225,6 +228,7 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
                         String foto_camiseta = "" + snapshot.child("url").getValue();
                         String visitas_camisetas = "" + snapshot.child("numeroVisitas").getValue();
 
+                        // Asignar el valor extraido anteriormente a los elementos del xml
                         binding.nombreCamiseta.setText(nombre_camiseta);
                         binding.marcaCamiseta.setText(marca_camiseta);
                         binding.precioCamiseta.setText(precio_camiseta + "€");
@@ -241,6 +245,7 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
                 });
     }
 
+    // Mostar un dialogo para que el usuario escoga una talla del array creado arriba con todas las tallas disponibles
     private void mostrarTallas() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Selecciona una talla")
@@ -258,6 +263,7 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
         alertDialog.show();
     }
 
+    // Mostar un dialogo para que el usuario escoga una cantidad de camisetas del array creado arriba con la cantidad de camisetas disponibles
     private void mostrarCantidad() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Selecciona la cantidad")
@@ -282,7 +288,7 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
         alertDialog.show();
     }
 
-
+    // Metodo para comrobar si el usaurio actual ha añadido a favoritos la camiseta que esta visualizando en ese mismo momento
     public void comprobarFavorito(){
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         databaseReference.child(firebaseAuth.getUid()).child("Favoritos").child(idCamiseta)
@@ -304,6 +310,7 @@ public class Activity_Camiseta_Tienda extends AppCompatActivity {
                 });
     }
 
+    // Metodo para comrobar si el usaurio actual ha añadido al carrito la camiseta que esta visualizando en ese mismo momento
     public void comprobarCarrito(){
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         databaseReference.child(firebaseAuth.getUid()).child("Carrito").child(idCamiseta)

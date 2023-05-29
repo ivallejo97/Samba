@@ -55,12 +55,16 @@ public class Destinos_Principales_Productos_Tienda extends Fragment {
             }
         });
     }
-
+    //Mostrar todas las camisetas que hayan sido creadas por el usuario administrador, ya que la referencia de Camisetas dentro de la
+    // base de datos se corresponde a las camisetas creadas por el usuario administrador, estas camisetas se ordenan dentro del
+    // fragmento por el número de visitas, de mayor a menor.
     private void cargarListaCamisetas() {
         modelCamisetasTiendaArrayList  = new ArrayList<>();
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Camisetas");
         databaseReference.orderByChild("numeroVisitas").addValueEventListener(new ValueEventListener() {
+            //Obtener el valor de las camisetas creadas por el admintrador, añadirlo a un ArrayList para despues usar este arrayList
+            // en el adaptor para configurar el recycler view que mostrará las camisetas
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 modelCamisetasTiendaArrayList.clear();
@@ -68,6 +72,8 @@ public class Destinos_Principales_Productos_Tienda extends Fragment {
                     Model_Camisetas_Tienda camisetasTienda = dataSnapshot.getValue(Model_Camisetas_Tienda.class);
                     modelCamisetasTiendaArrayList.add(camisetasTienda);
                 }
+                // Este collection.reverse se usa para invertir el orden de las camisetas, ya que por defecto se ordenaban de menor
+                // a mayor numero de visitas.
                 Collections.reverse(modelCamisetasTiendaArrayList);
                 adapterCamisetasTienda = new Adapter_Camisetas_Tienda(getContext(),modelCamisetasTiendaArrayList);
                 binding.recyclerCamisetasTienda.setAdapter(adapterCamisetasTienda);

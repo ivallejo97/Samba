@@ -41,7 +41,8 @@ public class Activity_Favoritos extends AppCompatActivity {
             }
         });
     }
-
+    // Cargar todas las camisetas a las cuales el usuario actual ha dado like, estas camisetas se guardan dentro de un nuevo apartado
+    // en el usuario en el cual se guarda la id de la camiseta y la fecha en la que se le ha dado like a ella.
     private void cargarCamisetasFavoritas() {
         camisetasTiendaList = new ArrayList<>();
 
@@ -52,6 +53,8 @@ public class Activity_Favoritos extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         camisetasTiendaList.clear();
+                        //Obtener el valor de cada camiseta que se haya añadido a favoritos y añadirlo a una ArryList para despues
+                        // mostrar con el adaptador esas camiseta en un recycler view.
                         for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                             String idCamiseta = "" + dataSnapshot.child("idCamiseta").getValue();
                             Model_Camisetas_Tienda modelCamisetasTienda = new Model_Camisetas_Tienda();

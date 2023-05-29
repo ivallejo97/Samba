@@ -69,6 +69,7 @@ public class Acceso_Recuperar_Cuenta_1 extends Fragment {
     }
 
     private String email = "";
+    // Validar que los datos coincidan con el formato adecuado
     private void validateData() {
 
         email = binding.correoElectronico.getText().toString().trim();
@@ -82,6 +83,7 @@ public class Acceso_Recuperar_Cuenta_1 extends Fragment {
 
     }
 
+    // Si los datos son correctos, se envía un correo eléctronico al usuario con instrucciones necesarias para iniciar sesión
     private void recoverPassword() {
         progressDialog.setMessage("Enviando las instrucciones a " + email);
         progressDialog.show();
